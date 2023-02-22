@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js.jsx
 
+# vercel
+.vercel
+
 # testing
 /coverage
 
