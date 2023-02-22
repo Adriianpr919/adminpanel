@@ -1,0 +1,25 @@
+{
+  "short_name": "Nury Valenzuela.",
+  "name": "Nury Valenzuela.",
+  "icons": [
+    {
+      "src": "./assetsLogo/logo.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "./assetsLogo/Logonv.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./assetsLogo/Logonv.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#2c7be5",
+  "background_color": "#ffffff"
+}
