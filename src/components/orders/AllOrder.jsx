@@ -22,6 +22,7 @@ const AllOrder = ({ order }) => {
                           # ID. :* {order._id}
                         </p>
                       </h5>
+                      <hr className="my-4" />
                       <h5 className="fs-0">
                         <p className="text-dark">
                           Usuario ID. :* {order.userId}

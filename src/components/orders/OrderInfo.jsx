@@ -20,6 +20,7 @@ const OrderInfo = ({ setOpen, order }) => {
               <h3 style={{ textAlign: "justify", color: "black" }}>
                 <FontAwesomeIcon icon="fa-solid fa-eye" /> # ID. :* {order._id}
               </h3>
+              <hr className="my-4" />
               <h3 style={{ textAlign: "justify", color: "black" }}>
                 <FontAwesomeIcon icon="fa-solid fa-eye" /> Usuario ID. :* {order.userId}
               </h3>
