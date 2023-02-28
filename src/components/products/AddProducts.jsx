@@ -117,6 +117,7 @@ const AddProducts = () => {
 
   return (
     <>
+      <hr className="my-4" />
       <div className="card mb-3">
         <div className="bg-holder d-none d-lg-block bg-card" />
         <div className="card-body position-relative">

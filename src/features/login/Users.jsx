@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const Users = () => {
   return (
     <>
+      <hr className="my-4" />
       <main className="main" id="top">
         <div className="container" data-layout="container">
           <div className="content">

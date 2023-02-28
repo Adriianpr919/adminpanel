@@ -6,6 +6,7 @@ import { faBagShopping } from '@fortawesome/free-solid-svg-icons';
 const Products = () => {
   return (
     <>
+      <hr className="my-4" />
       <main className="main" id="top">
         <div className="container" data-layout="container">
           <div className="content">
