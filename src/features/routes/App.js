@@ -1,4 +1,5 @@
 import './App.css';
+import './NewApp.css';
 import Home from '../Home/Home';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

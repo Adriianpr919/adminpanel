@@ -8,6 +8,7 @@ import AddProducts from '../../components/products/AddProducts';
 import Users from '../login/Users';
 import Posts from '../pages/Posts';
 import AddBlogs from '../../components/blogs/AddBlogs';
+import Orders from '../pages/Orders';
 import Login from '../login/Login';
 import Footer from '../Layout/Footer';
 import MenuNavbar from '../Layout/MenuNavbar';
@@ -34,6 +35,7 @@ const Home = () => {
                 <Route path='/users' element={<Users />} />
                 <Route path='/posts' element={<Posts />} />
                 <Route path='/addposts' element={<AddBlogs />} />
+                <Route path='/orders' element={<Orders />} />
               </Routes>
             </div>
             <Footer />

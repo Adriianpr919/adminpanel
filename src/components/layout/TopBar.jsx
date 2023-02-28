@@ -4,7 +4,10 @@ import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
+
 const TopBar = () => {
+
+  const adminInfo = localStorage.getItem('adminInfo') ? JSON.parse(localStorage.getItem('adminInfo')) : null;
 
   const navigate = useNavigate();
 
@@ -28,14 +31,16 @@ const TopBar = () => {
         <li className="nav-item dropdown">
           <a className="nav-link pe-0 ps-2" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#!" rel="noopener noreferrer">
             <div className="avatar avatar-xl">
-              <img className="rounded-circle" src="../../../assets/img/customers/user.png" alt="Nury Valenzuela." title="Nury Valenzuela." />
+              <span style={{ fontSize: "15px" }} className="badge rounded-pill badge-soft-dark mb-2">
+                {adminInfo.username} <img className="rounded-circle" src="../../../assets/img/customers/user.png" alt="Nury Valenzuela." title="Nury Valenzuela." />
+              </span>
             </div>
           </a>
           <div className="dropdown-menu dropdown-caret dropdown-caret dropdown-menu-end py-0" aria-labelledby="navbarDropdownUser">
             <div className="bg-white dark__bg-1000 rounded-2 py-2">
               <div className="dropdown-divider" />
               <a className="dropdown-item fw-bold text-danger" href="#!" rel="noopener noreferrer">
-                <span onClick={logoutHandler}>
+                <span onClick={logoutHandler} style={{ fontSize: "15px" }}>
                   <FontAwesomeIcon icon={faPowerOff} className="me-1" aria-hidden="true" /> Cerrar Sesión.
                 </span>
               </a>

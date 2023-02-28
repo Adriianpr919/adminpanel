@@ -9,12 +9,12 @@ const SideBar = () => {
       <div className="collapse navbar-collapse scrollbar" id="navbarStandard">
         <ul className="navbar-nav" data-top-nav-dropdowns="data-top-nav-dropdowns">
           <li className="nav-item">
-            <NavLink className="nav-link" activeclassname="active" to="/" rel="noopener noreferrer" role="button" aria-haspopup="true" aria-expanded="false" id="dashboards">
+            <NavLink className="nav-link" activeclassname="active" to="/" rel="noopener noreferrer" role="button" aria-haspopup="true" aria-expanded="false" id="dashboards" style={{ color: "black", fontSize: "15px" }}>
               <i className="fa-solid fa-sliders"></i> Menu Principal.
             </NavLink>
           </li>
           <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#!" rel="noopener noreferrer" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="apps">
+            <a className="nav-link dropdown-toggle" href="#!" rel="noopener noreferrer" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="apps" style={{ color: "black", fontSize: "15px" }}>
               Menu.
             </a>
             <div className="dropdown-menu dropdown-caret dropdown-menu-card border-0 mt-0" aria-labelledby="apps">
@@ -24,30 +24,37 @@ const SideBar = () => {
                   <div className="row">
                     <div className="col-6 col-md-5">
                       <div className="nav flex-column">
-                        <p className="nav-link text-700 mb-0 fw-bold">
+                        <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
                           <FontAwesomeIcon icon={faBagShopping} /> PRODUCTOS.
                         </p>
-                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/products' rel="noopener noreferrer">
-                          <i className="fa fa-angle-double-right wv_circle" /> Productos.
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/products' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver Productos.
                         </NavLink>
-                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addproducts' rel="noopener noreferrer">
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addproducts' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
                           <i className="fa fa-angle-double-right wv_circle" /> Crear Productos.
                         </NavLink>
                         <div className="dropdown-divider" />
-                        <p className="nav-link text-700 mb-0 fw-bold">
+                        <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
                           <i className="fa-solid fa-gear"></i> AJUSTES.
                         </p>
-                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/users' rel="noopener noreferrer">
-                          <i className="fa fa-angle-double-right wv_circle" /> Usuarios.
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/users' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver Usuarios.
                         </NavLink>
                         <div className="dropdown-divider" />
-                        <p className="nav-link text-700 mb-0 fw-bold">
+                        <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
+                          <FontAwesomeIcon icon="fa-solid fa-box" /> MIS PEDIDOS.
+                        </p>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/orders' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver Pedidos.
+                        </NavLink>
+                        <div className="dropdown-divider" />
+                        <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
                           <FontAwesomeIcon icon={faInfoCircle} /> PUBLICACIONES.
                         </p>
-                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/posts' rel="noopener noreferrer">
-                          <i className="fa fa-angle-double-right wv_circle" /> Blog.
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/posts' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver Blog.
                         </NavLink>
-                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addposts' rel="noopener noreferrer">
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addposts' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
                           <i className="fa fa-angle-double-right wv_circle" /> Crear Blog.
                         </NavLink>
                       </div>
