@@ -1,9 +1,6 @@
 import React from 'react';
 
 const HomePage = () => {
-
-  const adminInfo = localStorage.getItem('adminInfo') ? JSON.parse(localStorage.getItem('adminInfo')) : null;
-
   return (
     <>
       <div className="row g-0">
@@ -13,7 +10,7 @@ const HomePage = () => {
             {/*/.bg-holder*/}
             <div className="card-body position-relative">
               <h5 className="text-warning">
-                Administrador. :* <span style={{ color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark mb-2">{adminInfo.username}</span>
+                Administrador.
               </h5>
               <hr className="my-2" />
               <a className="btn btn-link fs--1 text-warning mt-lg-3 ps-0" href="/" rel="noopener noreferrer">
