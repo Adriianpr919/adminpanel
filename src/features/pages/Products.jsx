@@ -17,12 +17,9 @@ const Products = () => {
                   <div className="col-lg-12">
                     <h3>
                       <code>
-                        <FontAwesomeIcon icon={faBagShopping} /> Tabla Productos.
+                        <FontAwesomeIcon icon={faBagShopping} /> Listado De Productos.
                       </code>
                     </h3>
-                    <p className="mt-2">
-                      Menu De Productos <b>Administrador.</b>
-                    </p>
                     <a className="btn btn-link ps-0 btn-sm" href="/addproducts" rel="noopener noreferrer">
                       <code className='badge rounded-pill badge-soft-primary' style={{ fontSize: "20px" }}>
                         <i className="fa-solid fa-square-plus"></i> Agregar Productos.

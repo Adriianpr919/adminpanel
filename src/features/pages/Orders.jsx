@@ -16,12 +16,9 @@ const Orders = () => {
                   <div className="col-lg-12">
                     <h3>
                       <code>
-                        <i className="fa-light fa-bags-shopping"></i> Tabla Pedidos.
+                        <FontAwesomeIcon icon="fa-solid fa-box" /> Listado De Pedidos.
                       </code>
                     </h3>
-                    <p className="mt-2">
-                      Menu De Pedidos <b>Administrador.</b>
-                    </p>
                     <a className="btn btn-link ps-0 btn-sm" href="/orders" rel="noopener noreferrer">
                       <code className='badge rounded-pill badge-soft-dark' style={{ fontSize: "20px" }}>
                         <FontAwesomeIcon icon="fa-solid fa-repeat" /> Cargar La Página. <span className="fas fa-chevron-right ms-1 fs--2" style={{ fontSize: "20px" }} />

@@ -13,13 +13,16 @@ const ViewBlog = ({ setOpenView, blog }) => {
                 <FontAwesomeIcon icon="fa-solid fa-eye" /> {blog.title}
               </h3>
               <div className="close-form" onClick={() => setOpenView(false)}>X</div>
+              <hr />
               <p className="mt-2" style={{ textAlign: "justify" }}>
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
                   Imagen Principal 📸. :*
                 </label>
-                <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
+                <p className="description text-left" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
                   <div className="popup-images">
-                    <img src={blog.image} alt={blog.title} title={blog.title} />
+                    <span className="item2 mb-2">
+                      <img src={blog.image} alt={blog.title} title={blog.title} />
+                    </span>
                   </div>
                 </p>
               </p>

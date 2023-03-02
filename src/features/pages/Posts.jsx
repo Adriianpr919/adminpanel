@@ -16,12 +16,9 @@ const Posts = () => {
                   <div className="col-lg-12">
                     <h3>
                       <code>
-                        <i className="fa-solid fa-circle-info"></i> Tabla Blogs.
+                        <i className="fa-solid fa-circle-info"></i> Listado De Blogs.
                       </code>
                     </h3>
-                    <p className="mt-2">
-                      Menu De Blogs <b>Administrador.</b>
-                    </p>
                     <a className="btn btn-link ps-0 btn-sm" href="/addposts" rel="noopener noreferrer">
                       <code className='badge rounded-pill badge-soft-primary' style={{ fontSize: "20px" }}>
                         <i className="fa-solid fa-square-plus"></i> Agregar Blogs.

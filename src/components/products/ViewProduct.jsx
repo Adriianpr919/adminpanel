@@ -6,7 +6,7 @@ const ViewProduct = ({ product, setOpenViewProduct }) => {
   return (
     <>
       <div className="card mb-3">
-        <div className="bg-holder d-none d-lg-block bg-card" style={{ backgroundImage: 'url(../../../assets/img/icons/spot-illustrations/corner-4.png)' }} />
+        <div className="bg-holder d-none d-lg-block bg-card" />
         <div className="card-body position-relative">
           <div className="row">
             <div className="col-lg-8" style={{ textAlign: "justify" }}>
@@ -66,10 +66,10 @@ const ViewProduct = ({ product, setOpenViewProduct }) => {
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
                   La Talla 📏. :*
                 </label>
-                <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
+                <p className="description text-left" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
                   <div className="popup-images">
                     {product.sizes?.map((item) => (
-                      <span className="item" key={item.i}>
+                      <span className="item mb-2" key={item.i}>
                         {item.value}
                       </span>
                     ))}
@@ -80,10 +80,10 @@ const ViewProduct = ({ product, setOpenViewProduct }) => {
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
                   Los Colores 🖌️. :*
                 </label>
-                <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
+                <p className="description text-left" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
                   <div className="popup-images">
                     {product.colors?.map((item) => (
-                      <span className="item" key={item.i}>
+                      <span className="item mb-2" key={item.i}>
                         {item.value}
                       </span>
                     ))}
@@ -94,9 +94,11 @@ const ViewProduct = ({ product, setOpenViewProduct }) => {
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
                   Imagen Principal 📸. :*
                 </label>
-                <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
+                <p className="description text-left" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
                   <div className="popup-images">
-                    <img src={product.image} alt={product.title} title={product.title} />
+                    <span className="item2 mb-2">
+                      <img src={product.image} alt={product.title} title={product.title} />
+                    </span>
                   </div>
                 </p>
               </p>
@@ -104,10 +106,12 @@ const ViewProduct = ({ product, setOpenViewProduct }) => {
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
                   Imagenes Multiples 📸. :*
                 </label>
-                <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
+                <p className="description text-left" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
                   <div className="popup-images">
                     {product.imagesOnes?.map((item) => (
-                      <img src={item.value} alt={product.title} title={product.title} key={item.i} />
+                      <span className="item2 mb-2" key={item.i}>
+                        <img src={item.value} alt={product.title} title={product.title} />
+                      </span>
                     ))}
                   </div>
                 </p>

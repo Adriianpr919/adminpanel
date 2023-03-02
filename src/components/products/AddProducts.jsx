@@ -129,9 +129,6 @@ const AddProducts = () => {
                 </code>
               </h3>
               <p className="mt-2">
-                Menu De Productos <b>Administrador.</b>
-              </p>
-              <p className="mt-2">
                 <NavLink className="btn btn-link ps-0 btn-sm" to="/products" rel="noopener noreferrer">
                   <code className='badge rounded-pill badge-soft-dark' style={{ fontSize: "20px" }}>
                     <i className="fa-solid fa-eye"></i> Volver Ver Productos. <span className="fas fa-chevron-right ms-1 fs--2" style={{ fontSize: "20px" }} />

@@ -97,7 +97,7 @@ const OrderInfo = ({ setOpen, order }) => {
                     {product.title}
                   </span>
                   <img src={product.image}
-                    className="card-img-top img-fluid border border-dark img-rounded mx-auto d-block img-thumbnail mb-2"
+                    className="card-img-top img-fluid border border-dark img-rounded mx-auto d-block img-thumbnail item2 mb-2"
                     alt={product.title}
                     title={product.title} />
                   <span style={{ color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark mb-2">

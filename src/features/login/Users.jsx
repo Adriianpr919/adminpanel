@@ -16,12 +16,9 @@ const Users = () => {
                   <div className="col-lg-12">
                     <h3>
                       <code>
-                        <i className="fas fa-user-shield"></i> Tabla De Usuarios.
+                        <i className="fas fa-user-shield"></i> Listado De Usuarios.
                       </code>
                     </h3>
-                    <p className="mt-2">
-                      Menu De Usuarios <b>Administrador.</b>
-                    </p>
                     <a className="btn btn-link ps-0 btn-sm" href="/users" rel="noopener noreferrer">
                       <code className='badge rounded-pill badge-soft-dark' style={{ fontSize: "20px" }}>
                         <FontAwesomeIcon icon="fa-solid fa-repeat" /> Cargar La Página. <span className="fas fa-chevron-right ms-1 fs--2" style={{ fontSize: "20px" }} />
