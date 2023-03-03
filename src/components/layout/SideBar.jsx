@@ -47,6 +47,12 @@ const SideBar = () => {
                         <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/orders' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
                           <i className="fa fa-angle-double-right wv_circle" /> Ver Pedidos.
                         </NavLink>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/ordersclients' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver Pedidos Clientes.
+                        </NavLink>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addordersclients' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Crear Pedidos Clientes.
+                        </NavLink>
                         <div className="dropdown-divider" />
                         <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
                           <FontAwesomeIcon icon={faInfoCircle} /> PUBLICACIONES.
