@@ -16,7 +16,7 @@ const Users = () => {
                   <div className="col-lg-12">
                     <h3>
                       <code>
-                        <i className="fas fa-user-shield"></i> Listado De Usuarios.
+                        <i className="fas fa-user-shield"></i> Listado De Colaboradores.
                       </code>
                     </h3>
                     <a className="btn btn-link ps-0 btn-sm" href="/users" rel="noopener noreferrer">

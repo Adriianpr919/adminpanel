@@ -42,14 +42,14 @@ const AllUsers = () => {
         <div className="card-header">
           <div className="row flex-between-center">
             <div className="col-6 col-sm-auto d-flex align-items-center pe-0">
-              <h5 className="fs-0 mb-0 text-nowrap py-2 py-xl-0"><i className="fas fa-user-shield"></i> Usuarios Recientes. </h5>
+              <h5 className="fs-0 mb-0 text-nowrap py-2 py-xl-0"><i className="fas fa-user-shield"></i> Colaboradores Recientes. </h5>
             </div>
           </div>
         </div>
         <div className="card-body px-0 pt-0">
           {
             users.length === 0 ? (
-              <h3 className='no-data'>¡.Actualmente NO Hay Usuarios.!</h3>
+              <h3 className='no-data'>¡.Actualmente NO Hay Colaboradores.!</h3>
             ) : (
               <>
                 {

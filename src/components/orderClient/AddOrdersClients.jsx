@@ -113,22 +113,42 @@ const AddOrdersClients = () => {
                         <div className="panel-heading">MARCADOR. :*</div>
                         <div className="panel-body">
                           <fieldset className="col-md-12">
-                            <legend style={{ textAlign: "justify" }}>
-                              <label htmlFor="marker">
-                                <span class="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
-                                  <FontAwesomeIcon icon="fa-solid fa-triangle-exclamation" /> AVISO IMPORTANTE. :*
-                                </span>
-                              </label> -
-                              POR FAVOR TIENES QUE ESCRIBIR ASI <span><b><code className='badge rounded-pill badge-soft-danger' style={{ fontSize: "15px" }}>"(Pendiente), (Entregado), (NO Entregado), (Validado) y (Cancelar Pedido)"</code></b></span>.
-                            </legend>
                             <div className="panel panel-default">
                               <div className="panel-body">
                                 <p>
                                   <label htmlFor="marker">
-                                    MARCADOR. :*
+                                    MARCADOR. :* <span className="badge rounded-pill text-bg-secondary" style={{ fontSize: "15px" }}>
+                                      <code className='text-white'>(Pendiente De Pago), (Pedido Confirmado), (Preparando Tu Pedido)<br />, (Pedido En Camino), (Pedido Entregado), (Pedido NO Entregado)<br />, (Validado) y (Cancelar Pedido).</code>
+                                    </span>
                                   </label>
-                                  <div className="form-floating mb-3">
-                                    <input className="form-control is-valid" type="text" onChange={(e) => setMarker(e.target.value)} value={marker} id='marker' required />
+                                  <div class="form-floating mb-3">
+                                    <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setMarker(e.target.value)} value={marker} id='marker' required>
+                                      <option value="" disabled selected>--- Seleccionar ---</option>
+                                      <option value="Pendiente De Pago">
+                                        <span className="badge rounded-pill text-bg-danger">Pendiente De Pago</span>
+                                      </option>
+                                      <option value="Pedido Confirmado">
+                                        <span className="badge rounded-pill text-bg-success">Pedido Confirmado</span>
+                                      </option>
+                                      <option value="Preparando Tu Pedido">
+                                        <span className="badge rounded-pill text-bg-info">Preparando Tu Pedido</span>
+                                      </option>
+                                      <option value="Pedido En Camino">
+                                        <span className="badge rounded-pill text-bg-primary">Pedido En Camino</span>
+                                      </option>
+                                      <option value="Pedido Entregado">
+                                        <span className="badge rounded-pill text-bg-success">Pedido Entregado</span>
+                                      </option>
+                                      <option value="Pedido NO Entregado">
+                                        <span className="badge rounded-pill text-bg-danger">Pedido NO Entregado</span>
+                                      </option>
+                                      <option value="Validado">
+                                        <span className="badge rounded-pill text-bg-danger">Validado</span>
+                                      </option>
+                                      <option value="Cancelar Pedido">
+                                        <span className="badge rounded-pill text-bg-danger">Cancelar Pedido</span>
+                                      </option>
+                                    </select>
                                     <label htmlFor="marker">
                                       MARCADOR. :*
                                     </label>

@@ -10,6 +10,24 @@ const ViewUser = ({ user, setOpenViewUser }) => {
           <div className="row">
             <div className="col-lg-8" style={{ textAlign: "justify" }}>
               <h3 style={{ textAlign: "justify", color: "black" }}>
+                Nombre. :*
+              </h3>
+              <p className="description" style={{ textAlign: "justify", color: "black" }}>
+                <span className="badge rounded-pill badge-soft-secondary" style={{ fontSize: "20px" }}>
+                  <FontAwesomeIcon icon="fa-solid fa-eye" /> {user.nombres}
+                </span>
+              </p>
+              <hr />
+              <h3 style={{ textAlign: "justify", color: "black" }}>
+                Apellido. :*
+              </h3>
+              <p className="description" style={{ textAlign: "justify", color: "black" }}>
+                <span className="badge rounded-pill badge-soft-secondary" style={{ fontSize: "20px" }}>
+                  <FontAwesomeIcon icon="fa-solid fa-eye" /> {user.apellidos}
+                </span>
+              </p>
+              <hr />
+              <h3 style={{ textAlign: "justify", color: "black" }}>
                 Usuario. :*
               </h3>
               <p className="description" style={{ textAlign: "justify", color: "black" }}>
@@ -26,6 +44,39 @@ const ViewUser = ({ user, setOpenViewUser }) => {
                 <p className="description" style={{ textAlign: "justify", color: "black" }}>
                   <span className="badge rounded-pill badge-soft-secondary" style={{ fontSize: "20px" }}>
                     <FontAwesomeIcon icon="fa-solid fa-eye" /> {user.email}
+                  </span>
+                </p>
+              </p>
+              <p className="mt-2" style={{ textAlign: "justify" }}>
+                <hr />
+                <h3 style={{ textAlign: "justify", color: "black" }}>
+                  Cargo. :*
+                </h3>
+                <p className="description" style={{ textAlign: "justify", color: "black" }}>
+                  <span className="badge rounded-pill badge-soft-secondary" style={{ fontSize: "20px" }}>
+                    <FontAwesomeIcon icon="fa-solid fa-eye" /> {user.rol}
+                  </span>
+                </p>
+              </p>
+              <p className="mt-2" style={{ textAlign: "justify" }}>
+                <hr />
+                <h3 style={{ textAlign: "justify", color: "black" }}>
+                  Estado. :*
+                </h3>
+                <p className="description" style={{ textAlign: "justify", color: "black" }}>
+                  <span className="badge rounded-pill badge-soft-secondary" style={{ fontSize: "20px" }}>
+                    <FontAwesomeIcon icon="fa-solid fa-eye" /> {user.isAdmin ? 'Activado - Administrador' : 'DesActivado - Cliente'}
+                  </span>
+                </p>
+              </p>
+              <p className="mt-2" style={{ textAlign: "justify" }}>
+                <hr />
+                <h3 style={{ textAlign: "justify", color: "black" }}>
+                  Fecha. :*
+                </h3>
+                <p className="description" style={{ textAlign: "justify", color: "black" }}>
+                  <span className="badge rounded-pill badge-soft-secondary" style={{ fontSize: "20px" }}>
+                    <FontAwesomeIcon icon="fa-solid fa-eye" /> {user.createdAt.slice(0, 10)}
                   </span>
                 </p>
               </p>

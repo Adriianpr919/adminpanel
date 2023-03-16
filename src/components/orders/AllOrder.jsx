@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import OrderInfo from './OrderInfo';
+import EditOrder from './EditOrder';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEdit } from '@fortawesome/free-solid-svg-icons';
 
 const AllOrder = ({ order }) => {
 
   const [open, setOpen] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
 
   return (
     <>
@@ -37,6 +39,11 @@ const AllOrder = ({ order }) => {
                           <FontAwesomeIcon icon={faEye} onClick={() => setOpen(true)} />
                         </span>
                       </>
+                      <>
+                        <span className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Pedido.">
+                          <FontAwesomeIcon icon={faEdit} onClick={() => setOpenEdit(true)} />
+                        </span>
+                      </>
                     </div>
                   </div>
                 </div>
@@ -46,6 +53,7 @@ const AllOrder = ({ order }) => {
         </div>
       </>
       {open && <OrderInfo setOpen={setOpen} order={order} />}
+      {openEdit && <EditOrder order={order} setOpenEdit={setOpenEdit} />}
     </>
   );
 }

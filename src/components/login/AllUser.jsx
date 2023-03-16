@@ -42,6 +42,18 @@ const AllUser = ({ user }) => {
                     <div className="p-3">
                       <h5 className="fs-0">
                         <p className="text-dark">
+                          Nombre. :* ({user.nombres})
+                        </p>
+                      </h5>
+                      <hr className="my-4" />
+                      <h5 className="fs-0">
+                        <p className="text-dark">
+                          Apellido. :* ({user.apellidos})
+                        </p>
+                      </h5>
+                      <hr className="my-4" />
+                      <h5 className="fs-0">
+                        <p className="text-dark">
                           Usuario. :* ({user.username})
                         </p>
                       </h5>
@@ -49,6 +61,24 @@ const AllUser = ({ user }) => {
                       <h5 className="fs-0">
                         <p className="text-dark">
                           Correo. :* {user.email}
+                        </p>
+                      </h5>
+                      <hr className="my-4" />
+                      <h5 className="fs-0">
+                        <p className="text-dark">
+                          Cargo. :* {user.rol}
+                        </p>
+                      </h5>
+                      <hr className="my-4" />
+                      <h5 className="fs-0">
+                        <p className="text-dark">
+                          Estado. :* {user.isAdmin ? 'Activado - Administrador' : 'DesActivado - Cliente'}
+                        </p>
+                      </h5>
+                      <hr className="my-4" />
+                      <h5 className="fs-0">
+                        <p className="text-dark">
+                          Fecha. :* {user.createdAt.slice(0, 10)}
                         </p>
                       </h5>
                     </div>

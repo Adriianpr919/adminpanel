@@ -22,7 +22,7 @@ const SideBar = () => {
                 <div className="card-body scrollbar max-h-dropdown">
                   <img className="img-dropdown" src="../../../assets/img/icons/spot-illustrations/authentication-corner.png" width={130} alt="Nury Valenzuela." title="Nury Valenzuela." />
                   <div className="row">
-                    <div className="col-6 col-md-5">
+                    <div className="col-12 col-md-12">
                       <div className="nav flex-column">
                         <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
                           <FontAwesomeIcon icon={faBagShopping} /> PRODUCTOS.
@@ -38,7 +38,7 @@ const SideBar = () => {
                           <i className="fa-solid fa-gear"></i> AJUSTES.
                         </p>
                         <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/users' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
-                          <i className="fa fa-angle-double-right wv_circle" /> Ver Usuarios.
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver Colaboradores.
                         </NavLink>
                         <div className="dropdown-divider" />
                         <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>

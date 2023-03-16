@@ -60,6 +60,30 @@ const OrderInfo = ({ setOpen, order }) => {
               </p>
               <p className="mt-2" style={{ textAlign: "justify" }}>
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
+                  Detalle. :*
+                </label>
+                <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
+                  {order.marker}
+                </p>
+              </p>
+              <p className="mt-2" style={{ textAlign: "justify" }}>
+                <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
+                  Está Pagado. :*
+                </label>
+                <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
+                  {order.isPaid ? 'SI' : 'NO'}
+                </p>
+              </p>
+              <p className="mt-2" style={{ textAlign: "justify" }}>
+                <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
+                  Está Entregado. :*
+                </label>
+                <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
+                  {order.isDelivered ? 'SI' : 'NO'}
+                </p>
+              </p>
+              <p className="mt-2" style={{ textAlign: "justify" }}>
+                <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
                   Fecha. :*
                 </label>
                 <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>

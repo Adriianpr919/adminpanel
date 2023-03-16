@@ -4,10 +4,7 @@ import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
 
-
 const TopBar = () => {
-
-
 
   const navigate = useNavigate();
 
@@ -30,7 +27,7 @@ const TopBar = () => {
       <ul className="navbar-nav navbar-nav-icons ms-auto flex-row align-items-center">
         <li className="nav-item dropdown">
           <a className="nav-link pe-0 ps-2" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#!" rel="noopener noreferrer">
-            <div className="avatar avatar-xl">
+            <div className="avatar avatar-3xl status-online">
               <img className="rounded-circle" src="../../../assets/img/customers/user.png" alt="Nury Valenzuela." title="Nury Valenzuela." />
             </div>
           </a>

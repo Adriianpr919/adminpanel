@@ -164,7 +164,7 @@ const AddProducts = () => {
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        POR FAVOR TIENES QUE ESCRIBIR ASI <span><b><code className='badge rounded-pill badge-soft-danger' style={{ fontSize: "15px" }}>"(Hombres), (Mujeres), (Niños) y (Niñas)"</code></b></span>.
+                        POR FAVOR SELECCIONA CATEGORÍA <span><b><code className='badge rounded-pill badge-soft-danger' style={{ fontSize: "15px" }}>"(Hombres), (Mujeres), (Niños) y (Niñas)"</code></b></span>.
                       </legend>
                       <div className="panel panel-default">
                         <div className="panel-body">
@@ -172,10 +172,18 @@ const AddProducts = () => {
                             <label htmlFor="cat">
                               CATEGORÍA. :*
                             </label>
-                            <div className="form-floating mb-3">
-                              <input className="form-control is-valid" type="text" onChange={(e) => setCategory(e.target.value)} value={category} id='cat' required />
+                            <div class="form-floating mb-3">
+                              <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setCategory(e.target.value)} value={category} id='category' required>
+                                <option value="" disabled selected>--- Seleccionar ---</option>
+                                <option value="Hombres">Hombres</option>
+                                <option value="Mujeres">Mujeres</option>
+                                <option value="Niños">Niños</option>
+                                <option value="Niñas">Niñas</option>
+                              </select>
                               <label htmlFor="cat">
-                                CATEGORÍA. :*
+                                CATEGORÍA. :* <span className="badge rounded-pill text-bg-secondary" style={{ fontSize: "15px" }}>
+                                  <code className='text-white'>(Hombres), (Mujeres), (Niños) y (Niñas).</code>
+                                </span>
                               </label>
                             </div>
                           </p>
@@ -190,7 +198,7 @@ const AddProducts = () => {
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        POR FAVOR TIENES QUE ESCRIBIR ASI <span><b><code className='badge rounded-pill badge-soft-danger' style={{ fontSize: "15px" }}>"(Nuevos) y (Destacados)"</code></b></span>.
+                        POR FAVOR SELECCIONA SUBCATEGORÍA <span><b><code className='badge rounded-pill badge-soft-danger' style={{ fontSize: "15px" }}>"(Nuevos) y (Destacados)"</code></b></span>.
                       </legend>
                       <div className="panel panel-default">
                         <div className="panel-body">
@@ -198,10 +206,16 @@ const AddProducts = () => {
                             <label htmlFor="scat">
                               SUBCATEGORÍA. :*
                             </label>
-                            <div className="form-floating mb-3">
-                              <input className="form-control is-valid" type="text" onChange={(e) => setSubcategory(e.target.value)} value={subcategory} id='scat' required />
+                            <div class="form-floating mb-3">
+                              <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setSubcategory(e.target.value)} value={subcategory} id='subcategory' required>
+                                <option value="" disabled selected>--- Seleccionar ---</option>
+                                <option value="Nuevos">Nuevos</option>
+                                <option value="Destacados">Destacados</option>
+                              </select>
                               <label htmlFor="scat">
-                                SUBCATEGORÍA. :*
+                                SUBCATEGORÍA. :* <span className="badge rounded-pill text-bg-secondary" style={{ fontSize: "15px" }}>
+                                  <code className='text-white'>(Nuevos) y (Destacados).</code>
+                                </span>
                               </label>
                             </div>
                           </p>
