@@ -10,7 +10,7 @@ const HomePage = () => {
             {/*/.bg-holder*/}
             <div className="card-body position-relative">
               <h5 className="text-warning">
-                Administrador.
+                SISTEMA DE CONTROL DE INVENTARIOS.
               </h5>
               <hr className="my-2" />
               <a className="btn btn-link fs--1 text-warning mt-lg-3 ps-0" href="/" rel="noopener noreferrer">

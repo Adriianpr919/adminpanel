@@ -73,7 +73,7 @@ const Login = () => {
                       </div>
                       <div className="mt-3 mb-4 mt-md-4 mb-md-5 light">
                         <p className="text-white">
-                          CopyRight &copy; {new Date().getFullYear()}. :* <span className="d-none d-sm-inline-block"> | </span><br className="d-sm-none" /> <a href="https://nuryvalenzuelajoyeria.com.co/" rel="noopener noreferrer" style={{ textAlign: "center", color: "white" }}>nuryvalenzuelajoyeria.com</a>
+                          CopyRight &copy; Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45; {new Date().getFullYear()}. &#124; Todos Los Derechos Reservados.
                         </p>
                       </div>
                     </div>
@@ -91,14 +91,14 @@ const Login = () => {
                         <form onSubmit={loginHandler}>
                           <div className="mb-3">
                             <label className="form-label" htmlFor="email">
-                              Correo Electrónico Del Administrador. :*
+                              Correo Electrónico. :*
                             </label>
                             <input onChange={(e) => setEmail(e.target.value)} className="form-control" type="email" name="email" id='email' required placeholder="Ingresa Tu Correo Electrónico." />
                           </div>
                           <div className="mb-3">
                             <div className="d-flex justify-content-between">
                               <label className="form-label" htmlFor="password">
-                                Clave De Administrador. :*
+                                Contraseña. :*
                               </label>
                             </div>
                             <input onChange={(e) => setPassword(e.target.value)} className="form-control" type="password" name="password" id='password' required placeholder="Ingresa Tu Contraseña." />
