@@ -1,6 +1,11 @@
 {
-  "short_name": "Nury Valenzuela.",
-  "name": "Nury Valenzuela.",
+  "lang": "es-CO",
+  "dir": "ltr",
+  "short_name": "NuryValenzuela.",
+  "name": "Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45;",
+  "author": "Adrian Paez",
+  "default_title": "Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45;",
+  "default_locale": "es-CO",
   "icons": [
     {
       "src": "./assetsLogo/logo.ico",
@@ -18,8 +23,11 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "scope": "/",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#2c7be5",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "orientation": "any",
+  "description": "Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45;"
 }
