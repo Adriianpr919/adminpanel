@@ -88,7 +88,7 @@ const AddBlogs = () => {
                             <fieldset className="col-md-12">
                               <legend style={{ textAlign: "justify" }}>
                                 <label htmlFor="image">
-                                  <span class="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
+                                  <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                                     <i className='fas fa-camera-retro'></i> AVISO IMPORTANTE. :*
                                   </span>
                                 </label> -

@@ -129,7 +129,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                             <label htmlFor="cat">
                               CAMBIAR CATEGORÍA. :*
                             </label>
-                            <div class="form-floating mb-3">
+                            <div className="form-floating mb-3">
                               <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setCategory(e.target.value)} value={category} id='category' required>
                                 <option value="" disabled selected>--- Seleccionar ---</option>
                                 <option value="Hombres">Hombres</option>
@@ -163,7 +163,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                             <label htmlFor="scat">
                               CAMBIAR SUBCATEGORÍA. :*
                             </label>
-                            <div class="form-floating mb-3">
+                            <div className="form-floating mb-3">
                               <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setSubCategory(e.target.value)} value={subCategory} id='subCategory' required>
                                 <option value="" disabled selected>--- Seleccionar ---</option>
                                 <option value="Nuevos">Nuevos</option>
@@ -242,7 +242,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                           <fieldset className="col-md-12">
                             <legend style={{ textAlign: "justify" }}>
                               <label htmlFor="sizes">
-                                <span class="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
+                                <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                                   <FontAwesomeIcon icon="fa-solid fa-gear" /> AVISO IMPORTANTE. :*
                                 </span>
                               </label> -
@@ -290,7 +290,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                           <fieldset className="col-md-12">
                             <legend style={{ textAlign: "justify" }}>
                               <label htmlFor="colors">
-                                <span class="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
+                                <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                                   <FontAwesomeIcon icon="fa-solid fa-gear" /> AVISO IMPORTANTE. :*
                                 </span>
                               </label> -
@@ -338,7 +338,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                           <fieldset className="col-md-12">
                             <legend style={{ textAlign: "justify" }}>
                               <label htmlFor="image">
-                                <span class="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
+                                <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                                   <i className='fas fa-camera-retro'></i> AVISO IMPORTANTE. :*
                                 </span>
                               </label> -
@@ -374,7 +374,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                           <fieldset className="col-md-12">
                             <legend style={{ textAlign: "justify" }}>
                               <label htmlFor="imagesOnes">
-                                <span class="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
+                                <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                                   <i className='fas fa-camera-retro'></i> AVISO IMPORTANTE. :*
                                 </span>
                               </label> -

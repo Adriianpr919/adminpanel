@@ -91,7 +91,7 @@ const EditUser = ({ user, setOpenEditUser }) => {
                     <label htmlFor="rol">
                       <i className="fa-solid fa-users"></i> CAMBIAR DE CARGO #1. :*
                     </label>
-                    <div class="form-floating mb-3">
+                    <div className="form-floating mb-3">
                       <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setRol(e.target.value)} value={rol} id='rol' required>
                         <option value="" disabled selected>--- Seleccionar ---</option>
                         <option value="Administrador">Administrador</option>
@@ -108,7 +108,7 @@ const EditUser = ({ user, setOpenEditUser }) => {
                     <label htmlFor="isAdmin">
                       <i className="fa-solid fa-users"></i> CAMBIAR DE CARGO #2. :*
                     </label>
-                    <div class="form-floating mb-3">
+                    <div className="form-floating mb-3">
                       <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setIsAdmin(e.target.value)} value={isAdmin} id='isAdmin' required>
                         <option value="" disabled selected>--- Seleccionar ---</option>
                         <option value="false">DesActivado - Cliente</option>

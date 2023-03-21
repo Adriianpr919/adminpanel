@@ -91,7 +91,7 @@ const EditOrderClient = ({ orderclient, setOpenEdit }) => {
                                       <code className='text-white'>(Pendiente De Pago), (Pedido Confirmado), (Preparando Tu Pedido)<br />, (Pedido En Camino), (Pedido Entregado), (Pedido NO Entregado)<br />, (Validado) y (Cancelar Pedido).</code>
                                     </span>
                                   </label>
-                                  <div class="form-floating mb-3">
+                                  <div className="form-floating mb-3">
                                     <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setMarker(e.target.value)} value={marker} id='marker' required>
                                       <option value="" disabled selected>--- Seleccionar ---</option>
                                       <option value="Pendiente De Pago">
