@@ -120,7 +120,7 @@ isAdmin: DESACTIVO <br />
 
 ## Guiones disponibles
 
-### En el directorio del proyecto, puede ejecutar:
+### En el directorio del proyecto, puede ejecutar. :\*
 
 ## `npm start`
 
@@ -136,7 +136,7 @@ isAdmin: DESACTIVO <br />
 
 ## `MI INFORMACIÓN. :*`
 
-### Puedes aprender más en el: [https://apr1991lino.vercel.app/)
+### Puedes aprender más en el. :\* [https://apr1991lino.vercel.app/)
 
 ### Luego navegue en la plataforma.
 
@@ -144,4 +144,4 @@ isAdmin: DESACTIVO <br />
 
 ## `Feliz Revisión 😎🤞. :*`
 
-### Creditos: Este proyecto lo desarrollo Adrián Páez.
+### Creditos. :\* Este proyecto lo desarrollo Adrián Páez.
