@@ -2,9 +2,9 @@
 
 ---
 
-## ![ADMIN-1](<![image](https://user-images.githubusercontent.com/54821048/235185771-7e18a716-c299-428a-8c23-858ce97b290d.png)>)
+## ![ADMIN-1](https://user-images.githubusercontent.com/54821048/235185771-7e18a716-c299-428a-8c23-858ce97b290d.png)
 
-## ![ADMIN-2](<![image](https://user-images.githubusercontent.com/54821048/235185986-0228786f-40ab-4847-93e8-630f11806ace.png)>)
+## ![ADMIN-2](https://user-images.githubusercontent.com/54821048/235185986-0228786f-40ab-4847-93e8-630f11806ace.png)
 
 Como arrancar el proyecto Primero dirijase al package.json para ver los scripts.
 
