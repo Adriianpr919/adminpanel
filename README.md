@@ -1,6 +1,6 @@
 # Proyecto Plataforma Joyería.
 
-(https://user-images.githubusercontent.com/54821048/236281074-bc6f392e-594a-41cd-8589-b0601e6b528e.png)
+![image](https://user-images.githubusercontent.com/54821048/236281074-bc6f392e-594a-41cd-8589-b0601e6b528e.png)
 
 ===========================================================================
 
