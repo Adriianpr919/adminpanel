@@ -26,8 +26,8 @@ Luego de terminar de instalar las dependencias, puede arrancar el proyecto de un
 
 `(BACK-END) SEGURIDAD DEL SISTEMA PROTEGIDAS. :*` <br />
 
-`1. ACTIVO: SOLO Administrador. -> (PRIVADAS). -> SISTEMA DE CONTROL DE INVENTARIOS.` <br />
-`2. DESACTIVO: SOLO Cliente. -> (PÚBLICO). -> HACER COMPRAS.` <br />
+`1. ACTIVO. :* SOLO Administrador. -> (PRIVADAS). -> SISTEMA DE CONTROL DE INVENTARIOS.` <br />
+`2. DESACTIVO. :* SOLO Cliente. -> (PÚBLICO). -> HACER COMPRAS.` <br />
 
 Admin: -> Privado. <br />
 nombres: "Administrador", <br />
@@ -118,7 +118,7 @@ isAdmin: DESACTIVO <br />
 
 ===========================================================================
 
-## Guiones disponibles
+### Guiones disponibles
 
 ### En el directorio del proyecto, puede ejecutar. :\*
 
