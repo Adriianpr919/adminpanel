@@ -46,6 +46,9 @@ const AllProduct = ({ product }) => {
                       <span className="badge rounded-pill bg-success position-absolute mt-2 me-2 z-index-2 top-0 end-0">
                         {product.subcategory}
                       </span>
+                      <span className="badge rounded-pill bg-success position-absolute mt-2 me-2 z-index-2 top-0 end-0">
+                        {product.tripletecategory}
+                      </span>
                     </div>
                     <div className="p-3">
                       <h5 className="fs-0">

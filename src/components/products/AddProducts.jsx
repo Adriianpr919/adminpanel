@@ -1,19 +1,20 @@
 import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { NavLink } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
 
 const AddProducts = () => {
 
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState('');
   const [subcategory, setSubcategory] = useState('');
+  const [tripletecategory, setTripletecategory] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
-  const [star, setStar] = useState('');
   const [sizes, setSizes] = useState([{ value: '', key: '' }]);
   const [colors, setColors] = useState([{ value: '', key: '' }]);
   const [image, setImage] = useState('');
@@ -83,10 +84,10 @@ const AddProducts = () => {
         title,
         category,
         subcategory,
+        tripletecategory,
         countInStock,
         description,
         price,
-        star,
         sizes,
         colors,
         image,
@@ -99,10 +100,10 @@ const AddProducts = () => {
       setTitle('');
       setCategory('');
       setSubcategory('');
+      setTripletecategory('');
       setCountInStock('');
       setDescription('');
       setPrice('');
-      setStar('');
       setSizes([{ value: '', key: '' }]);
       setColors([{ value: '', key: '' }]);
       setImage('');
@@ -114,6 +115,26 @@ const AddProducts = () => {
 
     }
   }
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      const resultCategory = await axios.get('/api/category/all');
+      console.log(resultCategory.data);
+      setCategory(resultCategory.data);
+
+      const resultSubcategory = await axios.get('/api/subcategory/all');
+      console.log(resultSubcategory.data);
+      setSubcategory(resultSubcategory.data);
+
+      const resultTripletecategory = await axios.get('/api/tripletecategory/all');
+      console.log(resultTripletecategory.data);
+      setTripletecategory(resultTripletecategory.data);
+    }
+
+    fetchData();
+
+  }, []);
 
   return (
     <>
@@ -159,31 +180,52 @@ const AddProducts = () => {
                     <hr />
                     <fieldset>
                       <legend style={{ textAlign: "justify" }}>
-                        <label htmlFor="cat">
+                        <label htmlFor="category">
                           <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        POR FAVOR SELECCIONA CATEGORÍA <span><b><code className='badge rounded-pill badge-soft-danger' style={{ fontSize: "15px" }}>"(Hombres), (Mujeres), (Niños) y (Niñas)"</code></b></span>.
+                        POR FAVOR SELECCIONA CATEGORÍA.
                       </legend>
                       <div className="panel panel-default">
                         <div className="panel-body">
                           <p>
-                            <label htmlFor="cat">
+                            <label htmlFor="category">
                               CATEGORÍA. :*
                             </label>
                             <div className="form-floating mb-3">
-                              <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setCategory(e.target.value)} value={category} id='category' required>
-                                <option value="" disabled selected>--- Seleccionar ---</option>
-                                <option value="Hombres">Hombres</option>
-                                <option value="Mujeres">Mujeres</option>
-                                <option value="Niños">Niños</option>
-                                <option value="Niñas">Niñas</option>
-                              </select>
-                              <label htmlFor="cat">
-                                CATEGORÍA. :* <span className="badge rounded-pill text-bg-secondary" style={{ fontSize: "15px" }}>
-                                  <code className='text-white'>(Hombres), (Mujeres), (Niños) y (Niñas).</code>
-                                </span>
+                              {
+                                category.length === 0 ? (
+                                  <h3 className='no-data'>¡.Actualmente NO Hay CATEGORÍA.!</h3>
+                                ) : (
+                                  <>
+                                    {
+                                      //only max latest titlecategory
+                                      category.map((category) => (
+                                        <>
+                                          <Form.Select
+                                            className="form-control form-select form-select-lg mb-3 is-valid"
+                                            aria-label=".form-select-lg example"
+                                            data-placeholder="--- Seleccionar ---"
+                                            data-control="select2"
+                                            onChange={(e) => setCategory(e.target.value)}
+                                            value={category}
+                                            id='category'
+                                            key={category._id}
+                                            required>
+                                            <option value="Seleccionar" disabled selected="selected">--- Seleccionar ---</option>
+                                            <option value={category.titlecategory}>
+                                              {category.titlecategory}
+                                            </option>
+                                          </Form.Select>
+                                        </>
+                                      ))
+                                    }
+                                  </>
+                                )
+                              }
+                              <label htmlFor="category">
+                                CATEGORÍA. :*
                               </label>
                             </div>
                           </p>
@@ -193,29 +235,107 @@ const AddProducts = () => {
                     <hr />
                     <fieldset>
                       <legend style={{ textAlign: "justify" }}>
-                        <label htmlFor="scat">
+                        <label htmlFor="subcategory">
                           <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        POR FAVOR SELECCIONA SUBCATEGORÍA <span><b><code className='badge rounded-pill badge-soft-danger' style={{ fontSize: "15px" }}>"(Nuevos) y (Destacados)"</code></b></span>.
+                        POR FAVOR SELECCIONA SUBCATEGORÍA.
                       </legend>
                       <div className="panel panel-default">
                         <div className="panel-body">
                           <p>
-                            <label htmlFor="scat">
+                            <label htmlFor="subcategory">
                               SUBCATEGORÍA. :*
                             </label>
                             <div className="form-floating mb-3">
-                              <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setSubcategory(e.target.value)} value={subcategory} id='subcategory' required>
-                                <option value="" disabled selected>--- Seleccionar ---</option>
-                                <option value="Nuevos">Nuevos</option>
-                                <option value="Destacados">Destacados</option>
-                              </select>
-                              <label htmlFor="scat">
-                                SUBCATEGORÍA. :* <span className="badge rounded-pill text-bg-secondary" style={{ fontSize: "15px" }}>
-                                  <code className='text-white'>(Nuevos) y (Destacados).</code>
-                                </span>
+                              {
+                                subcategory.length === 0 ? (
+                                  <h3 className='no-data'>¡.Actualmente NO Hay SUBCATEGORÍA.!</h3>
+                                ) : (
+                                  <>
+                                    {
+                                      //only max latest titlesubcategory
+                                      subcategory.map((subcategory) => (
+                                        <>
+                                          <Form.Select
+                                            className="form-control form-select form-select-lg mb-3 is-valid"
+                                            aria-label=".form-select-lg example"
+                                            data-placeholder="--- Seleccionar ---"
+                                            data-control="select2"
+                                            onChange={(e) => setSubcategory(e.target.value)}
+                                            value={subcategory}
+                                            id='subcategory'
+                                            key={subcategory._id}
+                                            required>
+                                            <option value="Seleccionar" disabled selected="selected">--- Seleccionar ---</option>
+                                            <option value={subcategory.titlesubcategory}>
+                                              {subcategory.titlesubcategory}
+                                            </option>
+                                          </Form.Select>
+                                        </>
+                                      ))
+                                    }
+                                  </>
+                                )
+                              }
+                              <label htmlFor="subcategory">
+                                SUBCATEGORÍA. :*
+                              </label>
+                            </div>
+                          </p>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <hr />
+                    <fieldset>
+                      <legend style={{ textAlign: "justify" }}>
+                        <label htmlFor="tripletecategory">
+                          <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
+                            <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
+                          </span>
+                        </label> -
+                        POR FAVOR SELECCIONA TRIPLETECATEGORÍA.
+                      </legend>
+                      <div className="panel panel-default">
+                        <div className="panel-body">
+                          <p>
+                            <label htmlFor="tripletecategory">
+                              TRIPLETECATEGORÍA. :*
+                            </label>
+                            <div className="form-floating mb-3">
+                              {
+                                tripletecategory.length === 0 ? (
+                                  <h3 className='no-data'>¡.Actualmente NO Hay TRIPLETECATEGORÍA.!</h3>
+                                ) : (
+                                  <>
+                                    {
+                                      //only max latest titletripletecategory
+                                      tripletecategory.map((tripletecategory) => (
+                                        <>
+                                          <Form.Select
+                                            className="form-control form-select form-select-lg mb-3 is-valid"
+                                            aria-label=".form-select-lg example"
+                                            data-placeholder="--- Seleccionar ---"
+                                            data-control="select2"
+                                            onChange={(e) => setTripletecategory(e.target.value)}
+                                            value={tripletecategory}
+                                            id='tripletecategory'
+                                            key={tripletecategory._id}
+                                            required>
+                                            <option value="Seleccionar" disabled selected="selected">--- Seleccionar ---</option>
+                                            <option value={tripletecategory.titletripletecategory}>
+                                              {tripletecategory.titletripletecategory}
+                                            </option>
+                                          </Form.Select>
+                                        </>
+                                      ))
+                                    }
+                                  </>
+                                )
+                              }
+                              <label htmlFor="tripletecategory">
+                                TRIPLETECATEGORÍA. :*
                               </label>
                             </div>
                           </p>
@@ -263,18 +383,9 @@ const AddProducts = () => {
                       DESCRIPCIÓN. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <textarea className="form-control is-valid" id="desc" cols="50" rows="50" required onChange={(e) => setDescription(e.target.value)} value={description} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <textarea className="form-control is-valid" id="desc" cols="100" rows="100" required onChange={(e) => setDescription(e.target.value)} value={description} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
                       <label htmlFor="desc">
                         DESCRIPCIÓN. :*
-                      </label>
-                    </div>
-                    <label htmlFor="star">
-                      CLASIFICACIÓN ⭐. :*
-                    </label>
-                    <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setStar(e.target.value)} value={star} id='star' required />
-                      <label htmlFor="star">
-                        CLASIFICACIÓN ⭐. :*
                       </label>
                     </div>
                     <hr />
@@ -330,7 +441,7 @@ const AddProducts = () => {
                     <hr />
                     <div className="container">
                       <div className="panel panel-default">
-                        <div className="panel-heading">ESCRIBA LOS COLORES 🖌️. :*</div>
+                        <div className="panel-heading">ESCRIBA EL COLOR DE ORO 🖌️. :*</div>
                         <div className="panel-body">
                           <fieldset className="col-md-12">
                             <legend style={{ textAlign: "justify" }}>
@@ -347,13 +458,13 @@ const AddProducts = () => {
                                   <div className="form-group">
                                     <div className="form-groupValues">
                                       <label htmlFor="colors">
-                                        ESCRIBA LOS COLORES 🖌️. :*
+                                        ESCRIBA EL COLOR DE ORO 🖌️. :*
                                       </label>
                                       {colors.map((element, i) => (
                                         <div className='d-flexAdd form-floating mb-3' key={i}>
                                           <input key={element.i} className="form-control is-valid" type="text" name='colors' onChange={(e) => handleChangeColor(e, i, element.i)} value={colors[`${i}`]?.value || ''} id='colors' required />
                                           <label htmlFor="colors">
-                                            ESCRIBA LOS COLORES 🖌️. :*
+                                            ESCRIBA EL COLOR DE ORO 🖌️. :*
                                           </label>
                                           {
                                             i ? <button type='button' className='btn-remove btn btn-outline-danger me-1 mb-1' onClick={() => removeColorFields(i)}>

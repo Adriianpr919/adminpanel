@@ -118,13 +118,13 @@ const AddBlogs = () => {
                       </div>
                     </div>
                     <hr />
-                    <label htmlFor="desc">
-                      Comentarios. :*
+                    <label htmlFor="description">
+                      COMENTARIOS. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <textarea className="form-control is-valid" id="desc" cols="50" rows="50" required onChange={(e) => setDescription(e.target.value)} value={description} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
-                      <label htmlFor="desc">
-                        Comentarios. :*
+                      <textarea className="form-control is-valid" id="description" cols="100" rows="100" required onChange={(e) => setDescription(e.target.value)} value={description} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <label htmlFor="description">
+                        COMENTARIOS. :*
                       </label>
                     </div>
                   </div>

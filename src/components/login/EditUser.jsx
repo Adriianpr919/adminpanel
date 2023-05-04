@@ -111,8 +111,8 @@ const EditUser = ({ user, setOpenEditUser }) => {
                     <div className="form-floating mb-3">
                       <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setIsAdmin(e.target.value)} value={isAdmin} id='isAdmin' required>
                         <option value="" disabled selected>--- Seleccionar ---</option>
-                        <option value="false">DesActivado - Cliente</option>
-                        <option value="true">Activado - Administrador</option>
+                        <option value="false">DesActivado</option>
+                        <option value="true">Activado</option>
                       </select>
                       <label htmlFor="isAdmin">
                         <i className="fa-solid fa-users"></i> CAMBIAR DE CARGO #2. :* <span className="badge rounded-pill text-bg-secondary" style={{ fontSize: "15px" }}>

@@ -9,10 +9,10 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
   const [title, setTitle] = useState(product.title);
   const [category, setCategory] = useState(product.category);
   const [subCategory, setSubCategory] = useState(product.subcategory);
+  const [tripletecategory, setTripletecategory] = useState(product.tripletecategory);
   const [countInStock, setCountInStock] = useState(product.countInStock);
   const [description, setDescription] = useState(product.description);
   const [price, setPrice] = useState(product.price);
-  const [star, setStar] = useState(product.star);
   const [sizes, setSizes] = useState(product.sizes);
   const [colors, setColors] = useState(product.colors);
   const [image, setImage] = useState(product.image);
@@ -28,10 +28,10 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
         title,
         category,
         subCategory,
+        tripletecategory,
         countInStock,
         description,
         price,
-        star,
         sizes,
         colors,
         image,
@@ -116,31 +116,26 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                     <hr />
                     <fieldset>
                       <legend style={{ textAlign: "justify" }}>
-                        <label htmlFor="cat">
+                        <label htmlFor="category">
                           <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        POR FAVOR SELECCIONA CATEGORÍA <span><b><code className='badge rounded-pill badge-soft-danger' style={{ fontSize: "15px" }}>"(Hombres), (Mujeres), (Niños) y (Niñas)"</code></b></span>.
+                        POR FAVOR SELECCIONA CATEGORÍA.
                       </legend>
                       <div className="panel panel-default">
                         <div className="panel-body">
                           <p>
-                            <label htmlFor="cat">
+                            <label htmlFor="category">
                               CAMBIAR CATEGORÍA. :*
                             </label>
                             <div className="form-floating mb-3">
                               <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setCategory(e.target.value)} value={category} id='category' required>
                                 <option value="" disabled selected>--- Seleccionar ---</option>
                                 <option value="Hombres">Hombres</option>
-                                <option value="Mujeres">Mujeres</option>
-                                <option value="Niños">Niños</option>
-                                <option value="Niñas">Niñas</option>
                               </select>
-                              <label htmlFor="cat">
-                                CAMBIAR CATEGORÍA. :* <span className="badge rounded-pill text-bg-secondary" style={{ fontSize: "15px" }}>
-                                  <code className='text-white'>(Hombres), (Mujeres), (Niños) y (Niñas).</code>
-                                </span>
+                              <label htmlFor="category">
+                                CAMBIAR CATEGORÍA. :*
                               </label>
                             </div>
                           </p>
@@ -150,29 +145,55 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                     <hr />
                     <fieldset>
                       <legend style={{ textAlign: "justify" }}>
-                        <label htmlFor="scat">
+                        <label htmlFor="subcategory">
                           <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        POR FAVOR SELECCIONA SUBCATEGORÍA <span><b><code className='badge rounded-pill badge-soft-danger' style={{ fontSize: "15px" }}>"(Nuevos) y (Destacados)"</code></b></span>.
+                        POR FAVOR SELECCIONA SUBCATEGORÍA.
                       </legend>
                       <div className="panel panel-default">
                         <div className="panel-body">
                           <p>
-                            <label htmlFor="scat">
+                            <label htmlFor="subcategory">
                               CAMBIAR SUBCATEGORÍA. :*
                             </label>
                             <div className="form-floating mb-3">
                               <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setSubCategory(e.target.value)} value={subCategory} id='subCategory' required>
                                 <option value="" disabled selected>--- Seleccionar ---</option>
                                 <option value="Nuevos">Nuevos</option>
-                                <option value="Destacados">Destacados</option>
                               </select>
-                              <label htmlFor="scat">
-                                CAMBIAR SUBCATEGORÍA. :* <span className="badge rounded-pill text-bg-secondary" style={{ fontSize: "15px" }}>
-                                  <code className='text-white'>(Nuevos) y (Destacados).</code>
-                                </span>
+                              <label htmlFor="subcategory">
+                                CAMBIAR SUBCATEGORÍA. :*
+                              </label>
+                            </div>
+                          </p>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <hr />
+                    <fieldset>
+                      <legend style={{ textAlign: "justify" }}>
+                        <label htmlFor="tripletecategory">
+                          <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
+                            <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
+                          </span>
+                        </label> -
+                        POR FAVOR SELECCIONA TRIPLETECATEGORÍA.
+                      </legend>
+                      <div className="panel panel-default">
+                        <div className="panel-body">
+                          <p>
+                            <label htmlFor="tripletecategory">
+                              CAMBIAR TRIPLETECATEGORÍA. :*
+                            </label>
+                            <div className="form-floating mb-3">
+                              <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setTripletecategory(e.target.value)} value={tripletecategory} id='tripletecategory' required>
+                                <option value="" disabled selected>--- Seleccionar ---</option>
+                                <option value="Nuevos">Nuevos</option>
+                              </select>
+                              <label htmlFor="tripletecategory">
+                                CAMBIAR TRIPLETECATEGORÍA. :*
                               </label>
                             </div>
                           </p>
@@ -220,18 +241,9 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                       CAMBIAR DESCRIPCIÓN. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <textarea className="form-control is-valid" id="desc" cols="50" rows="50" required onChange={(e) => setDescription(e.target.value)} value={description} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <textarea className="form-control is-valid" id="desc" cols="100" rows="100" required onChange={(e) => setDescription(e.target.value)} value={description} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
                       <label htmlFor="desc">
                         CAMBIAR DESCRIPCIÓN. :*
-                      </label>
-                    </div>
-                    <label htmlFor="star">
-                      CAMBIAR CLASIFICACIÓN ⭐. :*
-                    </label>
-                    <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setStar(e.target.value)} value={star} id='star' required />
-                      <label htmlFor="star">
-                        CAMBIAR CLASIFICACIÓN ⭐. :*
                       </label>
                     </div>
                     <hr />
@@ -285,7 +297,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                     <hr />
                     <div className="container">
                       <div className="panel panel-default">
-                        <div className="panel-heading">ESCRIBA CAMBIAR LOS COLORES 🖌️. :*</div>
+                        <div className="panel-heading">ESCRIBA CAMBIAR EL COLOR DE ORO 🖌️. :*</div>
                         <div className="panel-body">
                           <fieldset className="col-md-12">
                             <legend style={{ textAlign: "justify" }}>
@@ -302,7 +314,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                                   <div className="form-group">
                                     <div className="form-groupValues">
                                       <label htmlFor="colors">
-                                        ESCRIBA CAMBIAR LOS COLORES 🖌️. :*
+                                        ESCRIBA CAMBIAR EL COLOR DE ORO 🖌️. :*
                                       </label>
                                       <div className="form-floating mb-3">
                                         {
@@ -310,7 +322,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                                             <div className='d-flexAdd form-floating mb-3' key={i}>
                                               <input className="form-control is-valid" key={item.i} type="text" name='colors' onChange={(e) => handleChangeColor(e, i, item.i)} value={colors[`${i}`]?.value || ''} id='colors' required />
                                               <label htmlFor="colors">
-                                                ESCRIBA CAMBIAR LOS COLORES 🖌️. :*
+                                                ESCRIBA CAMBIAR EL COLOR DE ORO 🖌️. :*
                                               </label>
                                               {
                                                 i ? <button type='button' className='btn-remove btn btn-outline-danger me-1 mb-1' onClick={() => removeColorFields(i)}>

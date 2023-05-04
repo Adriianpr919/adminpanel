@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 const EditOrder = ({ order, setOpenEdit }) => {
 
   const [marker, setMarker] = useState(order.marker);
+  const [comment, setComment] = useState(order.comment);
   const [isPaid, setIsPaid] = useState(order.isPaid);
   const [isDelivered, setIsDelivered] = useState(order.isDelivered);
 
@@ -18,6 +19,7 @@ const EditOrder = ({ order, setOpenEdit }) => {
       const { data } = await axios.put("/api/orders/update", {
         _id: order._id,
         marker,
+        comment,
         isPaid,
         isDelivered
       });
@@ -98,6 +100,16 @@ const EditOrder = ({ order, setOpenEdit }) => {
                           <div className="clearfix" />
                         </div>
                       </div>
+                    </div>
+                    <hr />
+                    <label htmlFor="comment">
+                      CAMBIAR COMENTARIOS. :*
+                    </label>
+                    <div className="form-floating mb-3">
+                      <textarea className="form-control is-valid" id="comment" cols="100" rows="100" required onChange={(e) => setComment(e.target.value)} value={comment} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <label htmlFor="comment">
+                        CAMBIAR COMENTARIOS. :*
+                      </label>
                     </div>
                     <hr />
                     <div className="container">
