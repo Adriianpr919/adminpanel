@@ -24,10 +24,10 @@ Luego de terminar de instalar las dependencias, puede arrancar el proyecto de un
 
 ## ADMIN - PRIVADO. :\*
 
-(BACK-END) SEGURIDAD DEL SISTEMA PROTEGIDAS. :\* <br />
+`(BACK-END) SEGURIDAD DEL SISTEMA PROTEGIDAS. :*` <br />
 
-1. ACTIVO: SOLO Administrador. -> (PRIVADAS). -> SISTEMA DE CONTROL DE INVENTARIOS. <br />
-2. DESACTIVO: SOLO Cliente. -> (PÚBLICO). -> HACER COMPRAS. <br />
+`1. ACTIVO: SOLO Administrador. -> (PRIVADAS). -> SISTEMA DE CONTROL DE INVENTARIOS.` <br />
+`2. DESACTIVO: SOLO Cliente. -> (PÚBLICO). -> HACER COMPRAS.` <br />
 
 Admin: -> Privado. <br />
 nombres: "Administrador", <br />
