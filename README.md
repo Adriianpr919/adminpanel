@@ -1,6 +1,8 @@
 # Proyecto Plataforma Joyería.
 
----
+(https://user-images.githubusercontent.com/54821048/236281074-bc6f392e-594a-41cd-8589-b0601e6b528e.png)
+
+===========================================================================
 
 ## ![ADMIN-1](https://user-images.githubusercontent.com/54821048/235185771-7e18a716-c299-428a-8c23-858ce97b290d.png)
 
@@ -61,7 +63,8 @@ isAdmin: DESACTIVO <br />
 
 ===========================================================================
 
-<h3 align="left">Idiomas y Herramientas:</h3>
+### `<h3 align="left">Idiomas y Herramientas:</h3>`
+
 <p align="left">
 <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/>
