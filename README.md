@@ -16,8 +16,6 @@ Al ver los scripts ejecute "npm install" esto permite instalar tanto las depende
 
 Luego de terminar de instalar las dependencias, puede arrancar el proyecto de una forma. - Con el comando "npm start": Puede arrancar el proyecto tanto admin como admin pero sin nodemon en el lado admin. - Con el comando "npm start": Puede arrancar el proyecto tanto admin como admin pero con nodemon en el lado admin. Por otro lado con concurrently "npm start" "npm start".
 
-===========================================================================
-
 ## Ejecutar con Terminal. :\* `"npm start"`
 
 ===========================================================================
