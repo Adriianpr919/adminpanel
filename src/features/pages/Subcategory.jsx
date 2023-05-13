@@ -16,12 +16,12 @@ const Subcategory = () => {
                   <div className="col-lg-12">
                     <h3>
                       <code>
-                        <FontAwesomeIcon icon="fa-solid fa-gear" /> Listado De SubCategor&#237;as.
+                        <FontAwesomeIcon icon="fa-solid fa-gear" /> Listado De MEN&#218; 2 Categor&#237;as.
                       </code>
                     </h3>
                     <a className="btn btn-link ps-0 btn-sm" href="/addsubcategory" rel="noopener noreferrer">
                       <code className='badge rounded-pill badge-soft-primary' style={{ fontSize: "20px" }}>
-                        <i className="fa-solid fa-square-plus"></i> Agregar SubCategor&#237;as.
+                        <i className="fa-solid fa-square-plus"></i> Agregar MEN&#218; 2 Categor&#237;as.
                       </code>
                     </a>
                     <a className="btn btn-link ps-0 btn-sm" href="/subcategory" rel="noopener noreferrer">

@@ -1,15 +1,19 @@
 import { faRefresh, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 
 const EditProduct = ({ product, setOpenEditProduct }) => {
 
+  const [titlecategory, setTitlecategory] = useState('');
+  const [titlesubcategory, setTitlesubcategory] = useState('');
+  const [titletripletecategory, setTitletripletecategory] = useState('');
+
   const [title, setTitle] = useState(product.title);
-  const [category, setCategory] = useState(product.category);
-  const [subCategory, setSubCategory] = useState(product.subcategory);
-  const [tripletecategory, setTripletecategory] = useState(product.tripletecategory);
+  const [categoryOptions, setCategoryOptions] = useState(product.categoryOptions);
+  const [subcategoryOptions, setSubcategoryOptions] = useState(product.subcategoryOptions);
+  const [tripletecategoryOptions, setTripletecategoryOptions] = useState(product.tripletecategoryOptions);
   const [countInStock, setCountInStock] = useState(product.countInStock);
   const [description, setDescription] = useState(product.description);
   const [price, setPrice] = useState(product.price);
@@ -26,9 +30,9 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
       const { data } = await axios.put("/api/products/update", {
         _id: product._id,
         title,
-        category,
-        subCategory,
-        tripletecategory,
+        categoryOptions,
+        subcategoryOptions,
+        tripletecategoryOptions,
         countInStock,
         description,
         price,
@@ -89,6 +93,26 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
     setImagesOnes(newImageOneValues);
   }
 
+  useEffect(() => {
+
+    const fetchData = async () => {
+      const resultCategory = await axios.get('/api/category/all');
+      console.log(resultCategory.data);
+      setTitlecategory(resultCategory.data);
+
+      const resultSubcategory = await axios.get('/api/subcategory/all');
+      console.log(resultSubcategory.data);
+      setTitlesubcategory(resultSubcategory.data);
+
+      const resultTripletecategory = await axios.get('/api/tripletecategory/all');
+      console.log(resultTripletecategory.data);
+      setTitletripletecategory(resultTripletecategory.data);
+    }
+
+    fetchData();
+
+  }, []);
+
   return (
     <>
       <div className="card mb-3">
@@ -116,25 +140,79 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                     <hr />
                     <fieldset>
                       <legend style={{ textAlign: "justify" }}>
-                        <label htmlFor="category">
+                        <label htmlFor="categoryOptions">
                           <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        POR FAVOR SELECCIONA CATEGORÍA.
+                        MENÚ DE OPCIONES CATEGORÍA. {titlecategory &&
+                          titlecategory.map(titlecategory => (
+                            <div key={titlecategory._id} className='form-check'>
+                              <span className="badge rounded-pill badge-soft-warning">
+                                <code>
+                                  {titlecategory.titlecategory}
+                                </code>
+                              </span>
+                            </div>
+                          ))}
                       </legend>
                       <div className="panel panel-default">
                         <div className="panel-body">
                           <p>
-                            <label htmlFor="category">
+                            <label htmlFor="categoryOptions">
                               CAMBIAR CATEGORÍA. :*
                             </label>
                             <div className="form-floating mb-3">
-                              <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setCategory(e.target.value)} value={category} id='category' required>
-                                <option value="" disabled selected>--- Seleccionar ---</option>
-                                <option value="Hombres">Hombres</option>
-                              </select>
-                              <label htmlFor="category">
+                              <input
+                                className="form-control is-valid"
+                                type="text"
+                                onChange={(e) => setCategoryOptions(e.target.value)}
+                                value={categoryOptions}
+                                name={categoryOptions}
+                                id='categoryOptions'
+                                required />
+                              <div className="mb-3">
+                                <label htmlFor="categoryOptions">
+                                  Seleccione Uno ⬆️. :*
+                                </label>
+                                <select
+                                  className="form-select js-choice is-valid"
+                                  aria-label=".form-select-lg js-choice"
+                                  data-placeholder="--- Seleccionar ---"
+                                  data-control="select2"
+                                  defaultValue={{ label: "--- Seleccionar ---", value: 0 }}
+                                  onChange={(e) => setCategoryOptions(e.target.value)}
+                                  value={categoryOptions}
+                                  name={categoryOptions}
+                                  id={categoryOptions}
+                                  required="required"
+                                  data-options='{"removeItemButton":true,"placeholder":true}'>
+                                  <option value={'Seleccionar'} defaultValue hidden>
+                                    {'--- Seleccionar ---'}
+                                  </option>
+                                  {titlecategory &&
+                                    titlecategory.map((titlecategory) => (
+                                      <option
+                                        details={titlecategory}
+                                        key={titlecategory._id}
+                                        name={titlecategory.titlecategory}
+                                        value={titlecategory.titlecategory}
+                                        className="badge rounded-pill badge-soft-warning">
+                                        <code>
+                                          {titlecategory.titlecategory}
+                                        </code>
+                                      </option>
+                                    ))}
+                                </select>
+                                <div className="invalid-feedback">
+                                  <span className="badge rounded-pill badge-soft-danger">
+                                    <code>
+                                      ¡.ALERTA POR FAVOR Seleccione Uno.!
+                                    </code>
+                                  </span>
+                                </div>
+                              </div>
+                              <label htmlFor="categoryOptions">
                                 CAMBIAR CATEGORÍA. :*
                               </label>
                             </div>
@@ -145,25 +223,79 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                     <hr />
                     <fieldset>
                       <legend style={{ textAlign: "justify" }}>
-                        <label htmlFor="subcategory">
+                        <label htmlFor="subcategoryOptions">
                           <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        POR FAVOR SELECCIONA SUBCATEGORÍA.
+                        MENÚ DE OPCIONES SUBCATEGORÍA. {titlesubcategory &&
+                          titlesubcategory.map(titlesubcategory => (
+                            <div key={titlesubcategory._id} className='form-check'>
+                              <span className="badge rounded-pill badge-soft-warning">
+                                <code>
+                                  {titlesubcategory.titlesubcategory}
+                                </code>
+                              </span>
+                            </div>
+                          ))}
                       </legend>
                       <div className="panel panel-default">
                         <div className="panel-body">
                           <p>
-                            <label htmlFor="subcategory">
+                            <label htmlFor="subcategoryOptions">
                               CAMBIAR SUBCATEGORÍA. :*
                             </label>
                             <div className="form-floating mb-3">
-                              <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setSubCategory(e.target.value)} value={subCategory} id='subCategory' required>
-                                <option value="" disabled selected>--- Seleccionar ---</option>
-                                <option value="Nuevos">Nuevos</option>
-                              </select>
-                              <label htmlFor="subcategory">
+                              <input
+                                className="form-control is-valid"
+                                type="text"
+                                onChange={(e) => setSubcategoryOptions(e.target.value)}
+                                value={subcategoryOptions}
+                                name={subcategoryOptions}
+                                id='subcategoryOptions'
+                                required />
+                              <div className="mb-3">
+                                <label htmlFor="subcategoryOptions">
+                                  Seleccione Uno ⬆️. :*
+                                </label>
+                                <select
+                                  className="form-select js-choice is-valid"
+                                  aria-label=".form-select-lg js-choice"
+                                  data-placeholder="--- Seleccionar ---"
+                                  data-control="select2"
+                                  defaultValue={{ label: "--- Seleccionar ---", value: 0 }}
+                                  onChange={(e) => setSubcategoryOptions(e.target.value)}
+                                  value={subcategoryOptions}
+                                  name={subcategoryOptions}
+                                  id={subcategoryOptions}
+                                  required="required"
+                                  data-options='{"removeItemButton":true,"placeholder":true}'>
+                                  <option value={'Seleccionar'} defaultValue hidden>
+                                    {'--- Seleccionar ---'}
+                                  </option>
+                                  {titlesubcategory &&
+                                    titlesubcategory.map((titlesubcategory) => (
+                                      <option
+                                        details={titlesubcategory}
+                                        key={titlesubcategory._id}
+                                        name={titlesubcategory.titlesubcategory}
+                                        value={titlesubcategory.titlesubcategory}
+                                        className="badge rounded-pill badge-soft-warning">
+                                        <code>
+                                          {titlesubcategory.titlesubcategory}
+                                        </code>
+                                      </option>
+                                    ))}
+                                </select>
+                                <div className="invalid-feedback">
+                                  <span className="badge rounded-pill badge-soft-danger">
+                                    <code>
+                                      ¡.ALERTA POR FAVOR Seleccione Uno.!
+                                    </code>
+                                  </span>
+                                </div>
+                              </div>
+                              <label htmlFor="subcategoryOptions">
                                 CAMBIAR SUBCATEGORÍA. :*
                               </label>
                             </div>
@@ -174,25 +306,79 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                     <hr />
                     <fieldset>
                       <legend style={{ textAlign: "justify" }}>
-                        <label htmlFor="tripletecategory">
+                        <label htmlFor="tripletecategoryOptions">
                           <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        POR FAVOR SELECCIONA TRIPLETECATEGORÍA.
+                        MENÚ DE OPCIONES TRIPLETECATEGORÍA. {titletripletecategory &&
+                          titletripletecategory.map(titletripletecategory => (
+                            <div key={titletripletecategory._id} className='form-check'>
+                              <span className="badge rounded-pill badge-soft-warning">
+                                <code>
+                                  {titletripletecategory.titletripletecategory}
+                                </code>
+                              </span>
+                            </div>
+                          ))}
                       </legend>
                       <div className="panel panel-default">
                         <div className="panel-body">
                           <p>
-                            <label htmlFor="tripletecategory">
+                            <label htmlFor="tripletecategoryOptions">
                               CAMBIAR TRIPLETECATEGORÍA. :*
                             </label>
                             <div className="form-floating mb-3">
-                              <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setTripletecategory(e.target.value)} value={tripletecategory} id='tripletecategory' required>
-                                <option value="" disabled selected>--- Seleccionar ---</option>
-                                <option value="Nuevos">Nuevos</option>
-                              </select>
-                              <label htmlFor="tripletecategory">
+                              <input
+                                className="form-control is-valid"
+                                type="text"
+                                onChange={(e) => setTripletecategoryOptions(e.target.value)}
+                                value={tripletecategoryOptions}
+                                name={tripletecategoryOptions}
+                                id='tripletecategoryOptions'
+                                required />
+                              <div className="mb-3">
+                                <label htmlFor="tripletecategoryOptions">
+                                  Seleccione Uno ⬆️. :*
+                                </label>
+                                <select
+                                  className="form-select js-choice is-valid"
+                                  aria-label=".form-select-lg js-choice"
+                                  data-placeholder="--- Seleccionar ---"
+                                  data-control="select2"
+                                  defaultValue={{ label: "--- Seleccionar ---", value: 0 }}
+                                  onChange={(e) => setTripletecategoryOptions(e.target.value)}
+                                  value={tripletecategoryOptions}
+                                  name={tripletecategoryOptions}
+                                  id={tripletecategoryOptions}
+                                  required="required"
+                                  data-options='{"removeItemButton":true,"placeholder":true}'>
+                                  <option value={'Seleccionar'} defaultValue hidden>
+                                    {'--- Seleccionar ---'}
+                                  </option>
+                                  {titletripletecategory &&
+                                    titletripletecategory.map((titletripletecategory) => (
+                                      <option
+                                        details={titletripletecategory}
+                                        key={titletripletecategory._id}
+                                        name={titletripletecategory.titletripletecategory}
+                                        value={titletripletecategory.titletripletecategory}
+                                        className="badge rounded-pill badge-soft-warning">
+                                        <code>
+                                          {titletripletecategory.titletripletecategory}
+                                        </code>
+                                      </option>
+                                    ))}
+                                </select>
+                                <div className="invalid-feedback">
+                                  <span className="badge rounded-pill badge-soft-danger">
+                                    <code>
+                                      ¡.ALERTA POR FAVOR Seleccione Uno.!
+                                    </code>
+                                  </span>
+                                </div>
+                              </div>
+                              <label htmlFor="tripletecategoryOptions">
                                 CAMBIAR TRIPLETECATEGORÍA. :*
                               </label>
                             </div>

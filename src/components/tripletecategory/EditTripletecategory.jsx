@@ -36,19 +36,19 @@ const EditTripletecategory = ({ tripletecategory, setOpenEdit }) => {
             <div className="col-lg-8" style={{ textAlign: "justify" }}>
               <div className="close-form" onClick={() => setOpenEdit(false)}>X</div>
               <h3>
-                <FontAwesomeIcon icon={faRefresh} className="far fa-check-circle me-1" data-fa-transform="shrink-3" /> Editar Mega-Desplegable Categor&#237;as.
+                <FontAwesomeIcon icon={faRefresh} className="far fa-check-circle me-1" data-fa-transform="shrink-3" /> Editar MEN&#218; 3 Categor&#237;as.
               </h3>
               <p className="mt-2">
                 <form onSubmit={editTripletecategoryHandler}>
                   <div>
                     <hr />
                     <label htmlFor="titletripletecategory">
-                      CAMBIAR TITULO DE MEGA-DESPLEGABLE CATEGORÍAS. :*
+                      CAMBIAR TITULO DE MEN&#218; 3 CATEGORÍAS. :*
                     </label>
                     <div className="form-floating mb-3">
                       <input className="form-control is-valid" type="text" onChange={(e) => setTitletripletecategory(e.target.value)} value={titletripletecategory} id='titletripletecategory' required />
                       <label htmlFor="titletripletecategory">
-                        CAMBIAR TITULO DE MEGA-DESPLEGABLE CATEGORÍAS. :*
+                        CAMBIAR TITULO DE MEN&#218; 3 CATEGORÍAS. :*
                       </label>
                     </div>
                     <hr />

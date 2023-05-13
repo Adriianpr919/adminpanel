@@ -16,26 +16,26 @@ const ViewProduct = ({ product, setOpenViewProduct }) => {
               <div className="close-form" onClick={() => setOpenViewProduct(false)}>X</div>
               <p className="mt-2" style={{ textAlign: "justify" }}>
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
-                  Categor&#237;as. :*
+                  MEN&#218; 1 Categor&#237;as. :*
                 </label>
                 <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
-                  {product.category}
+                  {product.categoryOptions}
                 </p>
               </p>
               <p className="mt-2" style={{ textAlign: "justify" }}>
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
-                  SubCategor&#237;as. :*
+                  MEN&#218; 2 Categor&#237;as. :*
                 </label>
                 <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
-                  {product.subcategory}
+                  {product.subcategoryOptions}
                 </p>
               </p>
               <p className="mt-2" style={{ textAlign: "justify" }}>
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
-                  Mega-Desplegable Categor&#237;as. :*
+                  MEN&#218; 3 Categor&#237;as. :*
                 </label>
                 <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
-                  {product.tripletecategory}
+                  {product.tripletecategoryOptions}
                 </p>
               </p>
               <p className="mt-2" style={{ textAlign: "justify" }}>

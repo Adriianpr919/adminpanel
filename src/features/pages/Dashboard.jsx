@@ -96,7 +96,7 @@ const Dashboard = () => {
                 <div className="card h-md-100">
                   <div className="card-header d-flex flex-between-center pb-0">
                     <h6 className="mb-0 badge rounded-pill fs--2 bg-200 text-primary" style={{ textAlign: "justify", fontSize: "15px" }}>
-                      Categor&#237;as. :*
+                      MEN&#218; 1 Categor&#237;as. :*
                     </h6>
                   </div>
                   <div className="card-body pt-2">
@@ -125,7 +125,7 @@ const Dashboard = () => {
                 <div className="card h-md-100">
                   <div className="card-header d-flex flex-between-center pb-0">
                     <h6 className="mb-0 badge rounded-pill fs--2 bg-200 text-primary" style={{ textAlign: "justify", fontSize: "15px" }}>
-                      SubCategor&#237;as. :*
+                      MEN&#218; 2 Categor&#237;as. :*
                     </h6>
                   </div>
                   <div className="card-body pt-2">
@@ -154,7 +154,7 @@ const Dashboard = () => {
                 <div className="card h-md-100">
                   <div className="card-header d-flex flex-between-center pb-0">
                     <h6 className="mb-0 badge rounded-pill fs--2 bg-200 text-primary" style={{ textAlign: "justify", fontSize: "15px" }}>
-                      Mega-Desplegable Categor&#237;as. :*
+                      MEN&#218; 3 Categor&#237;as. :*
                     </h6>
                   </div>
                   <div className="card-body pt-2">

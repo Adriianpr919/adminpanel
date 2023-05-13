@@ -42,13 +42,13 @@ const AddTripletecategory = () => {
             <div className="col-lg-8">
               <h3>
                 <code>
-                  <i className="fa-solid fa-square-plus"></i> Agregar Mega-Desplegable Categor&#237;as.
+                  <i className="fa-solid fa-square-plus"></i> Agregar MEN&#218; 3 Categor&#237;as.
                 </code>
               </h3>
               <p className="mt-2">
                 <NavLink className="btn btn-link ps-0 btn-sm" to="/tripletecategory" rel="noopener noreferrer">
                   <code className='badge rounded-pill badge-soft-dark' style={{ fontSize: "20px" }}>
-                    <i className="fa-solid fa-eye"></i> Volver Ver Mega-Desplegable Categor&#237;as. <span className="fas fa-chevron-right ms-1 fs--2" style={{ fontSize: "20px" }} />
+                    <i className="fa-solid fa-eye"></i> Volver Ver MEN&#218; 3 Categor&#237;as. <span className="fas fa-chevron-right ms-1 fs--2" style={{ fontSize: "20px" }} />
                   </code>
                 </NavLink>
               </p>
@@ -58,19 +58,19 @@ const AddTripletecategory = () => {
           <div className="row">
             <div className="col-lg-8">
               <h3>
-                <i className="fa-solid fa-square-plus"></i> Mega-Desplegable Categor&#237;as Recientes.
+                <i className="fa-solid fa-square-plus"></i> MEN&#218; 3 Categor&#237;as Recientes.
               </h3>
               <p className="mt-2">
                 <form onSubmit={addTripletecategoryHandler}>
                   <div>
                     <hr />
                     <label htmlFor="titletripletecategory">
-                      TITULO DE MEGA-DESPLEGABLE CATEGORÍAS. :*
+                      TITULO DE MEN&#218; 3 CATEGORÍAS. :*
                     </label>
                     <div className="form-floating mb-3">
                       <input className="form-control is-valid" type="text" onChange={(e) => setTitletripletecategory(e.target.value)} value={titletripletecategory} id='titletripletecategory' required />
                       <label htmlFor="titletripletecategory">
-                        TITULO DE MEGA-DESPLEGABLE CATEGORÍAS. :*
+                        TITULO DE MEN&#218; 3 CATEGORÍAS. :*
                       </label>
                     </div>
                     <hr />

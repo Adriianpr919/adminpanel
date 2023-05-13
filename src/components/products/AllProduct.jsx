@@ -44,10 +44,7 @@ const AllProduct = ({ product }) => {
                         <img className="img-fluid rounded-top" src={product.image} alt={product.title} title={product.title} />
                       </p>
                       <span className="badge rounded-pill bg-success position-absolute mt-2 me-2 z-index-2 top-0 end-0">
-                        {product.subcategory}
-                      </span>
-                      <span className="badge rounded-pill bg-success position-absolute mt-2 me-2 z-index-2 top-0 end-0">
-                        {product.tripletecategory}
+                        {product.categoryOptions}
                       </span>
                     </div>
                     <div className="p-3">
@@ -55,18 +52,35 @@ const AllProduct = ({ product }) => {
                         <p className="text-dark">
                           {product.title} ({product.description})
                         </p>
-                      </h5>
-                      <p className="fs--1 mb-3">
-                        <p className="text-500">
-                          {product.category}
+                        <hr />
+                        <p className="text-dark">
+                          MEN&#218; 1 Categor&#237;as. :* <span className="badge rounded-pill badge-soft-info">
+                            {product.categoryOptions}
+                          </span>
                         </p>
-                      </p>
+                        <p className="text-dark">
+                          MEN&#218; 2 Categor&#237;as. :* <span className="badge rounded-pill badge-soft-info">
+                            {product.subcategoryOptions}
+                          </span>
+                        </p>
+                        <p className="text-dark">
+                          MEN&#218; 3 Categor&#237;as. :* <span className="badge rounded-pill badge-soft-info">
+                            {product.tripletecategoryOptions}
+                          </span>
+                        </p>
+                      </h5>
+                      <hr />
                       <h5 className="fs-md-2 text-warning mb-0 d-flex align-items-center mb-3">
-                        {(uint8.toLocaleString('es-CO', { style: 'currency', currency: 'COP' }))}
+                        <span className="badge rounded-pill badge-soft-success">
+                          {(uint8.toLocaleString('es-CO', { style: 'currency', currency: 'COP' }))}
+                        </span>
                       </h5>
                       <p className="fs--1 mb-1">
-                        En Stock: <strong className="text-success">{product.countInStock}</strong>
+                        <h5 className="fs-md-2 text-warning mb-0 d-flex align-items-center mb-3">
+                          En Stock: <strong className="text-success">{product.countInStock}</strong>
+                        </h5>
                       </p>
+                      <hr />
                     </div>
                   </div>
                   <div className="d-flex flex-between-center px-3">

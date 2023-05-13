@@ -26,37 +26,37 @@ const SideBar = () => {
                       <div className="nav flex-column">
                         {/*--------------------------------------------------------------------*/}
                         <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
-                          <FontAwesomeIcon icon="fa-solid fa-gear" /> CATEGORÍAS.
+                          <FontAwesomeIcon icon="fa-solid fa-gear" /> MEN&#218; 1 CATEGORÍAS.
                         </p>
                         <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/category' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
-                          <i className="fa fa-angle-double-right wv_circle" /> Ver Categor&#237;as.
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver MEN&#218; 1 Categor&#237;as.
                         </NavLink>
                         <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addcategory' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
-                          <i className="fa fa-angle-double-right wv_circle" /> Crear Categor&#237;as.
+                          <i className="fa fa-angle-double-right wv_circle" /> Crear MEN&#218; 1 Categor&#237;as.
                         </NavLink>
                         {/*--------------------------------------------------------------------*/}
                         <div className="dropdown-divider" />
                         {/*--------------------------------------------------------------------*/}
                         <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
-                          <FontAwesomeIcon icon="fa-solid fa-gear" /> SUBCATEGORÍAS.
+                          <FontAwesomeIcon icon="fa-solid fa-gear" /> MEN&#218; 2 CATEGORÍAS.
                         </p>
                         <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/subcategory' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
-                          <i className="fa fa-angle-double-right wv_circle" /> Ver SubCategor&#237;as.
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver MEN&#218; 2 Categor&#237;as.
                         </NavLink>
                         <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addsubcategory' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
-                          <i className="fa fa-angle-double-right wv_circle" /> Crear SubCategor&#237;as.
+                          <i className="fa fa-angle-double-right wv_circle" /> Crear MEN&#218; 2 Categor&#237;as.
                         </NavLink>
                         {/*--------------------------------------------------------------------*/}
                         <div className="dropdown-divider" />
                         {/*--------------------------------------------------------------------*/}
                         <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
-                          <FontAwesomeIcon icon="fa-solid fa-gear" /> MEGA-DESPLEGABLE CATEGORÍAS.
+                          <FontAwesomeIcon icon="fa-solid fa-gear" /> MEN&#218; 3 CATEGORÍAS.
                         </p>
                         <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/tripletecategory' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
-                          <i className="fa fa-angle-double-right wv_circle" /> Ver Mega-Desplegable Categor&#237;as.
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver MEN&#218; 3 Categor&#237;as.
                         </NavLink>
                         <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addtripletecategory' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
-                          <i className="fa fa-angle-double-right wv_circle" /> Crear Mega-Desplegable Categor&#237;as.
+                          <i className="fa fa-angle-double-right wv_circle" /> Crear MEN&#218; 3 Categor&#237;as.
                         </NavLink>
                         {/*--------------------------------------------------------------------*/}
                         <div className="dropdown-divider" />
