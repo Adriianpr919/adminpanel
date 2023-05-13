@@ -145,7 +145,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        MENÚ DE OPCIONES CATEGORÍA. {titlecategory &&
+                        MENÚ DE OPCIONES MEN&#218; 1 CATEGORÍA. {titlecategory &&
                           titlecategory.map(titlecategory => (
                             <div key={titlecategory._id} className='form-check'>
                               <span className="badge rounded-pill badge-soft-warning">
@@ -160,7 +160,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                         <div className="panel-body">
                           <p>
                             <label htmlFor="categoryOptions">
-                              CAMBIAR CATEGORÍA. :*
+                              CAMBIAR MEN&#218; 1 CATEGORÍA. :*
                             </label>
                             <div className="form-floating mb-3">
                               <input
@@ -213,7 +213,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                                 </div>
                               </div>
                               <label htmlFor="categoryOptions">
-                                CAMBIAR CATEGORÍA. :*
+                                CAMBIAR MEN&#218; 1 CATEGORÍA. :*
                               </label>
                             </div>
                           </p>
@@ -228,7 +228,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        MENÚ DE OPCIONES SUBCATEGORÍA. {titlesubcategory &&
+                        MENÚ DE OPCIONES MEN&#218; 2 CATEGORÍA. {titlesubcategory &&
                           titlesubcategory.map(titlesubcategory => (
                             <div key={titlesubcategory._id} className='form-check'>
                               <span className="badge rounded-pill badge-soft-warning">
@@ -243,7 +243,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                         <div className="panel-body">
                           <p>
                             <label htmlFor="subcategoryOptions">
-                              CAMBIAR SUBCATEGORÍA. :*
+                              CAMBIAR MEN&#218; 2 CATEGORÍA. :*
                             </label>
                             <div className="form-floating mb-3">
                               <input
@@ -296,7 +296,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                                 </div>
                               </div>
                               <label htmlFor="subcategoryOptions">
-                                CAMBIAR SUBCATEGORÍA. :*
+                                CAMBIAR MEN&#218; 2 CATEGORÍA. :*
                               </label>
                             </div>
                           </p>
@@ -311,7 +311,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        MENÚ DE OPCIONES TRIPLETECATEGORÍA. {titletripletecategory &&
+                        MENÚ DE OPCIONES MEN&#218; 3 CATEGORÍA. {titletripletecategory &&
                           titletripletecategory.map(titletripletecategory => (
                             <div key={titletripletecategory._id} className='form-check'>
                               <span className="badge rounded-pill badge-soft-warning">
@@ -326,7 +326,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                         <div className="panel-body">
                           <p>
                             <label htmlFor="tripletecategoryOptions">
-                              CAMBIAR TRIPLETECATEGORÍA. :*
+                              CAMBIAR MEN&#218; 3 CATEGORÍA. :*
                             </label>
                             <div className="form-floating mb-3">
                               <input
@@ -379,7 +379,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
                                 </div>
                               </div>
                               <label htmlFor="tripletecategoryOptions">
-                                CAMBIAR TRIPLETECATEGORÍA. :*
+                                CAMBIAR MEN&#218; 3 CATEGORÍA. :*
                               </label>
                             </div>
                           </p>
