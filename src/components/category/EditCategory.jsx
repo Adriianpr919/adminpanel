@@ -36,19 +36,19 @@ const EditCategory = ({ category, setOpenEdit }) => {
             <div className="col-lg-8" style={{ textAlign: "justify" }}>
               <div className="close-form" onClick={() => setOpenEdit(false)}>X</div>
               <h3>
-                <FontAwesomeIcon icon={faRefresh} className="far fa-check-circle me-1" data-fa-transform="shrink-3" /> Editar Categor&#237;as.
+                <FontAwesomeIcon icon={faRefresh} className="far fa-check-circle me-1" data-fa-transform="shrink-3" /> Editar MEN&#218; 1 Categor&#237;as.
               </h3>
               <p className="mt-2">
                 <form onSubmit={editCategoryHandler}>
                   <div>
                     <hr />
                     <label htmlFor="titlecategory">
-                      CAMBIAR TITULO DE CATEGORÍAS. :*
+                      CAMBIAR TITULO DE MEN&#218; 1 CATEGORÍAS. :*
                     </label>
                     <div className="form-floating mb-3">
                       <input className="form-control is-valid" type="text" onChange={(e) => setTitlecategory(e.target.value)} value={titlecategory} id='titlecategory' required />
                       <label htmlFor="titlecategory">
-                        CAMBIAR TITULO DE CATEGORÍAS. :*
+                        CAMBIAR TITULO DE MEN&#218; 1 CATEGORÍAS. :*
                       </label>
                     </div>
                     <hr />

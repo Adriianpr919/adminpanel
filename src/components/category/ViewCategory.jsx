@@ -18,7 +18,7 @@ const ViewCategory = ({ setOpenView, category }) => {
                 <hr />
                 <h3 style={{ textAlign: "justify", color: "black" }}>
                   <span className="badge rounded-pill badge-soft-secondary" style={{ textAlign: "justify", color: "black", fontSize: "20px" }}>
-                    <FontAwesomeIcon icon="fa-solid fa-eye" /> Categor&#237;as. :*
+                    <FontAwesomeIcon icon="fa-solid fa-eye" /> MEN&#218; 1 Categor&#237;as. :*
                   </span>
                 </h3>
                 <p className="description" style={{ textAlign: "justify", color: "black" }}>

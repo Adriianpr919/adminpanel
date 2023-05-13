@@ -36,19 +36,19 @@ const EditSubcategory = ({ subcategory, setOpenEdit }) => {
             <div className="col-lg-8" style={{ textAlign: "justify" }}>
               <div className="close-form" onClick={() => setOpenEdit(false)}>X</div>
               <h3>
-                <FontAwesomeIcon icon={faRefresh} className="far fa-check-circle me-1" data-fa-transform="shrink-3" /> Editar SubCategor&#237;as.
+                <FontAwesomeIcon icon={faRefresh} className="far fa-check-circle me-1" data-fa-transform="shrink-3" /> Editar MEN&#218; 2 Categor&#237;as.
               </h3>
               <p className="mt-2">
                 <form onSubmit={editSubcategoryHandler}>
                   <div>
                     <hr />
                     <label htmlFor="titlesubcategory">
-                      CAMBIAR TITULO DE SUBCATEGORÍAS. :*
+                      CAMBIAR TITULO DE MEN&#218; 2 CATEGORÍAS. :*
                     </label>
                     <div className="form-floating mb-3">
                       <input className="form-control is-valid" type="text" onChange={(e) => setTitlesubcategory(e.target.value)} value={titlesubcategory} id='titlesubcategory' required />
                       <label htmlFor="titlesubcategory">
-                        CAMBIAR TITULO DE SUBCATEGORÍAS. :*
+                        CAMBIAR TITULO DE MEN&#218; 2 CATEGORÍAS. :*
                       </label>
                     </div>
                     <hr />

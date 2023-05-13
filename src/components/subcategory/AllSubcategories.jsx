@@ -42,14 +42,14 @@ const AllSubcategories = () => {
         <div className="card-header">
           <div className="row flex-between-center">
             <div className="col-6 col-sm-auto d-flex align-items-center pe-0">
-              <h5 className="fs-0 mb-0 text-nowrap py-2 py-xl-0"><i className="fa-solid fa-eye"></i> SubCategor&#237;as Recientes. </h5>
+              <h5 className="fs-0 mb-0 text-nowrap py-2 py-xl-0"><i className="fa-solid fa-eye"></i> MEN&#218; 2 Categor&#237;as Recientes. </h5>
             </div>
           </div>
         </div>
         <div className="card-body px-0 pt-0">
           {
             subcategory.length === 0 ? (
-              <h3 className='no-data'>¡.Actualmente NO Hay SubCategor&#237; as.!</h3>
+              <h3 className='no-data'>¡.Actualmente NO Hay MEN&#218; 2 Categor&#237; as.!</h3>
             ) : (
               <>
                 {
