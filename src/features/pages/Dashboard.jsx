@@ -5,10 +5,14 @@ import HomePage from '../views/HomePage';
 const Dashboard = () => {
 
   const [users, setUsers] = useState(0); //defualt is 0
+  const [abouts, setAbouts] = useState(0); //defualt is 0
   const [blogs, setBlogs] = useState(0); //defualt is 0
+  const [banners, setBanners] = useState(0); //defualt is 0
   const [orders, setOrders] = useState(0); //default is 0
-  const [ordersclients, setOrdersClients] = useState(0); //default is 0
   const [products, setProducts] = useState(0); //defualt is 0
+  const [category, setCategory] = useState(0); //defualt is 0
+  const [subcategory, setSubcategory] = useState(0); //defualt is 0
+  const [tripletecategory, setTripletecategory] = useState(0); //defualt is 0
 
   const [sum, setSum] = useState(0); //default is 0
 
@@ -16,32 +20,52 @@ const Dashboard = () => {
 
     const fetchData = async () => {
 
-      //Teams users
+      //Teams Users
       const resultUsers = await axios.get('/api/users/countUsers');
       console.log(resultUsers);
       setUsers(resultUsers.data);
 
-      //Teams blogs
+      //Teams Abouts
+      const resultAbouts = await axios.get('/api/abouts/countAbouts');
+      console.log(resultAbouts);
+      setAbouts(resultAbouts.data);
+
+      //Teams Category
+      const resultCategory = await axios.get('/api/category/countCategories');
+      console.log(resultCategory);
+      setCategory(resultCategory.data);
+
+      //Teams Subcategory
+      const resultSubcategory = await axios.get('/api/subcategory/countSubcategories');
+      console.log(resultSubcategory);
+      setSubcategory(resultSubcategory.data);
+
+      //Teams Tripletecategory
+      const resultTripletecategory = await axios.get('/api/tripletecategory/countTripletecategories');
+      console.log(resultTripletecategory);
+      setTripletecategory(resultTripletecategory.data);
+
+      //Teams Blogs
       const resultBlogs = await axios.get('/api/blogs/countBlogs');
       console.log(resultBlogs);
       setBlogs(resultBlogs.data);
 
-      //Teams products
+      //Teams Products
       const resultProducts = await axios.get('/api/products/countProducts');
       console.log(resultProducts);
       setProducts(resultProducts.data);
 
-      //Teams orders
+      //Teams Orders
       const resultOrdersClient = await axios.get('/api/orders/countOrders');
       console.log(resultOrdersClient);
       setOrders(resultOrdersClient.data);
 
-      //Teams ordersclients
-      const resultOrdersClients = await axios.get('/api/ordersclients/countOrderClients');
-      console.log(resultOrdersClients);
-      setOrdersClients(resultOrdersClients.data);
+      //Teams Banners
+      const resultBanners = await axios.get('/api/banners/countBanners');
+      console.log(resultBanners);
+      setBanners(resultBanners.data);
 
-      //Teams sum
+      //Teams Sum
       const resultOrders = await axios.get('/api/orders/countSumTotal');
 
       const resultDataOrders = resultOrders.data;
@@ -67,6 +91,94 @@ const Dashboard = () => {
           <div className="content">
             <HomePage /><hr className="my-4" />
             <div className="row g-3 mb-3">
+              {/*--------------------------------------------------------------------*/}
+              <div className="col-md-6 col-xxl-3">
+                <div className="card h-md-100">
+                  <div className="card-header d-flex flex-between-center pb-0">
+                    <h6 className="mb-0 badge rounded-pill fs--2 bg-200 text-primary" style={{ textAlign: "justify", fontSize: "15px" }}>
+                      MEN&#218; 1 Categor&#237;as. :*
+                    </h6>
+                  </div>
+                  <div className="card-body pt-2">
+                    <div className="row g-0 h-100 align-items-center">
+                      <div className="col">
+                        <div className="d-flex align-items-center">
+                          <img className="me-3" src="../../../assets/img/icons/menu.png" alt="Nury Valenzuela." title="Nury Valenzuela." height={60} />
+                          <div>
+                            <h6 className="mb-2" style={{ textAlign: "justify", fontSize: "15px" }}>
+                              Totales.
+                            </h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-auto text-center ps-2">
+                        <div className="fs-4 fw-normal font-sans-serif text-primary mb-1 lh-1 fs-4 badge badge-soft-success rounded-pill fs--2">
+                          {category?.count}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/*--------------------------------------------------------------------*/}
+              <div className="col-md-6 col-xxl-3">
+                <div className="card h-md-100">
+                  <div className="card-header d-flex flex-between-center pb-0">
+                    <h6 className="mb-0 badge rounded-pill fs--2 bg-200 text-primary" style={{ textAlign: "justify", fontSize: "15px" }}>
+                      MEN&#218; 2 Categor&#237;as. :*
+                    </h6>
+                  </div>
+                  <div className="card-body pt-2">
+                    <div className="row g-0 h-100 align-items-center">
+                      <div className="col">
+                        <div className="d-flex align-items-center">
+                          <img className="me-3" src="../../../assets/img/icons/menu.png" alt="Nury Valenzuela." title="Nury Valenzuela." height={60} />
+                          <div>
+                            <h6 className="mb-2" style={{ textAlign: "justify", fontSize: "15px" }}>
+                              Totales.
+                            </h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-auto text-center ps-2">
+                        <div className="fs-4 fw-normal font-sans-serif text-primary mb-1 lh-1 fs-4 badge badge-soft-success rounded-pill fs--2">
+                          {subcategory?.count}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/*--------------------------------------------------------------------*/}
+              <div className="col-md-6 col-xxl-3">
+                <div className="card h-md-100">
+                  <div className="card-header d-flex flex-between-center pb-0">
+                    <h6 className="mb-0 badge rounded-pill fs--2 bg-200 text-primary" style={{ textAlign: "justify", fontSize: "15px" }}>
+                      MEN&#218; 3 Categor&#237;as. :*
+                    </h6>
+                  </div>
+                  <div className="card-body pt-2">
+                    <div className="row g-0 h-100 align-items-center">
+                      <div className="col">
+                        <div className="d-flex align-items-center">
+                          <img className="me-3" src="../../../assets/img/icons/menu.png" alt="Nury Valenzuela." title="Nury Valenzuela." height={60} />
+                          <div>
+                            <h6 className="mb-2" style={{ textAlign: "justify", fontSize: "15px" }}>
+                              Totales.
+                            </h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-auto text-center ps-2">
+                        <div className="fs-4 fw-normal font-sans-serif text-primary mb-1 lh-1 fs-4 badge badge-soft-success rounded-pill fs--2">
+                          {tripletecategory?.count}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/*--------------------------------------------------------------------*/}
               <div className="col-md-6 col-xxl-3">
                 <div className="card h-md-100">
                   <div className="card-header d-flex flex-between-center pb-0">
@@ -95,6 +207,65 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
+              {/*--------------------------------------------------------------------*/}
+              <div className="col-md-6 col-xxl-3">
+                <div className="card h-md-100">
+                  <div className="card-header d-flex flex-between-center pb-0">
+                    <h6 className="mb-0 badge rounded-pill fs--2 bg-200 text-primary" style={{ textAlign: "justify", fontSize: "15px" }}>
+                      Acerca De. :*
+                    </h6>
+                  </div>
+                  <div className="card-body pt-2">
+                    <div className="row g-0 h-100 align-items-center">
+                      <div className="col">
+                        <div className="d-flex align-items-center">
+                          <img className="me-3" src="../../../assets/img/icons/about.png" alt="Nury Valenzuela." title="Nury Valenzuela." height={60} />
+                          <div>
+                            <h6 className="mb-2" style={{ textAlign: "justify", fontSize: "15px" }}>
+                              Publicaciones.
+                            </h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-auto text-center ps-2">
+                        <div className="fs-4 fw-normal font-sans-serif text-primary mb-1 lh-1 fs-4 badge badge-soft-success rounded-pill fs--2">
+                          {abouts?.count}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/*--------------------------------------------------------------------*/}
+              <div className="col-md-6 col-xxl-3">
+                <div className="card h-md-100">
+                  <div className="card-header d-flex flex-between-center pb-0">
+                    <h6 className="mb-0 badge rounded-pill fs--2 bg-200 text-primary" style={{ textAlign: "justify", fontSize: "15px" }}>
+                      Carrusel Para Deslizarse. :*
+                    </h6>
+                  </div>
+                  <div className="card-body pt-2">
+                    <div className="row g-0 h-100 align-items-center">
+                      <div className="col">
+                        <div className="d-flex align-items-center">
+                          <img className="me-3" src="../../../assets/img/icons/slider.png" alt="Nury Valenzuela." title="Nury Valenzuela." height={60} />
+                          <div>
+                            <h6 className="mb-2" style={{ textAlign: "justify", fontSize: "15px" }}>
+                              Publicaciones.
+                            </h6>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-auto text-center ps-2">
+                        <div className="fs-4 fw-normal font-sans-serif text-primary mb-1 lh-1 fs-4 badge badge-soft-success rounded-pill fs--2">
+                          {banners?.count}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/*--------------------------------------------------------------------*/}
               <div className="col-md-6 col-xxl-3">
                 <div className="card h-md-100">
                   <div className="card-header d-flex flex-between-center pb-0">
@@ -123,6 +294,7 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
+              {/*--------------------------------------------------------------------*/}
               <div className="col-md-6 col-xxl-3">
                 <div className="card h-md-100">
                   <div className="card-header d-flex flex-between-center pb-0">
@@ -151,6 +323,7 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
+              {/*--------------------------------------------------------------------*/}
               <div className="col-md-6 col-xxl-3">
                 <div className="card h-md-100">
                   <div className="card-header d-flex flex-between-center pb-0">
@@ -179,6 +352,7 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
+              {/*--------------------------------------------------------------------*/}
               <div className="col-md-6 col-xxl-3">
                 <div className="card h-md-100">
                   <div className="card-header d-flex flex-between-center pb-0">
@@ -207,34 +381,7 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
-              <div className="col-md-6 col-xxl-3">
-                <div className="card h-md-100">
-                  <div className="card-header d-flex flex-between-center pb-0">
-                    <h6 className="mb-0 badge rounded-pill fs--2 bg-200 text-primary" style={{ textAlign: "justify", fontSize: "15px" }}>
-                      Pedidos Clientes. :*
-                    </h6>
-                  </div>
-                  <div className="card-body pt-2">
-                    <div className="row g-0 h-100 align-items-center">
-                      <div className="col">
-                        <div className="d-flex align-items-center">
-                          <img className="me-3" src="../../../assets/img/icons/online-shopping.png" alt="Nury Valenzuela." title="Nury Valenzuela." height={60} />
-                          <div>
-                            <h6 className="mb-2" style={{ textAlign: "justify", fontSize: "15px" }}>
-                              Totales.
-                            </h6>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-auto text-center ps-2">
-                        <div className="fs-4 fw-normal font-sans-serif text-primary mb-1 lh-1 fs-4 badge badge-soft-success rounded-pill fs--2">
-                          {ordersclients?.count}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {/*--------------------------------------------------------------------*/}
             </div>
           </div>
         </div>

@@ -10,7 +10,13 @@ const MenuNavbar = () => {
       </button>
       <a className="navbar-brand me-1 me-sm-3" href="/" rel="noopener noreferrer">
         <div className="d-flex align-items-center">
-          <img className="me-2" src="../../../assets/img/icons/Logonv.png" alt="Nury Valenzuela." title="Nury Valenzuela." />
+          <img
+            className="me-2"
+            width={200}
+            height={200}
+            src="../../../assets/img/icons/logonv.png"
+            alt="Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45; SISTEMA DE CONTROL DE INVENTARIOS."
+            title="Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45; SISTEMA DE CONTROL DE INVENTARIOS." />
         </div>
       </a>
     </>

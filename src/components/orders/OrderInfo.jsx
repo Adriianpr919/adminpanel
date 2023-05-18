@@ -68,6 +68,14 @@ const OrderInfo = ({ setOpen, order }) => {
               </p>
               <p className="mt-2" style={{ textAlign: "justify" }}>
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
+                  Comentarios. :*
+                </label>
+                <p className="description" style={{ textAlign: "justify", color: "black" }}>
+                  {order.comment}
+                </p>
+              </p>
+              <p className="mt-2" style={{ textAlign: "justify" }}>
+                <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
                   Está Pagado. :*
                 </label>
                 <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
@@ -99,7 +107,7 @@ const OrderInfo = ({ setOpen, order }) => {
                 </p>
               </p><p className="mt-2" style={{ textAlign: "justify" }}>
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
-                  Impuesto. :*
+                  Impuesto IVA De 19%. :*
                 </label>
                 <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
                   {(uint2.toLocaleString('es-CO', { style: 'currency', currency: 'COP' }))}
@@ -131,7 +139,7 @@ const OrderInfo = ({ setOpen, order }) => {
                     La Talla 📏. :* {product.size}
                   </span>
                   <span style={{ color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark mb-2">
-                    Los Colores 🖌️. :* {product.color}
+                    El Color De Oro 🖌️. :* {product.color}
                   </span>
                   <span style={{ color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-success mb-2">
                     Precio. :* {(product.price).toLocaleString('es-CO', {

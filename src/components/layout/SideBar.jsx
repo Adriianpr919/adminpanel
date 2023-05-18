@@ -24,6 +24,43 @@ const SideBar = () => {
                   <div className="row">
                     <div className="col-12 col-md-12">
                       <div className="nav flex-column">
+                        {/*--------------------------------------------------------------------*/}
+                        <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
+                          <FontAwesomeIcon icon="fa-solid fa-gear" /> MEN&#218; 1 CATEGORÍAS.
+                        </p>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/category' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver MEN&#218; 1 Categor&#237;as.
+                        </NavLink>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addcategory' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Crear MEN&#218; 1 Categor&#237;as.
+                        </NavLink>
+                        {/*--------------------------------------------------------------------*/}
+                        <div className="dropdown-divider" />
+                        {/*--------------------------------------------------------------------*/}
+                        <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
+                          <FontAwesomeIcon icon="fa-solid fa-gear" /> MEN&#218; 2 CATEGORÍAS.
+                        </p>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/subcategory' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver MEN&#218; 2 Categor&#237;as.
+                        </NavLink>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addsubcategory' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Crear MEN&#218; 2 Categor&#237;as.
+                        </NavLink>
+                        {/*--------------------------------------------------------------------*/}
+                        <div className="dropdown-divider" />
+                        {/*--------------------------------------------------------------------*/}
+                        <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
+                          <FontAwesomeIcon icon="fa-solid fa-gear" /> MEN&#218; 3 CATEGORÍAS.
+                        </p>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/tripletecategory' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver MEN&#218; 3 Categor&#237;as.
+                        </NavLink>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addtripletecategory' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Crear MEN&#218; 3 Categor&#237;as.
+                        </NavLink>
+                        {/*--------------------------------------------------------------------*/}
+                        <div className="dropdown-divider" />
+                        {/*--------------------------------------------------------------------*/}
                         <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
                           <FontAwesomeIcon icon={faBagShopping} /> PRODUCTOS.
                         </p>
@@ -33,27 +70,27 @@ const SideBar = () => {
                         <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addproducts' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
                           <i className="fa fa-angle-double-right wv_circle" /> Crear Productos.
                         </NavLink>
+                        {/*--------------------------------------------------------------------*/}
                         <div className="dropdown-divider" />
+                        {/*--------------------------------------------------------------------*/}
                         <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
-                          <i className="fa-solid fa-gear"></i> AJUSTES.
+                          <i className="fas fa-user-shield"></i> AJUSTES.
                         </p>
                         <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/users' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
                           <i className="fa fa-angle-double-right wv_circle" /> Ver Colaboradores.
                         </NavLink>
+                        {/*--------------------------------------------------------------------*/}
                         <div className="dropdown-divider" />
+                        {/*--------------------------------------------------------------------*/}
                         <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
                           <FontAwesomeIcon icon="fa-solid fa-box" /> MIS PEDIDOS.
                         </p>
                         <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/orders' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
                           <i className="fa fa-angle-double-right wv_circle" /> Ver Pedidos.
                         </NavLink>
-                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/ordersclients' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
-                          <i className="fa fa-angle-double-right wv_circle" /> Ver Pedidos Clientes.
-                        </NavLink>
-                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addordersclients' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
-                          <i className="fa fa-angle-double-right wv_circle" /> Crear Pedidos Clientes.
-                        </NavLink>
+                        {/*--------------------------------------------------------------------*/}
                         <div className="dropdown-divider" />
+                        {/*--------------------------------------------------------------------*/}
                         <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
                           <FontAwesomeIcon icon={faInfoCircle} /> PUBLICACIONES.
                         </p>
@@ -63,6 +100,31 @@ const SideBar = () => {
                         <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addposts' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
                           <i className="fa fa-angle-double-right wv_circle" /> Crear Blog.
                         </NavLink>
+                        {/*--------------------------------------------------------------------*/}
+                        <div className="dropdown-divider" />
+                        {/*--------------------------------------------------------------------*/}
+                        <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
+                          <FontAwesomeIcon icon="fa-solid fa-sliders" /> PUBLICACIONES.
+                        </p>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/banners' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver Carrusel Para Deslizarse.
+                        </NavLink>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addbanners' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Crear Carrusel Para Deslizarse.
+                        </NavLink>
+                        {/*--------------------------------------------------------------------*/}
+                        <div className="dropdown-divider" />
+                        {/*--------------------------------------------------------------------*/}
+                        <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
+                          <FontAwesomeIcon icon="fa-solid fa-address-card" /> PUBLICACIONES.
+                        </p>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/abouts' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver Acerca De.
+                        </NavLink>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addabouts' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Crear Acerca De.
+                        </NavLink>
+                        {/*--------------------------------------------------------------------*/}
                       </div>
                     </div>
                   </div>

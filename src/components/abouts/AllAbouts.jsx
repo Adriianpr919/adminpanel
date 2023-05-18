@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import AllOrderClient from './AllOrderClient';
+import AllAbout from './AllAbout';
 import ReactPaginate from 'react-paginate';
 
-const AllOrdersClients = () => {
+const AllAbouts = () => {
 
-  const [ordersclients, setOrdersClients] = useState([]);
+  const [abouts, setAbouts] = useState([]);
 
   // for pagination
   const [pageNumber, setPageNumber] = useState(0);
-  const ordersclientsPerPage = 5;
-  const pagesVisited = pageNumber * ordersclientsPerPage;
+  const aboutsPerPage = 5;
+  const pagesVisited = pageNumber * aboutsPerPage;
 
-  const pageCount = Math.ceil(ordersclients.length / ordersclientsPerPage);
-
-
+  const pageCount = Math.ceil(abouts.length / aboutsPerPage);
 
   const handlePageClick = ({ selected }) => {
     setPageNumber(selected);
@@ -23,15 +21,15 @@ const AllOrdersClients = () => {
   useEffect(() => {
 
     const fetchData = async () => {
-      const resultOrderClient = await axios.get('/api/ordersclients/all');
-      // i want the latest OrderClient to show
+      const resultAbout = await axios.get('/api/abouts/all');
+      // i want the latest abouts to show
 
-      const resultOrderClientData = resultOrderClient.data;
+      const resultAboutData = resultAbout.data;
 
-      const sortResultOrderClientData = resultOrderClientData.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+      const sortResultAboutData = resultAboutData.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 
-      console.log(sortResultOrderClientData);
-      setOrdersClients(sortResultOrderClientData);
+      console.log(sortResultAboutData);
+      setAbouts(sortResultAboutData);
     }
 
     fetchData();
@@ -44,19 +42,19 @@ const AllOrdersClients = () => {
         <div className="card-header">
           <div className="row flex-between-center">
             <div className="col-6 col-sm-auto d-flex align-items-center pe-0">
-              <h5 className="fs-0 mb-0 text-nowrap py-2 py-xl-0"><i className="fa-solid fa-eye"></i> Pedidos Recientes. </h5>
+              <h5 className="fs-0 mb-0 text-nowrap py-2 py-xl-0"><i className="fa-solid fa-eye"></i> Acerca De Recientes. </h5>
             </div>
           </div>
         </div>
         <div className="card-body px-0 pt-0">
           {
-            ordersclients.length === 0 ? (
-              <h3 className='no-data'>¡.Actualmente NO Hay Pedidos.!</h3>
+            abouts.length === 0 ? (
+              <h3 className='no-data'>¡.Actualmente NO Hay Acerca De.!</h3>
             ) : (
               <>
                 {
-                  ordersclients.slice(pagesVisited, pagesVisited + ordersclientsPerPage).map((orderclient) => (
-                    <AllOrderClient key={orderclient._id} orderclient={orderclient} />
+                  abouts.slice(pagesVisited, pagesVisited + aboutsPerPage).map((about) => (
+                    <AllAbout key={about._id} about={about} />
                   ))
                 }
                 <ReactPaginate className='filter-pagination'
@@ -88,4 +86,4 @@ const AllOrdersClients = () => {
   );
 }
 
-export default AllOrdersClients;
+export default AllAbouts;

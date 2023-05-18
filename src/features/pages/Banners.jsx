@@ -1,8 +1,8 @@
 import React from 'react';
-import AllOrdersClients from '../../components/orderClient/AllOrdersClients';
+import AllBanners from '../../components/banners/AllBanners';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const OrdersClients = () => {
+const Banners = () => {
   return (
     <>
       <hr className="my-4" />
@@ -16,15 +16,15 @@ const OrdersClients = () => {
                   <div className="col-lg-12">
                     <h3>
                       <code>
-                        <FontAwesomeIcon icon="fa-solid fa-box" /> Listado De Pedidos.
+                        <FontAwesomeIcon icon="fa-solid fa-sliders" /> Listado De Carrusel Para Deslizarse.
                       </code>
                     </h3>
-                    <a className="btn btn-link ps-0 btn-sm" href="/addordersclients" rel="noopener noreferrer">
+                    <a className="btn btn-link ps-0 btn-sm" href="/addbanners" rel="noopener noreferrer">
                       <code className='badge rounded-pill badge-soft-primary' style={{ fontSize: "20px" }}>
-                        <i className="fa-solid fa-square-plus"></i> Agregar Pedidos.
+                        <i className="fa-solid fa-square-plus"></i> Agregar Carrusel Para Deslizarse.
                       </code>
                     </a>
-                    <a className="btn btn-link ps-0 btn-sm" href="/ordersclients" rel="noopener noreferrer">
+                    <a className="btn btn-link ps-0 btn-sm" href="/banners" rel="noopener noreferrer">
                       <code className='badge rounded-pill badge-soft-dark' style={{ fontSize: "20px" }}>
                         <FontAwesomeIcon icon="fa-solid fa-repeat" /> Cargar La Página. <span className="fas fa-chevron-right ms-1 fs--2" style={{ fontSize: "20px" }} />
                       </code>
@@ -34,7 +34,7 @@ const OrdersClients = () => {
               </div>
             </div>
             <>
-              <AllOrdersClients />
+              <AllBanners />
             </>
           </div>
         </div>
@@ -43,4 +43,4 @@ const OrdersClients = () => {
   );
 }
 
-export default OrdersClients;
+export default Banners;

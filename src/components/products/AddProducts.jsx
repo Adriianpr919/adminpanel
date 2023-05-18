@@ -1,19 +1,24 @@
 import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { NavLink } from 'react-router-dom';
 
 const AddProducts = () => {
 
+
+  const [titlecategory, setTitlecategory] = useState('');
+  const [titlesubcategory, setTitlesubcategory] = useState('');
+  const [titletripletecategory, setTitletripletecategory] = useState('');
+
   const [title, setTitle] = useState('');
-  const [category, setCategory] = useState('');
-  const [subcategory, setSubcategory] = useState('');
+  const [categoryOptions, setCategoryOptions] = useState('');
+  const [subcategoryOptions, setSubcategoryOptions] = useState('');
+  const [tripletecategoryOptions, setTripletecategoryOptions] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
-  const [star, setStar] = useState('');
   const [sizes, setSizes] = useState([{ value: '', key: '' }]);
   const [colors, setColors] = useState([{ value: '', key: '' }]);
   const [image, setImage] = useState('');
@@ -81,12 +86,12 @@ const AddProducts = () => {
       const { data } = await axios.post('/api/products/add', {
 
         title,
-        category,
-        subcategory,
+        categoryOptions,
+        subcategoryOptions,
+        tripletecategoryOptions,
         countInStock,
         description,
         price,
-        star,
         sizes,
         colors,
         image,
@@ -97,12 +102,12 @@ const AddProducts = () => {
       console.log(data);
       toast.success('¡.Ha Agregado Con Éxito Un Nuevo Producto.!');
       setTitle('');
-      setCategory('');
-      setSubcategory('');
+      setCategoryOptions('');
+      setSubcategoryOptions('');
+      setTripletecategoryOptions('');
       setCountInStock('');
       setDescription('');
       setPrice('');
-      setStar('');
       setSizes([{ value: '', key: '' }]);
       setColors([{ value: '', key: '' }]);
       setImage('');
@@ -114,6 +119,26 @@ const AddProducts = () => {
 
     }
   }
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      const resultCategory = await axios.get('/api/category/all');
+      console.log(resultCategory.data);
+      setTitlecategory(resultCategory.data);
+
+      const resultSubcategory = await axios.get('/api/subcategory/all');
+      console.log(resultSubcategory.data);
+      setTitlesubcategory(resultSubcategory.data);
+
+      const resultTripletecategory = await axios.get('/api/tripletecategory/all');
+      console.log(resultTripletecategory.data);
+      setTitletripletecategory(resultTripletecategory.data);
+    }
+
+    fetchData();
+
+  }, []);
 
   return (
     <>
@@ -159,31 +184,80 @@ const AddProducts = () => {
                     <hr />
                     <fieldset>
                       <legend style={{ textAlign: "justify" }}>
-                        <label htmlFor="cat">
+                        <label htmlFor="categoryOptions">
                           <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        POR FAVOR SELECCIONA CATEGORÍA <span><b><code className='badge rounded-pill badge-soft-danger' style={{ fontSize: "15px" }}>"(Hombres), (Mujeres), (Niños) y (Niñas)"</code></b></span>.
+                        MENÚ DE OPCIONES MEN&#218; 1 CATEGORÍA. {titlecategory &&
+                          titlecategory.map(titlecategory => (
+                            <div key={titlecategory._id} className='form-check'>
+                              <span className="badge rounded-pill badge-soft-warning">
+                                <code>
+                                  {titlecategory.titlecategory}
+                                </code>
+                              </span>
+                            </div>
+                          ))}
                       </legend>
                       <div className="panel panel-default">
                         <div className="panel-body">
                           <p>
-                            <label htmlFor="cat">
-                              CATEGORÍA. :*
+                            <label htmlFor="categoryOptions">
+                              MEN&#218; 1 CATEGORÍA. :*
                             </label>
-                            <div class="form-floating mb-3">
-                              <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setCategory(e.target.value)} value={category} id='category' required>
-                                <option value="" disabled selected>--- Seleccionar ---</option>
-                                <option value="Hombres">Hombres</option>
-                                <option value="Mujeres">Mujeres</option>
-                                <option value="Niños">Niños</option>
-                                <option value="Niñas">Niñas</option>
-                              </select>
-                              <label htmlFor="cat">
-                                CATEGORÍA. :* <span className="badge rounded-pill text-bg-secondary" style={{ fontSize: "15px" }}>
-                                  <code className='text-white'>(Hombres), (Mujeres), (Niños) y (Niñas).</code>
-                                </span>
+                            <div className="form-floating mb-3">
+                              <input
+                                className="form-control is-valid"
+                                type="text"
+                                onChange={(e) => setCategoryOptions(e.target.value)}
+                                value={categoryOptions}
+                                name={categoryOptions}
+                                id='categoryOptions'
+                                required />
+                              <div className="mb-3">
+                                <label htmlFor="categoryOptions">
+                                  Seleccione Uno ⬆️. :*
+                                </label>
+                                <select
+                                  className="form-select js-choice is-valid"
+                                  aria-label=".form-select-lg js-choice"
+                                  data-placeholder="--- Seleccionar ---"
+                                  data-control="select2"
+                                  defaultValue={{ label: "--- Seleccionar ---", value: 0 }}
+                                  onChange={(e) => setCategoryOptions(e.target.value)}
+                                  value={categoryOptions}
+                                  name={categoryOptions}
+                                  id={categoryOptions}
+                                  required="required"
+                                  data-options='{"removeItemButton":true,"placeholder":true}'>
+                                  <option value={'Seleccionar'} defaultValue hidden>
+                                    {'--- Seleccionar ---'}
+                                  </option>
+                                  {titlecategory &&
+                                    titlecategory.map((titlecategory) => (
+                                      <option
+                                        details={titlecategory}
+                                        key={titlecategory._id}
+                                        name={titlecategory.titlecategory}
+                                        value={titlecategory.titlecategory}
+                                        className="badge rounded-pill badge-soft-warning">
+                                        <code>
+                                          {titlecategory.titlecategory}
+                                        </code>
+                                      </option>
+                                    ))}
+                                </select>
+                                <div className="invalid-feedback">
+                                  <span className="badge rounded-pill badge-soft-danger">
+                                    <code>
+                                      ¡.ALERTA POR FAVOR Seleccione Uno.!
+                                    </code>
+                                  </span>
+                                </div>
+                              </div>
+                              <label htmlFor="categoryOptions">
+                                MEN&#218; 1 CATEGORÍA. :*
                               </label>
                             </div>
                           </p>
@@ -193,29 +267,163 @@ const AddProducts = () => {
                     <hr />
                     <fieldset>
                       <legend style={{ textAlign: "justify" }}>
-                        <label htmlFor="scat">
+                        <label htmlFor="subcategoryOptions">
                           <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        POR FAVOR SELECCIONA SUBCATEGORÍA <span><b><code className='badge rounded-pill badge-soft-danger' style={{ fontSize: "15px" }}>"(Nuevos) y (Destacados)"</code></b></span>.
+                        MENÚ DE OPCIONES MEN&#218; 2 CATEGORÍA. {titlesubcategory &&
+                          titlesubcategory.map(titlesubcategory => (
+                            <div key={titlesubcategory._id} className='form-check'>
+                              <span className="badge rounded-pill badge-soft-warning">
+                                <code>
+                                  {titlesubcategory.titlesubcategory}
+                                </code>
+                              </span>
+                            </div>
+                          ))}
                       </legend>
                       <div className="panel panel-default">
                         <div className="panel-body">
                           <p>
-                            <label htmlFor="scat">
-                              SUBCATEGORÍA. :*
+                            <label htmlFor="subcategoryOptions">
+                              MEN&#218; 2 CATEGORÍA. :*
                             </label>
-                            <div class="form-floating mb-3">
-                              <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setSubcategory(e.target.value)} value={subcategory} id='subcategory' required>
-                                <option value="" disabled selected>--- Seleccionar ---</option>
-                                <option value="Nuevos">Nuevos</option>
-                                <option value="Destacados">Destacados</option>
-                              </select>
-                              <label htmlFor="scat">
-                                SUBCATEGORÍA. :* <span className="badge rounded-pill text-bg-secondary" style={{ fontSize: "15px" }}>
-                                  <code className='text-white'>(Nuevos) y (Destacados).</code>
-                                </span>
+                            <div className="form-floating mb-3">
+                              <input
+                                className="form-control is-valid"
+                                type="text"
+                                onChange={(e) => setSubcategoryOptions(e.target.value)}
+                                value={subcategoryOptions}
+                                name={subcategoryOptions}
+                                id='subcategoryOptions'
+                                required />
+                              <div className="mb-3">
+                                <label htmlFor="subcategoryOptions">
+                                  Seleccione Uno ⬆️. :*
+                                </label>
+                                <select
+                                  className="form-select js-choice is-valid"
+                                  aria-label=".form-select-lg js-choice"
+                                  data-placeholder="--- Seleccionar ---"
+                                  data-control="select2"
+                                  defaultValue={{ label: "--- Seleccionar ---", value: 0 }}
+                                  onChange={(e) => setSubcategoryOptions(e.target.value)}
+                                  value={subcategoryOptions}
+                                  name={subcategoryOptions}
+                                  id={subcategoryOptions}
+                                  required="required"
+                                  data-options='{"removeItemButton":true,"placeholder":true}'>
+                                  <option value={'Seleccionar'} defaultValue hidden>
+                                    {'--- Seleccionar ---'}
+                                  </option>
+                                  {titlesubcategory &&
+                                    titlesubcategory.map((titlesubcategory) => (
+                                      <option
+                                        details={titlesubcategory}
+                                        key={titlesubcategory._id}
+                                        name={titlesubcategory.titlesubcategory}
+                                        value={titlesubcategory.titlesubcategory}
+                                        className="badge rounded-pill badge-soft-warning">
+                                        <code>
+                                          {titlesubcategory.titlesubcategory}
+                                        </code>
+                                      </option>
+                                    ))}
+                                </select>
+                                <div className="invalid-feedback">
+                                  <span className="badge rounded-pill badge-soft-danger">
+                                    <code>
+                                      ¡.ALERTA POR FAVOR Seleccione Uno.!
+                                    </code>
+                                  </span>
+                                </div>
+                              </div>
+                              <label htmlFor="subcategoryOptions">
+                                MEN&#218; 2 CATEGORÍA. :*
+                              </label>
+                            </div>
+                          </p>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <hr />
+                    <fieldset>
+                      <legend style={{ textAlign: "justify" }}>
+                        <label htmlFor="tripletecategoryOptions">
+                          <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
+                            <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
+                          </span>
+                        </label> -
+                        MENÚ DE OPCIONES MEN&#218; 3 CATEGORÍA. {titletripletecategory &&
+                          titletripletecategory.map(titletripletecategory => (
+                            <div key={titletripletecategory._id} className='form-check'>
+                              <span className="badge rounded-pill badge-soft-warning">
+                                <code>
+                                  {titletripletecategory.titletripletecategory}
+                                </code>
+                              </span>
+                            </div>
+                          ))}
+                      </legend>
+                      <div className="panel panel-default">
+                        <div className="panel-body">
+                          <p>
+                            <label htmlFor="tripletecategoryOptions">
+                              MEN&#218; 3 CATEGORÍA. :*
+                            </label>
+                            <div className="form-floating mb-3">
+                              <input
+                                className="form-control is-valid"
+                                type="text"
+                                onChange={(e) => setTripletecategoryOptions(e.target.value)}
+                                value={tripletecategoryOptions}
+                                name={tripletecategoryOptions}
+                                id='tripletecategoryOptions'
+                                required />
+                              <div className="mb-3">
+                                <label htmlFor="tripletecategoryOptions">
+                                  Seleccione Uno ⬆️. :*
+                                </label>
+                                <select
+                                  className="form-select js-choice is-valid"
+                                  aria-label=".form-select-lg js-choice"
+                                  data-placeholder="--- Seleccionar ---"
+                                  data-control="select2"
+                                  defaultValue={{ label: "--- Seleccionar ---", value: 0 }}
+                                  onChange={(e) => setTripletecategoryOptions(e.target.value)}
+                                  value={tripletecategoryOptions}
+                                  name={tripletecategoryOptions}
+                                  id={tripletecategoryOptions}
+                                  required="required"
+                                  data-options='{"removeItemButton":true,"placeholder":true}'>
+                                  <option value={'Seleccionar'} defaultValue hidden>
+                                    {'--- Seleccionar ---'}
+                                  </option>
+                                  {titletripletecategory &&
+                                    titletripletecategory.map((titletripletecategory) => (
+                                      <option
+                                        details={titletripletecategory}
+                                        key={titletripletecategory._id}
+                                        name={titletripletecategory.titletripletecategory}
+                                        value={titletripletecategory.titletripletecategory}
+                                        className="badge rounded-pill badge-soft-warning">
+                                        <code>
+                                          {titletripletecategory.titletripletecategory}
+                                        </code>
+                                      </option>
+                                    ))}
+                                </select>
+                                <div className="invalid-feedback">
+                                  <span className="badge rounded-pill badge-soft-danger">
+                                    <code>
+                                      ¡.ALERTA POR FAVOR Seleccione Uno.!
+                                    </code>
+                                  </span>
+                                </div>
+                              </div>
+                              <label htmlFor="tripletecategoryOptions">
+                                MEN&#218; 3 CATEGORÍA. :*
                               </label>
                             </div>
                           </p>
@@ -263,18 +471,9 @@ const AddProducts = () => {
                       DESCRIPCIÓN. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <textarea className="form-control is-valid" id="desc" cols="50" rows="50" required onChange={(e) => setDescription(e.target.value)} value={description} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <textarea className="form-control is-valid" id="desc" cols="100" rows="100" required onChange={(e) => setDescription(e.target.value)} value={description} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
                       <label htmlFor="desc">
                         DESCRIPCIÓN. :*
-                      </label>
-                    </div>
-                    <label htmlFor="star">
-                      CLASIFICACIÓN ⭐. :*
-                    </label>
-                    <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setStar(e.target.value)} value={star} id='star' required />
-                      <label htmlFor="star">
-                        CLASIFICACIÓN ⭐. :*
                       </label>
                     </div>
                     <hr />
@@ -285,7 +484,7 @@ const AddProducts = () => {
                           <fieldset className="col-md-12">
                             <legend style={{ textAlign: "justify" }}>
                               <label htmlFor="sizes">
-                                <span class="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
+                                <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                                   <FontAwesomeIcon icon="fa-solid fa-gear" /> AVISO IMPORTANTE. :*
                                 </span>
                               </label> -
@@ -330,12 +529,12 @@ const AddProducts = () => {
                     <hr />
                     <div className="container">
                       <div className="panel panel-default">
-                        <div className="panel-heading">ESCRIBA LOS COLORES 🖌️. :*</div>
+                        <div className="panel-heading">ESCRIBA EL COLOR DE ORO 🖌️. :*</div>
                         <div className="panel-body">
                           <fieldset className="col-md-12">
                             <legend style={{ textAlign: "justify" }}>
                               <label htmlFor="colors">
-                                <span class="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
+                                <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                                   <FontAwesomeIcon icon="fa-solid fa-gear" /> AVISO IMPORTANTE. :*
                                 </span>
                               </label> -
@@ -347,13 +546,13 @@ const AddProducts = () => {
                                   <div className="form-group">
                                     <div className="form-groupValues">
                                       <label htmlFor="colors">
-                                        ESCRIBA LOS COLORES 🖌️. :*
+                                        ESCRIBA EL COLOR DE ORO 🖌️. :*
                                       </label>
                                       {colors.map((element, i) => (
                                         <div className='d-flexAdd form-floating mb-3' key={i}>
                                           <input key={element.i} className="form-control is-valid" type="text" name='colors' onChange={(e) => handleChangeColor(e, i, element.i)} value={colors[`${i}`]?.value || ''} id='colors' required />
                                           <label htmlFor="colors">
-                                            ESCRIBA LOS COLORES 🖌️. :*
+                                            ESCRIBA EL COLOR DE ORO 🖌️. :*
                                           </label>
                                           {
                                             i ? <button type='button' className='btn-remove btn btn-outline-danger me-1 mb-1' onClick={() => removeColorFields(i)}>
@@ -386,7 +585,7 @@ const AddProducts = () => {
                             <fieldset className="col-md-12">
                               <legend style={{ textAlign: "justify" }}>
                                 <label htmlFor="image">
-                                  <span class="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
+                                  <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                                     <i className='fas fa-camera-retro'></i> AVISO IMPORTANTE. :*
                                   </span>
                                 </label> -
@@ -424,7 +623,7 @@ const AddProducts = () => {
                             <fieldset className="col-md-12">
                               <legend style={{ textAlign: "justify" }}>
                                 <label htmlFor="imagesOnes">
-                                  <span class="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
+                                  <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                                     <i className='fas fa-camera-retro'></i> AVISO IMPORTANTE. :*
                                   </span>
                                 </label> -

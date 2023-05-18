@@ -63,8 +63,8 @@ const Login = () => {
                         <div className="z-index-1 position-relative">
                           <a className="link-light mb-4 font-sans-serif fs-4 d-inline-block fw-bolder" href="/" rel="noopener noreferrer">
                             Bienvenida De Nuevo, <span className="special" style={{ textAlign: "center", color: "white" }}>
-                              Nury Valenzuela.
-                            </span>
+                              Nury Valenzuela&#174;
+                            </span>Joyer&iacute;a &#124; Colombia.
                           </a>
                           <p className="opacity-75 text-white" style={{ textAlign: "center" }}>
                             Inicia Sesión En Tu Cuenta Para Continuar.
@@ -73,7 +73,7 @@ const Login = () => {
                       </div>
                       <div className="mt-3 mb-4 mt-md-4 mb-md-5 light">
                         <p className="text-white">
-                          CopyRight &copy; Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45; {new Date().getFullYear()}. &#124; Todos Los Derechos Reservados.
+                          CopyRight &copy; Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45; SISTEMA DE CONTROL DE INVENTARIOS. &#45; {new Date().getFullYear()}. &#124; Todos Los Derechos Reservados.
                         </p>
                       </div>
                     </div>

@@ -16,18 +16,26 @@ const ViewProduct = ({ product, setOpenViewProduct }) => {
               <div className="close-form" onClick={() => setOpenViewProduct(false)}>X</div>
               <p className="mt-2" style={{ textAlign: "justify" }}>
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
-                  Categoría. :*
+                  MEN&#218; 1 Categor&#237;as. :*
                 </label>
                 <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
-                  {product.category}
+                  {product.categoryOptions}
                 </p>
               </p>
               <p className="mt-2" style={{ textAlign: "justify" }}>
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
-                  SubCategoría. :*
+                  MEN&#218; 2 Categor&#237;as. :*
                 </label>
                 <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
-                  {product.subcategory}
+                  {product.subcategoryOptions}
+                </p>
+              </p>
+              <p className="mt-2" style={{ textAlign: "justify" }}>
+                <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
+                  MEN&#218; 3 Categor&#237;as. :*
+                </label>
+                <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
+                  {product.tripletecategoryOptions}
                 </p>
               </p>
               <p className="mt-2" style={{ textAlign: "justify" }}>
@@ -56,14 +64,6 @@ const ViewProduct = ({ product, setOpenViewProduct }) => {
               </p>
               <p className="mt-2" style={{ textAlign: "justify" }}>
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
-                  Clasificación ⭐. :*
-                </label>
-                <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
-                  {product.star}
-                </p>
-              </p>
-              <p className="mt-2" style={{ textAlign: "justify" }}>
-                <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
                   La Talla 📏. :*
                 </label>
                 <p className="description text-left" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
@@ -78,7 +78,7 @@ const ViewProduct = ({ product, setOpenViewProduct }) => {
               </p>
               <p className="mt-2" style={{ textAlign: "justify" }}>
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
-                  Los Colores 🖌️. :*
+                  El Color De Oro 🖌️. :*
                 </label>
                 <p className="description text-left" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
                   <div className="popup-images">

@@ -1,25 +1,33 @@
 {
-  "short_name": "Nury Valenzuela.",
-  "name": "Nury Valenzuela.",
+  "lang": "es-CO",
+  "dir": "ltr",
+  "short_name": "NuryValenzuelaJoyeria.",
+  "name": "Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45; SISTEMA DE CONTROL DE INVENTARIOS.",
+  "author": "Adrian Paez",
+  "default_title": "Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45; SISTEMA DE CONTROL DE INVENTARIOS.",
+  "default_locale": "es-CO",
   "icons": [
     {
-      "src": "./assetsLogo/logo.ico",
+      "src": "./assetsLogo/logonv.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "./assetsLogo/Logonv.png",
+      "src": "./assetsLogo/logonv.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "./assetsLogo/Logonv.png",
+      "src": "./assetsLogo/logonv.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "scope": "/",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#2c7be5",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "orientation": "any",
+  "description": "Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45; SISTEMA DE CONTROL DE INVENTARIOS."
 }

@@ -12,13 +12,6 @@ const HomePage = () => {
               <h5 className="text-warning">
                 SISTEMA DE CONTROL DE INVENTARIOS.
               </h5>
-              <hr className="my-2" />
-              <a className="btn btn-link fs--1 text-warning mt-lg-3 ps-0" href="/" rel="noopener noreferrer">
-                Bienvenida De Nuevo, <span className="special" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
-                  Nury Valenzuela.
-                </span>
-                <span className="fas fa-chevron-right ms-1" data-fa-transform="shrink-4 down-1" />
-              </a>
             </div>
           </div>
         </div>
