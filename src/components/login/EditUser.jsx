@@ -1,8 +1,10 @@
 import { faRefresh } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
+//import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+
+import { api } from '../../api/login/userApi';
 
 const EditUser = ({ user, setOpenEditUser }) => {
 
@@ -18,7 +20,7 @@ const EditUser = ({ user, setOpenEditUser }) => {
 
     try {
 
-      const { data } = await axios.put("/api/users/update", {
+      const { data } = await api.put("/api/users/update", {
         _id: user._id,
         nombres,
         apellidos,

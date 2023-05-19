@@ -1,9 +1,11 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
+//import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { NavLink } from 'react-router-dom';
+
+import { api } from '../../api/banner/bannerApi';
 
 const AddBanners = () => {
 
@@ -16,7 +18,7 @@ const AddBanners = () => {
 
     try {
 
-      const { data } = await axios.post('/api/banners/add', {
+      const { data } = await api.post('/api/banners/add', {
 
         title,
         image,

@@ -1,8 +1,10 @@
 import { faRefresh } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
+//import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+
+import { api } from '../../api/banner/bannerApi';
 
 const EditBanner = ({ banner, setOpenEdit }) => {
 
@@ -15,7 +17,7 @@ const EditBanner = ({ banner, setOpenEdit }) => {
 
     try {
 
-      const { data } = await axios.put("/api/banners/update", {
+      const { data } = await api.put("/api/banners/update", {
         _id: banner._id,
         title,
         image,

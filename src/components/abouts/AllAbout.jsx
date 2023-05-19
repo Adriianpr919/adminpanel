@@ -4,7 +4,8 @@ import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
 import ViewAbout from './ViewAbout';
 import EditAbout from './EditAbout';
 import { toast } from 'react-toastify';
-import axios from 'axios';
+//import axios from 'axios';
+import { api } from '../../api/about/aboutApi';
 
 const AllAbout = ({ about }) => {
 
@@ -15,7 +16,7 @@ const AllAbout = ({ about }) => {
 
     try {
 
-      const { data } = await axios.delete(`/api/abouts/delete/${about._id}`);
+      const { data } = await api.delete(`/api/abouts/delete/${about._id}`);
 
       if (data) {
         toast.success('¡.Acerca De Eliminado Con Éxito.!');

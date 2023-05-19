@@ -4,7 +4,9 @@ import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
 import ViewBlog from './ViewBlog';
 import EditBlog from './EditBlog';
 import { toast } from 'react-toastify';
-import axios from 'axios';
+//import axios from 'axios';
+
+import { api } from '../../api/blog/blogApi';
 
 const AllBlog = ({ blog }) => {
 
@@ -15,7 +17,7 @@ const AllBlog = ({ blog }) => {
 
     try {
 
-      const { data } = await axios.delete(`/api/blogs/delete/${blog._id}`);
+      const { data } = await api.delete(`/api/blogs/delete/${blog._id}`);
 
       if (data) {
         toast.success('¡.Blog Eliminado Con Éxito.!');

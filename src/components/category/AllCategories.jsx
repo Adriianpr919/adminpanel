@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import AllCategory from './AllCategory';
 import ReactPaginate from 'react-paginate';
+
+import { api } from '../../api/category/categoryApi';
 
 const AllCategories = () => {
 
@@ -21,7 +23,7 @@ const AllCategories = () => {
   useEffect(() => {
 
     const fetchData = async () => {
-      const resultCategory = await axios.get('/api/category/all');
+      const resultCategory = await api.get('/api/category/all');
       // i want the latest category to show
 
       const resultCategoryData = resultCategory.data;

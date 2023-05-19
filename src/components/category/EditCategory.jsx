@@ -1,8 +1,10 @@
 import { faRefresh } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
+//import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+
+import { api } from '../../api/category/categoryApi';
 
 const EditCategory = ({ category, setOpenEdit }) => {
 
@@ -13,7 +15,7 @@ const EditCategory = ({ category, setOpenEdit }) => {
 
     try {
 
-      const { data } = await axios.put("/api/category/update", {
+      const { data } = await api.put("/api/category/update", {
         _id: category._id,
         titlecategory
       });

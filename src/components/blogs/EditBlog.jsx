@@ -1,8 +1,10 @@
 import { faRefresh } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
+//import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+
+import { api } from '../../api/blog/blogApi';
 
 const EditBlog = ({ blog, setOpenEdit }) => {
 
@@ -15,7 +17,7 @@ const EditBlog = ({ blog, setOpenEdit }) => {
 
     try {
 
-      const { data } = await axios.put("/api/blogs/update", {
+      const { data } = await api.put("/api/blogs/update", {
         _id: blog._id,
         title,
         image,

@@ -4,7 +4,8 @@ import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
 import ViewTripletecategory from './ViewTripletecategory';
 import EditTripletecategory from './EditTripletecategory';
 import { toast } from 'react-toastify';
-import axios from 'axios';
+//import axios from 'axios';
+import { api } from '../../api/tripletecategory/tripletecategoryApi';
 
 const AllTripletecategory = ({ tripletecategory }) => {
 
@@ -15,7 +16,7 @@ const AllTripletecategory = ({ tripletecategory }) => {
 
     try {
 
-      const { data } = await axios.delete(`/api/tripletecategory/delete/${tripletecategory._id}`);
+      const { data } = await api.delete(`/api/tripletecategory/delete/${tripletecategory._id}`);
 
       if (data) {
         toast.success('¡.Multiples Categorías Eliminado Con Éxito.!');

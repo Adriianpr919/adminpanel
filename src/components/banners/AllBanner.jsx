@@ -4,7 +4,8 @@ import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
 import ViewBanner from './ViewBanner';
 import EditBanner from './EditBanner';
 import { toast } from 'react-toastify';
-import axios from 'axios';
+import { api } from '../../api/banner/bannerApi';
+//import axios from 'axios';
 
 const AllBanner = ({ banner }) => {
 
@@ -15,7 +16,7 @@ const AllBanner = ({ banner }) => {
 
     try {
 
-      const { data } = await axios.delete(`/api/banners/delete/${banner._id}`);
+      const { data } = await api.delete(`/api/banners/delete/${banner._id}`);
 
       if (data) {
         toast.success('¡.Carrusel Eliminado Con Éxito.!');

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import AllOrder from './AllOrder';
+
+import { api } from '../../api/order/orderApi';
 
 const AllOrders = () => {
 
@@ -8,7 +10,7 @@ const AllOrders = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get("/api/orders/all");
+      const result = await api.get("/api/orders/all");
       setOrders(result.data);
       //console.log(result.data);
     }

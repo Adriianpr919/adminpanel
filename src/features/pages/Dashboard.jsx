@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import HomePage from '../views/HomePage';
+import { api } from '../../api/page/dashboardApi';
 
 const Dashboard = () => {
 
@@ -21,52 +22,52 @@ const Dashboard = () => {
     const fetchData = async () => {
 
       //Teams Users
-      const resultUsers = await axios.get('/api/users/countUsers');
+      const resultUsers = await api.get('/api/users/countUsers');
       console.log(resultUsers);
       setUsers(resultUsers.data);
 
       //Teams Abouts
-      const resultAbouts = await axios.get('/api/abouts/countAbouts');
+      const resultAbouts = await api.get('/api/abouts/countAbouts');
       console.log(resultAbouts);
       setAbouts(resultAbouts.data);
 
       //Teams Category
-      const resultCategory = await axios.get('/api/category/countCategories');
+      const resultCategory = await api.get('/api/category/countCategories');
       console.log(resultCategory);
       setCategory(resultCategory.data);
 
       //Teams Subcategory
-      const resultSubcategory = await axios.get('/api/subcategory/countSubcategories');
+      const resultSubcategory = await api.get('/api/subcategory/countSubcategories');
       console.log(resultSubcategory);
       setSubcategory(resultSubcategory.data);
 
       //Teams Tripletecategory
-      const resultTripletecategory = await axios.get('/api/tripletecategory/countTripletecategories');
+      const resultTripletecategory = await api.get('/api/tripletecategory/countTripletecategories');
       console.log(resultTripletecategory);
       setTripletecategory(resultTripletecategory.data);
 
       //Teams Blogs
-      const resultBlogs = await axios.get('/api/blogs/countBlogs');
+      const resultBlogs = await api.get('/api/blogs/countBlogs');
       console.log(resultBlogs);
       setBlogs(resultBlogs.data);
 
       //Teams Products
-      const resultProducts = await axios.get('/api/products/countProducts');
+      const resultProducts = await api.get('/api/products/countProducts');
       console.log(resultProducts);
       setProducts(resultProducts.data);
 
       //Teams Orders
-      const resultOrdersClient = await axios.get('/api/orders/countOrders');
+      const resultOrdersClient = await api.get('/api/orders/countOrders');
       console.log(resultOrdersClient);
       setOrders(resultOrdersClient.data);
 
       //Teams Banners
-      const resultBanners = await axios.get('/api/banners/countBanners');
+      const resultBanners = await api.get('/api/banners/countBanners');
       console.log(resultBanners);
       setBanners(resultBanners.data);
 
       //Teams Sum
-      const resultOrders = await axios.get('/api/orders/countSumTotal');
+      const resultOrders = await api.get('/api/orders/countSumTotal');
 
       const resultDataOrders = resultOrders.data;
 

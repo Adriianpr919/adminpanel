@@ -1,8 +1,9 @@
 import { faRefresh } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
+//import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+import { api } from '../../api/about/aboutApi';
 
 const EditAbout = ({ about, setOpenEdit }) => {
 
@@ -25,7 +26,7 @@ const EditAbout = ({ about, setOpenEdit }) => {
 
     try {
 
-      const { data } = await axios.put("/api/abouts/update", {
+      const { data } = await api.put(`/api/abouts/update`, {
         _id: about._id,
         imageOne,
         titleOne,

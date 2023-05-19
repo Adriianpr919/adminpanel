@@ -1,8 +1,9 @@
 import { faRefresh } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
+//import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+import { api } from '../../api/tripletecategory/tripletecategoryApi';
 
 const EditTripletecategory = ({ tripletecategory, setOpenEdit }) => {
 
@@ -13,7 +14,7 @@ const EditTripletecategory = ({ tripletecategory, setOpenEdit }) => {
 
     try {
 
-      const { data } = await axios.put("/api/tripletecategory/update", {
+      const { data } = await api.put("/api/tripletecategory/update", {
         _id: tripletecategory._id,
         titletripletecategory
       });

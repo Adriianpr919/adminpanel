@@ -1,8 +1,10 @@
 import { faRefresh, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
+//import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
+
+import { api } from '../../api/product/productApi';
 
 const EditProduct = ({ product, setOpenEditProduct }) => {
 
@@ -27,7 +29,7 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
 
     try {
 
-      const { data } = await axios.put("/api/products/update", {
+      const { data } = await api.put("/api/products/update", {
         _id: product._id,
         title,
         categoryOptions,
@@ -96,15 +98,15 @@ const EditProduct = ({ product, setOpenEditProduct }) => {
   useEffect(() => {
 
     const fetchData = async () => {
-      const resultCategory = await axios.get('/api/category/all');
+      const resultCategory = await api.get('/api/category/all');
       console.log(resultCategory.data);
       setTitlecategory(resultCategory.data);
 
-      const resultSubcategory = await axios.get('/api/subcategory/all');
+      const resultSubcategory = await api.get('/api/subcategory/all');
       console.log(resultSubcategory.data);
       setTitlesubcategory(resultSubcategory.data);
 
-      const resultTripletecategory = await axios.get('/api/tripletecategory/all');
+      const resultTripletecategory = await api.get('/api/tripletecategory/all');
       console.log(resultTripletecategory.data);
       setTitletripletecategory(resultTripletecategory.data);
     }

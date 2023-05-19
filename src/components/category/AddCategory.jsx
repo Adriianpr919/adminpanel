@@ -1,9 +1,11 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
+//import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { NavLink } from 'react-router-dom';
+
+import { api } from '../../api/category/categoryApi';
 
 const AddCategory = () => {
 
@@ -14,7 +16,7 @@ const AddCategory = () => {
 
     try {
 
-      const { data } = await axios.post('/api/category/add', {
+      const { data } = await api.post('/api/category/add', {
 
         titlecategory
 

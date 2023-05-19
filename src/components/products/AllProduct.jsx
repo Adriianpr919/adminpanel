@@ -1,10 +1,11 @@
-import axios from 'axios';
+//import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
 import ViewProduct from './ViewProduct';
 import EditProduct from './EditProduct';
+import { api } from '../../api/product/productApi';
 
 const AllProduct = ({ product }) => {
 
@@ -18,7 +19,7 @@ const AllProduct = ({ product }) => {
 
     try {
 
-      const { data } = await axios.delete(`/api/products/delete/${product._id}`);
+      const { data } = await api.delete(`/api/products/delete/${product._id}`);
 
       if (data) {
         toast.success('¡.Producto Eliminado Con Éxito.!');

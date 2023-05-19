@@ -1,11 +1,13 @@
 import { faEdit, faEye, faKey, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
+//import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import ChangePassUser from './ChangePassUser';
 import Edituser from './EditUser';
 import ViewUser from './ViewUser';
+
+import { api } from '../../api/login/userApi';
 
 const AllUser = ({ user }) => {
 
@@ -18,7 +20,7 @@ const AllUser = ({ user }) => {
 
     try {
 
-      const { data } = await axios.delete(`/api/users/delete/${user._id}`);
+      const { data } = await api.delete(`/api/users/delete/${user._id}`);
 
       if (data) {
         toast.success('¡.Usuario Eliminado Con Éxito.!');

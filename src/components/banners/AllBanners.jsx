@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import AllBanner from './AllBanner';
 import ReactPaginate from 'react-paginate';
+
+import { api } from '../../api/banner/bannerApi';
 
 const AllBanners = () => {
 
@@ -21,7 +23,7 @@ const AllBanners = () => {
   useEffect(() => {
 
     const fetchData = async () => {
-      const resultBanner = await axios.get('/api/banners/all');
+      const resultBanner = await api.get('/api/banners/all');
       // i want the latest banners to show
 
       const resultBannerData = resultBanner.data;

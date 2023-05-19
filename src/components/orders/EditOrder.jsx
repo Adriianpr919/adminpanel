@@ -1,8 +1,10 @@
 import { faRefresh } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
+//import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+
+import { api } from '../../api/order/orderApi';
 
 const EditOrder = ({ order, setOpenEdit }) => {
 
@@ -16,7 +18,7 @@ const EditOrder = ({ order, setOpenEdit }) => {
 
     try {
 
-      const { data } = await axios.put("/api/orders/update", {
+      const { data } = await api.put("/api/orders/update", {
         _id: order._id,
         marker,
         comment,

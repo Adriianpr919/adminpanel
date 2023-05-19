@@ -4,7 +4,9 @@ import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
 import ViewCategory from './ViewCategory';
 import EditCategory from './EditCategory';
 import { toast } from 'react-toastify';
-import axios from 'axios';
+//import axios from 'axios';
+
+import { api } from '../../api/category/categoryApi';
 
 const AllCategory = ({ category }) => {
 
@@ -15,7 +17,7 @@ const AllCategory = ({ category }) => {
 
     try {
 
-      const { data } = await axios.delete(`/api/category/delete/${category._id}`);
+      const { data } = await api.delete(`/api/category/delete/${category._id}`);
 
       if (data) {
         toast.success('¡.Categoría Eliminado Con Éxito.!');

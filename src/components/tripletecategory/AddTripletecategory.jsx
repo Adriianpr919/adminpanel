@@ -1,9 +1,10 @@
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
+//import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { NavLink } from 'react-router-dom';
+import { api } from '../../api/tripletecategory/tripletecategoryApi';
 
 const AddTripletecategory = () => {
 
@@ -14,7 +15,7 @@ const AddTripletecategory = () => {
 
     try {
 
-      const { data } = await axios.post('/api/tripletecategory/add', {
+      const { data } = await api.post('/api/tripletecategory/add', {
 
         titletripletecategory
 
