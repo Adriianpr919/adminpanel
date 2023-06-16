@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import { api } from '../../api/about/aboutApi';
+import { aboutApi } from '../../api/about/aboutApi';
 
 const EditAbout = ({ about, setOpenEdit }) => {
 
@@ -26,7 +26,7 @@ const EditAbout = ({ about, setOpenEdit }) => {
 
     try {
 
-      const { data } = await api.put(`/api/abouts/update`, {
+      const { data } = await aboutApi.put(`/update`, {
         _id: about._id,
         imageOne,
         titleOne,
@@ -90,7 +90,7 @@ const EditAbout = ({ about, setOpenEdit }) => {
                                       CAMBIAR IMAGEN PRINCIPAL 📸. :*
                                     </label>
                                     <div className="form-floating mb-3">
-                                      <input className="form-control is-valid" type="text" onChange={(e) => setImageOne(e.target.value)} value={imageOne} id='imageOne' required />
+                                      <input className="form-control" type="text" onChange={(e) => setImageOne(e.target.value)} value={imageOne} id='imageOne' required />
                                       <label htmlFor="imageOne">
                                         CAMBIAR IMAGEN PRINCIPAL 📸. :*
                                       </label>
@@ -109,7 +109,7 @@ const EditAbout = ({ about, setOpenEdit }) => {
                       CAMBIAR TITULO. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setTitleOne(e.target.value)} value={titleOne} id='titleOne' required />
+                      <input className="form-control" type="text" onChange={(e) => setTitleOne(e.target.value)} value={titleOne} id='titleOne' required />
                       <label htmlFor="titleOne">
                         CAMBIAR TITULO. :*
                       </label>
@@ -119,7 +119,7 @@ const EditAbout = ({ about, setOpenEdit }) => {
                       CAMBIAR COMENTARIOS. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <textarea className="form-control is-valid" id="descriptionOne" cols="100" rows="100" required onChange={(e) => setDescriptionOne(e.target.value)} value={descriptionOne} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <textarea className="form-control" id="descriptionOne" cols="100" rows="100" required onChange={(e) => setDescriptionOne(e.target.value)} value={descriptionOne} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
                       <label htmlFor="descriptionOne">
                         CAMBIAR COMENTARIOS. :*
                       </label>
@@ -130,7 +130,7 @@ const EditAbout = ({ about, setOpenEdit }) => {
                       CAMBIAR TITULO. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setTitleTwo(e.target.value)} value={titleTwo} id='titleTwo' required />
+                      <input className="form-control" type="text" onChange={(e) => setTitleTwo(e.target.value)} value={titleTwo} id='titleTwo' required />
                       <label htmlFor="titleTwo">
                         CAMBIAR TITULO. :*
                       </label>
@@ -140,7 +140,7 @@ const EditAbout = ({ about, setOpenEdit }) => {
                       CAMBIAR COMENTARIOS. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <textarea className="form-control is-valid" id="descriptionTwo" cols="100" rows="100" required onChange={(e) => setDescriptionTwo(e.target.value)} value={descriptionTwo} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <textarea className="form-control" id="descriptionTwo" cols="100" rows="100" required onChange={(e) => setDescriptionTwo(e.target.value)} value={descriptionTwo} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
                       <label htmlFor="descriptionTwo">
                         CAMBIAR COMENTARIOS. :*
                       </label>
@@ -151,7 +151,7 @@ const EditAbout = ({ about, setOpenEdit }) => {
                       CAMBIAR TITULO. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setTitleThree(e.target.value)} value={titleThree} id='titleThree' required />
+                      <input className="form-control" type="text" onChange={(e) => setTitleThree(e.target.value)} value={titleThree} id='titleThree' required />
                       <label htmlFor="titleThree">
                         CAMBIAR TITULO. :*
                       </label>
@@ -161,7 +161,7 @@ const EditAbout = ({ about, setOpenEdit }) => {
                       CAMBIAR COMENTARIOS. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <textarea className="form-control is-valid" id="descriptionThree" cols="100" rows="100" required onChange={(e) => setDescriptionThree(e.target.value)} value={descriptionThree} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <textarea className="form-control" id="descriptionThree" cols="100" rows="100" required onChange={(e) => setDescriptionThree(e.target.value)} value={descriptionThree} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
                       <label htmlFor="descriptionThree">
                         CAMBIAR COMENTARIOS. :*
                       </label>
@@ -191,7 +191,7 @@ const EditAbout = ({ about, setOpenEdit }) => {
                                       CAMBIAR IMAGEN PRINCIPAL 📸. :*
                                     </label>
                                     <div className="form-floating mb-3">
-                                      <input className="form-control is-valid" type="text" onChange={(e) => setImageFour(e.target.value)} value={imageFour} id='imageFour' required />
+                                      <input className="form-control" type="text" onChange={(e) => setImageFour(e.target.value)} value={imageFour} id='imageFour' required />
                                       <label htmlFor="imageFour">
                                         CAMBIAR IMAGEN PRINCIPAL 📸. :*
                                       </label>
@@ -210,7 +210,7 @@ const EditAbout = ({ about, setOpenEdit }) => {
                       CAMBIAR TITULO. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setTitleFour(e.target.value)} value={titleFour} id='titleFour' required />
+                      <input className="form-control" type="text" onChange={(e) => setTitleFour(e.target.value)} value={titleFour} id='titleFour' required />
                       <label htmlFor="titleFour">
                         CAMBIAR TITULO. :*
                       </label>
@@ -220,7 +220,7 @@ const EditAbout = ({ about, setOpenEdit }) => {
                       CAMBIAR COMENTARIOS. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <textarea className="form-control is-valid" id="descriptionFour" cols="100" rows="100" required onChange={(e) => setDescriptionFour(e.target.value)} value={descriptionFour} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <textarea className="form-control" id="descriptionFour" cols="100" rows="100" required onChange={(e) => setDescriptionFour(e.target.value)} value={descriptionFour} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
                       <label htmlFor="descriptionFour">
                         CAMBIAR COMENTARIOS. :*
                       </label>
@@ -231,7 +231,7 @@ const EditAbout = ({ about, setOpenEdit }) => {
                       CAMBIAR TITULO. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setTitleFive(e.target.value)} value={titleFive} id='titleFive' required />
+                      <input className="form-control" type="text" onChange={(e) => setTitleFive(e.target.value)} value={titleFive} id='titleFive' required />
                       <label htmlFor="titleFive">
                         CAMBIAR TITULO. :*
                       </label>
@@ -260,7 +260,7 @@ const EditAbout = ({ about, setOpenEdit }) => {
                                       CAMBIAR IMAGEN PRINCIPAL 📸. :*
                                     </label>
                                     <div className="form-floating mb-3">
-                                      <input className="form-control is-valid" type="text" onChange={(e) => setImageMother(e.target.value)} value={imageMother} id='imageMother' required />
+                                      <input className="form-control" type="text" onChange={(e) => setImageMother(e.target.value)} value={imageMother} id='imageMother' required />
                                       <label htmlFor="imageMother">
                                         CAMBIAR IMAGEN PRINCIPAL 📸. :*
                                       </label>
@@ -298,7 +298,7 @@ const EditAbout = ({ about, setOpenEdit }) => {
                                       CAMBIAR IMAGEN PRINCIPAL 📸. :*
                                     </label>
                                     <div className="form-floating mb-3">
-                                      <input className="form-control is-valid" type="text" onChange={(e) => setImageDaughter(e.target.value)} value={imageDaughter} id='imageDaughter' required />
+                                      <input className="form-control" type="text" onChange={(e) => setImageDaughter(e.target.value)} value={imageDaughter} id='imageDaughter' required />
                                       <label htmlFor="imageDaughter">
                                         CAMBIAR IMAGEN PRINCIPAL 📸. :*
                                       </label>

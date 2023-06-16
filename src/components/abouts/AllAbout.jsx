@@ -5,7 +5,7 @@ import ViewAbout from './ViewAbout';
 import EditAbout from './EditAbout';
 import { toast } from 'react-toastify';
 //import axios from 'axios';
-import { api } from '../../api/about/aboutApi';
+import { aboutApi } from '../../api/about/aboutApi';
 
 const AllAbout = ({ about }) => {
 
@@ -16,7 +16,7 @@ const AllAbout = ({ about }) => {
 
     try {
 
-      const { data } = await api.delete(`/api/abouts/delete/${about._id}`);
+      const { data } = await aboutApi.delete(`/delete/${about._id}`);
 
       if (data) {
         toast.success('¡.Acerca De Eliminado Con Éxito.!');
@@ -96,18 +96,18 @@ const AllAbout = ({ about }) => {
                   <div className="d-flex flex-between-center px-3">
                     <div>
                       <>
-                        <span className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver Acerca De.">
-                          <FontAwesomeIcon icon={faEye} onClick={() => setOpenView(true)} />
+                        <span onClick={() => setOpenView(true)} className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver Acerca De.">
+                          <FontAwesomeIcon icon={faEye} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Acerca De.">
-                          <FontAwesomeIcon icon={faEdit} onClick={() => setOpenEdit(true)} />
+                        <span onClick={() => setOpenEdit(true)} className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Acerca De.">
+                          <FontAwesomeIcon icon={faEdit} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-danger text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Borrar Acerca De.">
-                          <FontAwesomeIcon icon={faTrash} onClick={handlerDeleteAbout} />
+                        <span onClick={handlerDeleteAbout} className="badge badge badge-soft-danger text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Borrar Acerca De.">
+                          <FontAwesomeIcon icon={faTrash} />
                         </span>
                       </>
                     </div>

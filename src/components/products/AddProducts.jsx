@@ -4,14 +4,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { NavLink } from 'react-router-dom';
-import { api } from '../../api/product/productApi';
+import { productApi } from '../../api/product/productApi';
+import { sizeApi } from '../../api/size/sizeApi';
+import { colorGoldApi } from '../../api/color/colorGoldApi';
+import { colorStoneApi } from '../../api/color/colorStoneApi';
+import { categoryApi } from '../../api/category/categoryApi';
+import { subcategoryApi } from '../../api/subcategory/subcategoryApi';
+import { tripletecategoryApi } from '../../api/tripletecategory/tripletecategoryApi';
 
 const AddProducts = () => {
-
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////
   const [titlecategory, setTitlecategory] = useState('');
   const [titlesubcategory, setTitlesubcategory] = useState('');
   const [titletripletecategory, setTitletripletecategory] = useState('');
-
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////
+  const [titlesize, setTitlesize] = useState('');
+  const [titlecolorgold, setTitlecolorgold] = useState('');
+  const [titlecolorstone, setTitlecolorstone] = useState('');
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////
   const [title, setTitle] = useState('');
   const [categoryOptions, setCategoryOptions] = useState('');
   const [subcategoryOptions, setSubcategoryOptions] = useState('');
@@ -19,47 +29,66 @@ const AddProducts = () => {
   const [countInStock, setCountInStock] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
-  const [sizes, setSizes] = useState([{ value: '', key: '' }]);
-  const [colors, setColors] = useState([{ value: '', key: '' }]);
+  const [sizesOptions, setSizesOptions] = useState([{ value: '', key: '' }]);
+  const [colorsgoldsOptions, setColorsgoldsOptions] = useState([{ value: '', key: '' }]);
+  const [colorsstonesOptions, setColorsstonesOptions] = useState([{ value: '', key: '' }]);
   const [image, setImage] = useState('');
   const [imagesOnes, setImagesOnes] = useState([{ value: '', key: '' }]);
-
-  //for sizes add fields
-  const handleChangeSize = (e, i) => {
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //for sizesOptions add fields
+  const handleChangeSizeOption = (e, i) => {
     e.preventDefault();
-    const clonedSizes = [...sizes];
-    clonedSizes[`${i}`] = { value: e.target.value, key: i };
-    setSizes(clonedSizes);
+    const clonedSizesOptions = [...sizesOptions];
+    clonedSizesOptions[`${i}`] = { value: e.target.value, key: i };
+    setSizesOptions(clonedSizesOptions);
   };
 
-  const addSizeFields = () => {
-    setSizes([...sizes, { value: '', key: '' }]);
+  const addSizeOptionFields = () => {
+    setSizesOptions([...sizesOptions, { value: '', key: '' }]);
   }
 
-  const removeSizeFields = (i) => {
-    const newSizeValues = [...sizes];
-    newSizeValues.splice(i, 1);
-    setSizes(newSizeValues);
+  const removeSizeOptionFields = (i) => {
+    const newSizeOptionValues = [...sizesOptions];
+    newSizeOptionValues.splice(i, 1);
+    setSizesOptions(newSizeOptionValues);
   }
-
-  //for colors add fields
-  const handleChangeColor = (e, i) => {
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //for colorsGoldsOptions add fields
+  const handleChangeColorGoldOption = (e, i) => {
     e.preventDefault();
-    const clonedColors = [...colors];
-    clonedColors[`${i}`] = { value: e.target.value, key: i };
-    setColors(clonedColors);
+    const clonedColorsGoldsOptions = [...colorsgoldsOptions];
+    clonedColorsGoldsOptions[`${i}`] = { value: e.target.value, key: i };
+    setColorsgoldsOptions(clonedColorsGoldsOptions);
   };
 
-  const addColorFields = () => {
-    setColors([...colors, { value: '', key: '' }]);
+  const addColorGoldOptionFields = () => {
+    setColorsgoldsOptions([...colorsgoldsOptions, { value: '', key: '' }]);
   }
 
-  const removeColorFields = (i) => {
-    const newColorValues = [...colors];
-    newColorValues.splice(i, 1);
-    setColors(newColorValues);
+  const removeColorGoldOptionFields = (i) => {
+    const newColorGoldOptionValues = [...colorsgoldsOptions];
+    newColorGoldOptionValues.splice(i, 1);
+    setColorsgoldsOptions(newColorGoldOptionValues);
+  }
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //for colorsStonesOptions add fields
+  const handleChangeColorStoneOption = (e, i) => {
+    e.preventDefault();
+    const clonedColorsStonesOptions = [...colorsstonesOptions];
+    clonedColorsStonesOptions[`${i}`] = { value: e.target.value, key: i };
+    setColorsstonesOptions(clonedColorsStonesOptions);
+  };
+
+  const addColorStoneOptionFields = () => {
+    setColorsstonesOptions([...colorsstonesOptions, { value: '', key: '' }]);
   }
 
+  const removeColorStoneOptionFields = (i) => {
+    const newColorStoneOptionValues = [...colorsstonesOptions];
+    newColorStoneOptionValues.splice(i, 1);
+    setColorsstonesOptions(newColorStoneOptionValues);
+  }
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////
   //for imageOne add fields
   const handleChangeImageOne = (e, i) => {
     e.preventDefault();
@@ -83,7 +112,7 @@ const AddProducts = () => {
 
     try {
 
-      const { data } = await api.post('/api/products/add', {
+      const { data } = await productApi.post('/add', {
 
         title,
         categoryOptions,
@@ -92,8 +121,9 @@ const AddProducts = () => {
         countInStock,
         description,
         price,
-        sizes,
-        colors,
+        sizesOptions,
+        colorsgoldsOptions,
+        colorsstonesOptions,
         image,
         imagesOnes
 
@@ -108,8 +138,9 @@ const AddProducts = () => {
       setCountInStock('');
       setDescription('');
       setPrice('');
-      setSizes([{ value: '', key: '' }]);
-      setColors([{ value: '', key: '' }]);
+      setSizesOptions([{ value: '', key: '' }]);
+      setColorsgoldsOptions([{ value: '', key: '' }]);
+      setColorsstonesOptions([{ value: '', key: '' }]);
       setImage('');
       setImagesOnes([{ value: '', key: '' }]);
 
@@ -123,17 +154,29 @@ const AddProducts = () => {
   useEffect(() => {
 
     const fetchData = async () => {
-      const resultCategory = await api.get('/api/category/all');
+      const resultCategory = await categoryApi.get('/all');
       console.log(resultCategory.data);
       setTitlecategory(resultCategory.data);
 
-      const resultSubcategory = await api.get('/api/subcategory/all');
+      const resultSubcategory = await subcategoryApi.get('/all');
       console.log(resultSubcategory.data);
       setTitlesubcategory(resultSubcategory.data);
 
-      const resultTripletecategory = await api.get('/api/tripletecategory/all');
+      const resultTripletecategory = await tripletecategoryApi.get('/all');
       console.log(resultTripletecategory.data);
       setTitletripletecategory(resultTripletecategory.data);
+
+      const resultSizes = await sizeApi.get('/all');
+      console.log(resultSizes.data);
+      setTitlesize(resultSizes.data);
+
+      const resultColorsgolds = await colorGoldApi.get('/all');
+      console.log(resultColorsgolds.data);
+      setTitlecolorgold(resultColorsgolds.data);
+
+      const resultColorsstones = await colorStoneApi.get('/all');
+      console.log(resultColorsstones.data);
+      setTitlecolorstone(resultColorsstones.data);
     }
 
     fetchData();
@@ -176,7 +219,7 @@ const AddProducts = () => {
                       TITULO. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setTitle(e.target.value)} value={title} id='title' required />
+                      <input className="form-control" type="text" onChange={(e) => setTitle(e.target.value)} value={title} id='title' required />
                       <label htmlFor="title">
                         TITULO. :*
                       </label>
@@ -189,16 +232,7 @@ const AddProducts = () => {
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        MENÚ DE OPCIONES MEN&#218; 1 CATEGORÍA. {titlecategory &&
-                          titlecategory.map(titlecategory => (
-                            <div key={titlecategory._id} className='form-check'>
-                              <span className="badge rounded-pill badge-soft-warning">
-                                <code>
-                                  {titlecategory.titlecategory}
-                                </code>
-                              </span>
-                            </div>
-                          ))}
+                        MENÚ DE OPCIONES MEN&#218; 1 CATEGORÍA.
                       </legend>
                       <div className="panel panel-default">
                         <div className="panel-body">
@@ -208,7 +242,7 @@ const AddProducts = () => {
                             </label>
                             <div className="form-floating mb-3">
                               <input
-                                className="form-control is-valid"
+                                className="form-control"
                                 type="text"
                                 onChange={(e) => setCategoryOptions(e.target.value)}
                                 value={categoryOptions}
@@ -220,7 +254,7 @@ const AddProducts = () => {
                                   Seleccione Uno ⬆️. :*
                                 </label>
                                 <select
-                                  className="form-select js-choice is-valid"
+                                  className="form-select js-choice"
                                   aria-label=".form-select-lg js-choice"
                                   data-placeholder="--- Seleccionar ---"
                                   data-control="select2"
@@ -272,16 +306,7 @@ const AddProducts = () => {
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        MENÚ DE OPCIONES MEN&#218; 2 CATEGORÍA. {titlesubcategory &&
-                          titlesubcategory.map(titlesubcategory => (
-                            <div key={titlesubcategory._id} className='form-check'>
-                              <span className="badge rounded-pill badge-soft-warning">
-                                <code>
-                                  {titlesubcategory.titlesubcategory}
-                                </code>
-                              </span>
-                            </div>
-                          ))}
+                        MENÚ DE OPCIONES MEN&#218; 2 CATEGORÍA.
                       </legend>
                       <div className="panel panel-default">
                         <div className="panel-body">
@@ -291,7 +316,7 @@ const AddProducts = () => {
                             </label>
                             <div className="form-floating mb-3">
                               <input
-                                className="form-control is-valid"
+                                className="form-control"
                                 type="text"
                                 onChange={(e) => setSubcategoryOptions(e.target.value)}
                                 value={subcategoryOptions}
@@ -303,7 +328,7 @@ const AddProducts = () => {
                                   Seleccione Uno ⬆️. :*
                                 </label>
                                 <select
-                                  className="form-select js-choice is-valid"
+                                  className="form-select js-choice"
                                   aria-label=".form-select-lg js-choice"
                                   data-placeholder="--- Seleccionar ---"
                                   data-control="select2"
@@ -355,16 +380,7 @@ const AddProducts = () => {
                             <i className="fa-solid fa-filter"></i> AVISO IMPORTANTE. :*
                           </span>
                         </label> -
-                        MENÚ DE OPCIONES MEN&#218; 3 CATEGORÍA. {titletripletecategory &&
-                          titletripletecategory.map(titletripletecategory => (
-                            <div key={titletripletecategory._id} className='form-check'>
-                              <span className="badge rounded-pill badge-soft-warning">
-                                <code>
-                                  {titletripletecategory.titletripletecategory}
-                                </code>
-                              </span>
-                            </div>
-                          ))}
+                        MENÚ DE OPCIONES MEN&#218; 3 CATEGORÍA.
                       </legend>
                       <div className="panel panel-default">
                         <div className="panel-body">
@@ -374,7 +390,7 @@ const AddProducts = () => {
                             </label>
                             <div className="form-floating mb-3">
                               <input
-                                className="form-control is-valid"
+                                className="form-control"
                                 type="text"
                                 onChange={(e) => setTripletecategoryOptions(e.target.value)}
                                 value={tripletecategoryOptions}
@@ -386,7 +402,7 @@ const AddProducts = () => {
                                   Seleccione Uno ⬆️. :*
                                 </label>
                                 <select
-                                  className="form-select js-choice is-valid"
+                                  className="form-select js-choice"
                                   aria-label=".form-select-lg js-choice"
                                   data-placeholder="--- Seleccionar ---"
                                   data-control="select2"
@@ -435,7 +451,7 @@ const AddProducts = () => {
                       CANTIDAD 🛍️. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="number" min={0} max={9000} onChange={(e) => setCountInStock(e.target.value)} value={countInStock} id='countInStock' required />
+                      <input className="form-control" type="number" min={0} max={9000} onChange={(e) => setCountInStock(e.target.value)} value={countInStock} id='countInStock' required />
                       <label htmlFor="countInStock">
                         CANTIDAD 🛍️. :*
                       </label>
@@ -457,7 +473,7 @@ const AddProducts = () => {
                               PRECIO. :*
                             </label>
                             <div className="form-floating mb-3">
-                              <input className="form-control is-valid" type="text" onChange={(e) => setPrice(e.target.value)} value={price} id='price' required />
+                              <input className="form-control" type="text" onChange={(e) => setPrice(e.target.value)} value={price} id='price' required />
                               <label htmlFor="price">
                                 PRECIO. :*
                               </label>
@@ -471,7 +487,7 @@ const AddProducts = () => {
                       DESCRIPCIÓN. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <textarea className="form-control is-valid" id="desc" cols="100" rows="100" required onChange={(e) => setDescription(e.target.value)} value={description} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <textarea className="form-control" id="desc" cols="100" rows="100" required onChange={(e) => setDescription(e.target.value)} value={description} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
                       <label htmlFor="desc">
                         DESCRIPCIÓN. :*
                       </label>
@@ -479,41 +495,91 @@ const AddProducts = () => {
                     <hr />
                     <div className="container">
                       <div className="panel panel-default">
-                        <div className="panel-heading">ESCRIBA LA TALLA 📏. :*</div>
+                        <div className="panel-heading">MEN&#218; DE OPCIONES LA TALLA 📏. :*</div>
                         <div className="panel-body">
                           <fieldset className="col-md-12">
                             <legend style={{ textAlign: "justify" }}>
-                              <label htmlFor="sizes">
+                              <label htmlFor="sizesOptions">
                                 <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                                   <FontAwesomeIcon icon="fa-solid fa-gear" /> AVISO IMPORTANTE. :*
                                 </span>
                               </label> -
-                              POR FAVOR TIENES QUE ESCRIBIR ASI <span><b><code className='badge rounded-pill badge-soft-danger' style={{ fontSize: "15px" }}>"SIN MINÚSCULA CON ACENTO AGUDO Y SIN MAYÚSCULA CON TILDE (á, é, í, ñ, ó y ú)"</code></b></span>.
+                              MEN&#218; DE OPCIONES LA TALLA 📏.
                             </legend>
                             <div className="panel panel-default">
                               <div className="panel-body">
                                 <p>
                                   <div className="form-group">
                                     <div className="form-groupValues">
-                                      <label htmlFor="sizes">
-                                        ESCRIBA LA TALLA 📏. :*
+                                      <label htmlFor="sizesOptions">
+                                        MEN&#218; DE OPCIONES LA TALLA 📏. :*
                                       </label>
-                                      {sizes.map((element, i) => (
-                                        <div className='d-flexAdd form-floating mb-3' key={i}>
-                                          <input key={element.i} className="form-control is-valid" type="text" name='sizes' onChange={(e) => handleChangeSize(e, i, element.i)} value={sizes[`${i}`]?.value || ''} id='sizes' required />
-                                          <label htmlFor="sizes">
-                                            ESCRIBA LA TALLA 📏. :*
-                                          </label>
-                                          {
-                                            i ? <button type='button' className='btn-remove btn btn-outline-danger me-1 mb-1' onClick={() => removeSizeFields(i)}>
-                                              <FontAwesomeIcon icon={faTrash} />
-                                            </button> : null
-                                          }
-                                        </div>
+                                      {sizesOptions.map((element, i) => (
+                                        <>
+                                          <div className='d-flexAdd form-floating mb-3' key={i}>
+                                            <input
+                                              type="text"
+                                              className="form-control"
+                                              key={element.i}
+                                              onChange={(e) => handleChangeSizeOption(e, i, element.i)}
+                                              value={sizesOptions[`${i}`]?.value || ''}
+                                              name={sizesOptions[`${i}`]?.value || ''}
+                                              id={sizesOptions[`${i}`]?.value || ''} required />
+                                            <label htmlFor="sizesOptions">
+                                              MEN&#218; DE OPCIONES LA TALLA 📏. :*
+                                            </label>
+                                            {
+                                              i ? <button type='button' className='btn-remove btn btn-outline-danger me-1 mb-1' onClick={() => removeSizeOptionFields(i)}>
+                                                <FontAwesomeIcon icon={faTrash} />
+                                              </button> : null
+                                            }
+                                          </div>
+                                          <div className="mb-3">
+                                            <label htmlFor="sizesOptions">
+                                              Seleccione Uno ⬆️. :*
+                                            </label>
+                                            <select
+                                              className="form-select js-choice"
+                                              aria-label=".form-select-lg js-choice"
+                                              data-placeholder="--- Seleccionar ---"
+                                              data-control="select2"
+                                              defaultValue={{ label: "--- Seleccionar ---", value: 0 }}
+                                              onChange={(e) => handleChangeSizeOption(e, i, element.i)}
+                                              value={sizesOptions[`${i}`]?.value || ''}
+                                              name={sizesOptions[`${i}`]?.value || ''}
+                                              id={sizesOptions[`${i}`]?.value || ''}
+                                              required="required"
+                                              data-options='{"removeItemButton":true,"placeholder":true}'>
+                                              <option value={'Seleccionar'} defaultValue hidden>
+                                                {'--- Seleccionar ---'}
+                                              </option>
+                                              {titlesize &&
+                                                titlesize.map((titlesize) => (
+                                                  <option
+                                                    details={titlesize}
+                                                    key={titlesize._id}
+                                                    name={titlesize.titlesize}
+                                                    value={titlesize.titlesize}
+                                                    className="badge rounded-pill badge-soft-warning">
+                                                    <code>
+                                                      {titlesize.titlesize}
+                                                    </code>
+                                                  </option>
+                                                ))}
+                                            </select>
+                                            <div className="invalid-feedback">
+                                              <span className="badge rounded-pill badge-soft-danger">
+                                                <code>
+                                                  ¡.ALERTA POR FAVOR Seleccione Uno.!
+                                                </code>
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </>
                                       ))}
                                     </div>
                                     <div className="form-groupAdd">
-                                      <button type='button' className='btn-add btn btn-outline-success me-1 mb-1' onClick={() => addSizeFields()}>
+                                      <button type='button' className='btn-add btn btn-outline-success me-1 mb-1' onClick={() => addSizeOptionFields()}>
                                         <i className="fa-solid fa-square-plus"></i> Agregue Campo.
                                       </button>
                                     </div>
@@ -529,41 +595,191 @@ const AddProducts = () => {
                     <hr />
                     <div className="container">
                       <div className="panel panel-default">
-                        <div className="panel-heading">ESCRIBA EL COLOR DE ORO 🖌️. :*</div>
+                        <div className="panel-heading">MEN&#218; DE OPCIONES EL COLOR DE ORO 🖌️. :*</div>
                         <div className="panel-body">
                           <fieldset className="col-md-12">
                             <legend style={{ textAlign: "justify" }}>
-                              <label htmlFor="colors">
+                              <label htmlFor="colorsgoldsOptions">
                                 <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
                                   <FontAwesomeIcon icon="fa-solid fa-gear" /> AVISO IMPORTANTE. :*
                                 </span>
                               </label> -
-                              POR FAVOR TIENES QUE ESCRIBIR ASI <span><b><code className='badge rounded-pill badge-soft-danger' style={{ fontSize: "15px" }}>"SIN MINÚSCULA CON ACENTO AGUDO, SIN MAYÚSCULA CON TILDE Y SIN PUNTO SEQUIDO (á, é, í, ñ, ó, ú y .)"</code></b></span>.
+                              MEN&#218; DE OPCIONES EL COLOR DE ORO 🖌️.
                             </legend>
                             <div className="panel panel-default">
                               <div className="panel-body">
                                 <p>
                                   <div className="form-group">
                                     <div className="form-groupValues">
-                                      <label htmlFor="colors">
-                                        ESCRIBA EL COLOR DE ORO 🖌️. :*
+                                      <label htmlFor="colorsgoldsOptions">
+                                        MEN&#218; DE OPCIONES EL COLOR DE ORO 🖌️. :*
                                       </label>
-                                      {colors.map((element, i) => (
-                                        <div className='d-flexAdd form-floating mb-3' key={i}>
-                                          <input key={element.i} className="form-control is-valid" type="text" name='colors' onChange={(e) => handleChangeColor(e, i, element.i)} value={colors[`${i}`]?.value || ''} id='colors' required />
-                                          <label htmlFor="colors">
-                                            ESCRIBA EL COLOR DE ORO 🖌️. :*
-                                          </label>
-                                          {
-                                            i ? <button type='button' className='btn-remove btn btn-outline-danger me-1 mb-1' onClick={() => removeColorFields(i)}>
-                                              <FontAwesomeIcon icon={faTrash} />
-                                            </button> : null
-                                          }
-                                        </div>
+                                      {colorsgoldsOptions.map((element, i) => (
+                                        <>
+                                          <div className='d-flexAdd form-floating mb-3' key={i}>
+                                            <input
+                                              type="text"
+                                              className="form-control"
+                                              key={element.i}
+                                              onChange={(e) => handleChangeColorGoldOption(e, i, element.i)}
+                                              value={colorsgoldsOptions[`${i}`]?.value || ''}
+                                              name={colorsgoldsOptions[`${i}`]?.value || ''}
+                                              id={colorsgoldsOptions[`${i}`]?.value || ''} required />
+                                            <label htmlFor="colorsgoldsOptions">
+                                              MEN&#218; DE OPCIONES EL COLOR DE ORO 🖌️. :*
+                                            </label>
+                                            {
+                                              i ? <button type='button' className='btn-remove btn btn-outline-danger me-1 mb-1' onClick={() => removeColorGoldOptionFields(i)}>
+                                                <FontAwesomeIcon icon={faTrash} />
+                                              </button> : null
+                                            }
+                                          </div>
+                                          <div className="mb-3">
+                                            <label htmlFor="colorsgoldsOptions">
+                                              Seleccione Uno ⬆️. :*
+                                            </label>
+                                            <select
+                                              className="form-select js-choice"
+                                              aria-label=".form-select-lg js-choice"
+                                              data-placeholder="--- Seleccionar ---"
+                                              data-control="select2"
+                                              defaultValue={{ label: "--- Seleccionar ---", value: 0 }}
+                                              onChange={(e) => handleChangeColorGoldOption(e, i, element.i)}
+                                              value={colorsgoldsOptions[`${i}`]?.value || ''}
+                                              name={colorsgoldsOptions[`${i}`]?.value || ''}
+                                              id={colorsgoldsOptions[`${i}`]?.value || ''}
+                                              required="required"
+                                              data-options='{"removeItemButton":true,"placeholder":true}'>
+                                              <option value={'Seleccionar'} defaultValue hidden>
+                                                {'--- Seleccionar ---'}
+                                              </option>
+                                              {titlecolorgold &&
+                                                titlecolorgold.map((titlecolorgold) => (
+                                                  <option
+                                                    details={titlecolorgold}
+                                                    key={titlecolorgold._id}
+                                                    name={titlecolorgold.titlecolorgold}
+                                                    value={titlecolorgold.titlecolorgold}
+                                                    className="badge rounded-pill badge-soft-warning">
+                                                    <code>
+                                                      {titlecolorgold.titlecolorgold}
+                                                    </code>
+                                                  </option>
+                                                ))}
+                                            </select>
+                                            <div className="invalid-feedback">
+                                              <span className="badge rounded-pill badge-soft-danger">
+                                                <code>
+                                                  ¡.ALERTA POR FAVOR Seleccione Uno.!
+                                                </code>
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </>
                                       ))}
                                     </div>
                                     <div className="form-groupAdd">
-                                      <button type='button' className='btn-add btn btn-outline-success me-1 mb-1' onClick={() => addColorFields()}>
+                                      <button type='button' className='btn-add btn btn-outline-success me-1 mb-1' onClick={() => addColorGoldOptionFields()}>
+                                        <i className="fa-solid fa-square-plus"></i> Agregue Campo.
+                                      </button>
+                                    </div>
+                                  </div>
+                                </p>
+                              </div>
+                            </div>
+                          </fieldset>
+                          <div className="clearfix" />
+                        </div>
+                      </div>
+                    </div>
+                    <hr />
+                    <div className="container">
+                      <div className="panel panel-default">
+                        <div className="panel-heading">MEN&#218; DE OPCIONES EL COLOR DE PIEDRAS 🖌️. :*</div>
+                        <div className="panel-body">
+                          <fieldset className="col-md-12">
+                            <legend style={{ textAlign: "justify" }}>
+                              <label htmlFor="colorsstonesOptions">
+                                <span className="badge rounded-pill badge-soft-warning" style={{ fontSize: "15px" }}>
+                                  <FontAwesomeIcon icon="fa-solid fa-gear" /> AVISO IMPORTANTE. :*
+                                </span>
+                              </label> -
+                              MEN&#218; DE OPCIONES EL COLOR DE PIEDRAS 🖌️.
+                            </legend>
+                            <div className="panel panel-default">
+                              <div className="panel-body">
+                                <p>
+                                  <div className="form-group">
+                                    <div className="form-groupValues">
+                                      <label htmlFor="colorsstonesOptions">
+                                        MEN&#218; DE OPCIONES EL COLOR DE PIEDRAS 🖌️. :*
+                                      </label>
+                                      {colorsstonesOptions.map((element, i) => (
+                                        <>
+                                          <div className='d-flexAdd form-floating mb-3' key={i}>
+                                            <input
+                                              type="text"
+                                              className="form-control"
+                                              key={element.i}
+                                              onChange={(e) => handleChangeColorStoneOption(e, i, element.i)}
+                                              value={colorsstonesOptions[`${i}`]?.value || ''}
+                                              name={colorsstonesOptions[`${i}`]?.value || ''}
+                                              id={colorsstonesOptions[`${i}`]?.value || ''} required />
+                                            <label htmlFor="colorsstonesOptions">
+                                              MEN&#218; DE OPCIONES EL COLOR DE PIEDRAS 🖌️. :*
+                                            </label>
+                                            {
+                                              i ? <button type='button' className='btn-remove btn btn-outline-danger me-1 mb-1' onClick={() => removeColorStoneOptionFields(i)}>
+                                                <FontAwesomeIcon icon={faTrash} />
+                                              </button> : null
+                                            }
+                                          </div>
+                                          <div className="mb-3">
+                                            <label htmlFor="colorsstonesOptions">
+                                              Seleccione Uno ⬆️. :*
+                                            </label>
+                                            <select
+                                              className="form-select js-choice"
+                                              aria-label=".form-select-lg js-choice"
+                                              data-placeholder="--- Seleccionar ---"
+                                              data-control="select2"
+                                              defaultValue={{ label: "--- Seleccionar ---", value: 0 }}
+                                              onChange={(e) => handleChangeColorStoneOption(e, i, element.i)}
+                                              value={colorsstonesOptions[`${i}`]?.value || ''}
+                                              name={colorsstonesOptions[`${i}`]?.value || ''}
+                                              id={colorsstonesOptions[`${i}`]?.value || ''}
+                                              required="required"
+                                              data-options='{"removeItemButton":true,"placeholder":true}'>
+                                              <option value={'Seleccionar'} defaultValue hidden>
+                                                {'--- Seleccionar ---'}
+                                              </option>
+                                              {titlecolorstone &&
+                                                titlecolorstone.map((titlecolorstone) => (
+                                                  <option
+                                                    details={titlecolorstone}
+                                                    key={titlecolorstone._id}
+                                                    name={titlecolorstone.titlecolorstone}
+                                                    value={titlecolorstone.titlecolorstone}
+                                                    className="badge rounded-pill badge-soft-warning">
+                                                    <code>
+                                                      {titlecolorstone.titlecolorstone}
+                                                    </code>
+                                                  </option>
+                                                ))}
+                                            </select>
+                                            <div className="invalid-feedback">
+                                              <span className="badge rounded-pill badge-soft-danger">
+                                                <code>
+                                                  ¡.ALERTA POR FAVOR Seleccione Uno.!
+                                                </code>
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </>
+                                      ))}
+                                    </div>
+                                    <div className="form-groupAdd">
+                                      <button type='button' className='btn-add btn btn-outline-success me-1 mb-1' onClick={() => addColorStoneOptionFields()}>
                                         <i className="fa-solid fa-square-plus"></i> Agregue Campo.
                                       </button>
                                     </div>
@@ -600,7 +816,7 @@ const AddProducts = () => {
                                       IMAGEN PRINCIPAL 📸. :*
                                     </label>
                                     <div className="form-floating mb-3">
-                                      <input className="form-control is-valid" type="text" onChange={(e) => setImage(e.target.value)} value={image} id='image' required />
+                                      <input className="form-control" type="text" onChange={(e) => setImage(e.target.value)} value={image} id='image' required />
                                       <label htmlFor="image">
                                         IMAGEN PRINCIPAL 📸. :*
                                       </label>
@@ -641,7 +857,7 @@ const AddProducts = () => {
                                         </label>
                                         {imagesOnes.map((element, i) => (
                                           <div className='d-flexAdd form-floating mb-3' key={i}>
-                                            <input key={element.i} className="form-control is-valid" type="text" name='imagesOnes' onChange={(e) => handleChangeImageOne(e, i, element.i)} value={imagesOnes[`${i}`]?.value || ''} id='imagesOnes' required />
+                                            <input key={element.i} className="form-control" type="text" name='imagesOnes' onChange={(e) => handleChangeImageOne(e, i, element.i)} value={imagesOnes[`${i}`]?.value || ''} id='imagesOnes' required />
                                             <label htmlFor="imagesOnes">
                                               IMAGENES MULTIPLES 📸. :*
                                             </label>

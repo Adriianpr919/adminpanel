@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPowerOff } from '@fortawesome/free-solid-svg-icons';
@@ -26,19 +26,19 @@ const TopBar = () => {
     <>
       <ul className="navbar-nav navbar-nav-icons ms-auto flex-row align-items-center">
         <li className="nav-item dropdown">
-          <a className="nav-link pe-0 ps-2" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#!" rel="noopener noreferrer">
+          <a href="#!" rel="noopener noreferrer" className="nav-link pe-0 ps-2" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div className="avatar avatar-3xl status-online">
-              <img className="rounded-circle" src="../../../assets/img/customers/user.png" alt="Nury Valenzuela." title="Nury Valenzuela." />
+              <img className="rounded-circle" src="../../../assets/img/customers/user.png" alt="Nury Valenzuela&#174; Joyer&iacute;a" title="Nury Valenzuela&#174; Joyer&iacute;a" />
             </div>
           </a>
           <div className="dropdown-menu dropdown-caret dropdown-caret dropdown-menu-end py-0" aria-labelledby="navbarDropdownUser">
             <div className="bg-white dark__bg-1000 rounded-2 py-2">
               <div className="dropdown-divider" />
-              <a className="dropdown-item fw-bold text-danger" href="#!" rel="noopener noreferrer">
-                <span onClick={logoutHandler} style={{ fontSize: "15px" }}>
+              <NavLink to="/login" onClick={logoutHandler} rel="noopener noreferrer" className="dropdown-item fw-bold text-danger">
+                <span style={{ fontSize: "15px" }}>
                   <FontAwesomeIcon icon={faPowerOff} className="me-1" aria-hidden="true" /> Cerrar Sesión.
                 </span>
-              </a>
+              </NavLink>
               <div className="dropdown-divider" />
             </div>
           </div>

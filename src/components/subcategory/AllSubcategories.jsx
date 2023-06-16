@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 //import axios from 'axios';
 import AllSubcategory from './AllSubcategory';
 import ReactPaginate from 'react-paginate';
-import { api } from '../../api/subcategory/subcategoryApi';
+import { subcategoryApi } from '../../api/subcategory/subcategoryApi';
 
 const AllSubcategories = () => {
 
@@ -22,7 +22,7 @@ const AllSubcategories = () => {
   useEffect(() => {
 
     const fetchData = async () => {
-      const resultSubcategory = await api.get('/api/subcategory/all');
+      const resultSubcategory = await subcategoryApi.get('/all');
       // i want the latest subcategory to show
 
       const resultSubcategoryData = resultSubcategory.data;

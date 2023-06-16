@@ -28,10 +28,18 @@ const OrderInfo = ({ setOpen, order }) => {
               <div className="close-form" onClick={() => setOpen(false)}>X</div>
               <p className="mt-2" style={{ textAlign: "justify" }}>
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
-                  Nombre. :*
+                  Nombre Completo. :*
                 </label>
                 <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
                   {order.name}
+                </p>
+              </p>
+              <p className="mt-2" style={{ textAlign: "justify" }}>
+                <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
+                  Documento. :*
+                </label>
+                <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
+                  {order.document}
                 </p>
               </p>
               <p className="mt-2" style={{ textAlign: "justify" }}>
@@ -68,10 +76,18 @@ const OrderInfo = ({ setOpen, order }) => {
               </p>
               <p className="mt-2" style={{ textAlign: "justify" }}>
                 <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
-                  Comentarios. :*
+                  Departamento. :*
                 </label>
                 <p className="description" style={{ textAlign: "justify", color: "black" }}>
-                  {order.comment}
+                  {order.departments}
+                </p>
+              </p>
+              <p className="mt-2" style={{ textAlign: "justify" }}>
+                <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
+                  Ciudad. :*
+                </label>
+                <p className="description" style={{ textAlign: "justify", color: "black" }}>
+                  {order.city}
                 </p>
               </p>
               <p className="mt-2" style={{ textAlign: "justify" }}>
@@ -133,13 +149,17 @@ const OrderInfo = ({ setOpen, order }) => {
                     alt={product.title}
                     title={product.title} />
                   <span style={{ color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark mb-2">
-                    Unidades. :* {product.quantity}
+                    Unidades. :* {product.quantity} <br />
+                    {product.quantity > 0 ? 'EN STOCK.' : 'AGOTADO.'}
                   </span>
                   <span style={{ color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark mb-2">
                     La Talla 📏. :* {product.size}
                   </span>
                   <span style={{ color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark mb-2">
-                    El Color De Oro 🖌️. :* {product.color}
+                    El Color De Oro 🖌️. :* {product.colorgold}
+                  </span>
+                  <span style={{ color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark mb-2">
+                    El Color De Piedras 🖌️. :* {product.colorstone}
                   </span>
                   <span style={{ color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-success mb-2">
                     Precio. :* {(product.price).toLocaleString('es-CO', {

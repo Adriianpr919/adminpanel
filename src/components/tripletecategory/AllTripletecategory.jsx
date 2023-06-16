@@ -5,7 +5,7 @@ import ViewTripletecategory from './ViewTripletecategory';
 import EditTripletecategory from './EditTripletecategory';
 import { toast } from 'react-toastify';
 //import axios from 'axios';
-import { api } from '../../api/tripletecategory/tripletecategoryApi';
+import { tripletecategoryApi } from '../../api/tripletecategory/tripletecategoryApi';
 
 const AllTripletecategory = ({ tripletecategory }) => {
 
@@ -16,7 +16,7 @@ const AllTripletecategory = ({ tripletecategory }) => {
 
     try {
 
-      const { data } = await api.delete(`/api/tripletecategory/delete/${tripletecategory._id}`);
+      const { data } = await tripletecategoryApi.delete(`/delete/${tripletecategory._id}`);
 
       if (data) {
         toast.success('¡.Multiples Categorías Eliminado Con Éxito.!');
@@ -48,18 +48,18 @@ const AllTripletecategory = ({ tripletecategory }) => {
                   <div className="d-flex flex-between-center px-3">
                     <div>
                       <>
-                        <span className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver Multiples Categorías.">
-                          <FontAwesomeIcon icon={faEye} onClick={() => setOpenView(true)} />
+                        <span onClick={() => setOpenView(true)} className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver Multiples Categorías.">
+                          <FontAwesomeIcon icon={faEye} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Multiples Categorías.">
-                          <FontAwesomeIcon icon={faEdit} onClick={() => setOpenEdit(true)} />
+                        <span onClick={() => setOpenEdit(true)} className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Multiples Categorías.">
+                          <FontAwesomeIcon icon={faEdit} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-danger text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Borrar Multiples Categorías.">
-                          <FontAwesomeIcon icon={faTrash} onClick={handlerDeleteTripletecategory} />
+                        <span onClick={handlerDeleteTripletecategory} className="badge badge badge-soft-danger text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Borrar Multiples Categorías.">
+                          <FontAwesomeIcon icon={faTrash} />
                         </span>
                       </>
                     </div>

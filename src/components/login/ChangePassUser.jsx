@@ -3,8 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-
-import { api } from '../../api/login/userApi';
+import { userApi } from '../../api/login/userApi';
 
 const ChangePassUser = ({ user, setOpenChangePassUser }) => {
 
@@ -21,7 +20,7 @@ const ChangePassUser = ({ user, setOpenChangePassUser }) => {
 
       try {
 
-        const { data } = await api.put("/api/users/update", {
+        const { data } = await userApi.put("/update", {
           _id: user._id,
           password,
         });
@@ -56,7 +55,7 @@ const ChangePassUser = ({ user, setOpenChangePassUser }) => {
                       CAMBIAR NUEVA CONTRASEÑA. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="password" onChange={(e) => setPassword(e.target.value)} value={password} id='pass' required />
+                      <input className="form-control" type="password" onChange={(e) => setPassword(e.target.value)} value={password} id='pass' required />
                       <label htmlFor="pass">
                         CAMBIAR NUEVA CONTRASEÑA. :*
                       </label>
@@ -65,7 +64,7 @@ const ChangePassUser = ({ user, setOpenChangePassUser }) => {
                       CAMBIAR REESCRIBA NUEVA CONTRASEÑA. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="password" onChange={(e) => setConfirmPass(e.target.value)} value={confirmPass} id='r_pass' required />
+                      <input className="form-control" type="password" onChange={(e) => setConfirmPass(e.target.value)} value={confirmPass} id='r_pass' required />
                       <label htmlFor="r_pass">
                         CAMBIAR REESCRIBA NUEVA CONTRASEÑA. :*
                       </label>

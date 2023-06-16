@@ -3,8 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-
-import { api } from '../../api/banner/bannerApi';
+import { bannerApi } from '../../api/banner/bannerApi';
 
 const EditBanner = ({ banner, setOpenEdit }) => {
 
@@ -17,7 +16,7 @@ const EditBanner = ({ banner, setOpenEdit }) => {
 
     try {
 
-      const { data } = await api.put("/api/banners/update", {
+      const { data } = await bannerApi.put("/update", {
         _id: banner._id,
         title,
         image,
@@ -52,7 +51,7 @@ const EditBanner = ({ banner, setOpenEdit }) => {
                       CAMBIAR TITULO. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setTitle(e.target.value)} value={title} id='title' required />
+                      <input className="form-control" type="text" onChange={(e) => setTitle(e.target.value)} value={title} id='title' required />
                       <label htmlFor="title">
                         CAMBIAR TITULO. :*
                       </label>
@@ -80,7 +79,7 @@ const EditBanner = ({ banner, setOpenEdit }) => {
                                     CAMBIAR IMAGEN PRINCIPAL 📸. :*
                                   </label>
                                   <div className="form-floating mb-3">
-                                    <input className="form-control is-valid" type="text" onChange={(e) => setImage(e.target.value)} value={image} id='image' required />
+                                    <input className="form-control" type="text" onChange={(e) => setImage(e.target.value)} value={image} id='image' required />
                                     <label htmlFor="image">
                                       CAMBIAR IMAGEN PRINCIPAL 📸. :*
                                     </label>
@@ -98,7 +97,7 @@ const EditBanner = ({ banner, setOpenEdit }) => {
                       CAMBIAR COMENTARIOS. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <textarea className="form-control is-valid" id="description" cols="100" rows="100" required onChange={(e) => setDescription(e.target.value)} value={description} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <textarea className="form-control" id="description" cols="100" rows="100" required onChange={(e) => setDescription(e.target.value)} value={description} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
                       <label htmlFor="description">
                         CAMBIAR COMENTARIOS. :*
                       </label>

@@ -20,7 +20,7 @@ const SideBar = () => {
             <div className="dropdown-menu dropdown-caret dropdown-menu-card border-0 mt-0" aria-labelledby="apps">
               <div className="card navbar-card-app shadow-none dark__bg-1000">
                 <div className="card-body scrollbar max-h-dropdown">
-                  <img className="img-dropdown" src="../../../assets/img/icons/spot-illustrations/authentication-corner.png" width={130} alt="Nury Valenzuela." title="Nury Valenzuela." />
+                  <img className="img-dropdown" src="../../../assets/img/icons/spot-illustrations/authentication-corner.png" width={130} alt="Nury Valenzuela&#174; Joyer&iacute;a" title="Nury Valenzuela&#174; Joyer&iacute;a" />
                   <div className="row">
                     <div className="col-12 col-md-12">
                       <div className="nav flex-column">
@@ -74,10 +74,55 @@ const SideBar = () => {
                         <div className="dropdown-divider" />
                         {/*--------------------------------------------------------------------*/}
                         <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
+                          <FontAwesomeIcon icon="fa-solid fa-ruler" /> LA TALLAS 📏.
+                        </p>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/sizes' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver La Tallas 📏.
+                        </NavLink>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addsizes' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Crear La Talla 📏.
+                        </NavLink>
+                        {/*--------------------------------------------------------------------*/}
+                        <div className="dropdown-divider" />
+                        {/*--------------------------------------------------------------------*/}
+                        <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
+                          <FontAwesomeIcon icon="fa-solid fa-swatchbook" /> COLOR DE ORO 🖌️.
+                        </p>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/colorsgolds' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver El Color De Oro 🖌️.
+                        </NavLink>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addcolorsgolds' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Crear El Color De Oro 🖌️.
+                        </NavLink>
+                        {/*--------------------------------------------------------------------*/}
+                        <div className="dropdown-divider" />
+                        {/*--------------------------------------------------------------------*/}
+                        <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
+                          <FontAwesomeIcon icon="fa-solid fa-swatchbook" /> COLOR DE PIEDRAS 🖌️.
+                        </p>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/colorsstones' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver El Color De Piedras 🖌️.
+                        </NavLink>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/addcolorsstones' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Crear El Color De Piedras 🖌️.
+                        </NavLink>
+                        {/*--------------------------------------------------------------------*/}
+                        <div className="dropdown-divider" />
+                        {/*--------------------------------------------------------------------*/}
+                        <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
                           <i className="fas fa-user-shield"></i> AJUSTES.
                         </p>
                         <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/users' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
                           <i className="fa fa-angle-double-right wv_circle" /> Ver Colaboradores.
+                        </NavLink>
+                        {/*--------------------------------------------------------------------*/}
+                        <div className="dropdown-divider" />
+                        {/*--------------------------------------------------------------------*/}
+                        <p className="nav-link text-700 mb-0 fw-bold" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa-solid fa-message"></i> MENSAJES.
+                        </p>
+                        <NavLink className="nav-link py-1 link-600 fw-medium" activeclassname="active" to='/messages' rel="noopener noreferrer" style={{ color: "black", fontSize: "15px" }}>
+                          <i className="fa fa-angle-double-right wv_circle" /> Ver MENSAJES.
                         </NavLink>
                         {/*--------------------------------------------------------------------*/}
                         <div className="dropdown-divider" />

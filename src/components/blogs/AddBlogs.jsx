@@ -4,8 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { NavLink } from 'react-router-dom';
-
-import { api } from '../../api/blog/blogApi';
+import { blogApi } from '../../api/blog/blogApi';
 
 const AddBlogs = () => {
 
@@ -18,7 +17,7 @@ const AddBlogs = () => {
 
     try {
 
-      const { data } = await api.post('/api/blogs/add', {
+      const { data } = await blogApi.post('/add', {
 
         title,
         image,
@@ -76,7 +75,7 @@ const AddBlogs = () => {
                       TITULO. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setTitle(e.target.value)} value={title} id='title' required />
+                      <input className="form-control" type="text" onChange={(e) => setTitle(e.target.value)} value={title} id='title' required />
                       <label htmlFor="title">
                         TITULO. :*
                       </label>
@@ -105,7 +104,7 @@ const AddBlogs = () => {
                                       IMAGEN PRINCIPAL 📸. :*
                                     </label>
                                     <div className="form-floating mb-3">
-                                      <input className="form-control is-valid" type="text" onChange={(e) => setImage(e.target.value)} value={image} id='image' required />
+                                      <input className="form-control" type="text" onChange={(e) => setImage(e.target.value)} value={image} id='image' required />
                                       <label htmlFor="image">
                                         IMAGEN PRINCIPAL 📸. :*
                                       </label>
@@ -124,7 +123,7 @@ const AddBlogs = () => {
                       COMENTARIOS. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <textarea className="form-control is-valid" id="description" cols="100" rows="100" required onChange={(e) => setDescription(e.target.value)} value={description} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <textarea className="form-control" id="description" cols="100" rows="100" required onChange={(e) => setDescription(e.target.value)} value={description} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
                       <label htmlFor="description">
                         COMENTARIOS. :*
                       </label>

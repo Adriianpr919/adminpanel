@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 //import axios from 'axios';
 import AllBlog from './AllBlog';
 import ReactPaginate from 'react-paginate';
-
-import { api } from '../../api/blog/blogApi';
+import { blogApi } from '../../api/blog/blogApi';
 
 const AllBlogs = () => {
 
@@ -25,7 +24,7 @@ const AllBlogs = () => {
   useEffect(() => {
 
     const fetchData = async () => {
-      const resultBlog = await api.get('/api/blogs/all');
+      const resultBlog = await blogApi.get('/all');
       // i want the latest blogs to show
 
       const resultBlogData = resultBlog.data;

@@ -35,13 +35,13 @@ const AllOrder = ({ order }) => {
                   <div className="d-flex flex-between-center px-3">
                     <div>
                       <>
-                        <span className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver Pedidos.">
-                          <FontAwesomeIcon icon={faEye} onClick={() => setOpen(true)} />
+                        <span onClick={() => setOpen(true)} className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver Pedidos.">
+                          <FontAwesomeIcon icon={faEye} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Pedido.">
-                          <FontAwesomeIcon icon={faEdit} onClick={() => setOpenEdit(true)} />
+                        <span onClick={() => setOpenEdit(true)} className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Pedido.">
+                          <FontAwesomeIcon icon={faEdit} />
                         </span>
                       </>
                     </div>

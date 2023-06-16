@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import { api } from '../../api/subcategory/subcategoryApi';
+import { subcategoryApi } from '../../api/subcategory/subcategoryApi';
 
 const EditSubcategory = ({ subcategory, setOpenEdit }) => {
 
@@ -14,7 +14,7 @@ const EditSubcategory = ({ subcategory, setOpenEdit }) => {
 
     try {
 
-      const { data } = await api.put("/api/subcategory/update", {
+      const { data } = await subcategoryApi.put("/update", {
         _id: subcategory._id,
         titlesubcategory
       });
@@ -47,7 +47,7 @@ const EditSubcategory = ({ subcategory, setOpenEdit }) => {
                       CAMBIAR TITULO DE MEN&#218; 2 CATEGORÍAS. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setTitlesubcategory(e.target.value)} value={titlesubcategory} id='titlesubcategory' required />
+                      <input className="form-control" type="text" onChange={(e) => setTitlesubcategory(e.target.value)} value={titlesubcategory} id='titlesubcategory' required />
                       <label htmlFor="titlesubcategory">
                         CAMBIAR TITULO DE MEN&#218; 2 CATEGORÍAS. :*
                       </label>

@@ -3,13 +3,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-
-import { api } from '../../api/order/orderApi';
+import { orderApi } from '../../api/order/orderApi';
 
 const EditOrder = ({ order, setOpenEdit }) => {
 
+  const [name, setName] = useState(order.name);
+  const [document, setDocument] = useState(order.document);
+  const [email, setEmail] = useState(order.email);
+  const [address, setAddress] = useState(order.address);
+  const [phone, setPhone] = useState(order.phone);
   const [marker, setMarker] = useState(order.marker);
-  const [comment, setComment] = useState(order.comment);
+  const [departments, setDepartments] = useState(order.departments);
+  const [city, setCity] = useState(order.city);
   const [isPaid, setIsPaid] = useState(order.isPaid);
   const [isDelivered, setIsDelivered] = useState(order.isDelivered);
 
@@ -18,10 +23,16 @@ const EditOrder = ({ order, setOpenEdit }) => {
 
     try {
 
-      const { data } = await api.put("/api/orders/update", {
+      const { data } = await orderApi.put("/update", {
         _id: order._id,
+        name,
+        document,
+        email,
+        address,
+        phone,
         marker,
-        comment,
+        departments,
+        city,
         isPaid,
         isDelivered
       });
@@ -50,6 +61,56 @@ const EditOrder = ({ order, setOpenEdit }) => {
                 <form onSubmit={editOrderHandler}>
                   <div>
                     <hr />
+                    <label htmlFor="name">
+                      CAMBIAR NOMBRE COMPLETO. :*
+                    </label>
+                    <div className="form-floating mb-3">
+                      <textarea className="form-control" id="name" cols="100" rows="100" required onChange={(e) => setName(e.target.value)} value={name} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <label htmlFor="name">
+                        CAMBIAR NOMBRE COMPLETO. :*
+                      </label>
+                    </div>
+                    <hr />
+                    <label htmlFor="document">
+                      CAMBIAR DOCUMENTO. :*
+                    </label>
+                    <div className="form-floating mb-3">
+                      <textarea className="form-control" id="document" cols="100" rows="100" required onChange={(e) => setDocument(e.target.value)} value={document} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <label htmlFor="document">
+                        CAMBIAR DOCUMENTO. :*
+                      </label>
+                    </div>
+                    <hr />
+                    <label htmlFor="email">
+                      CAMBIAR CORREO. :*
+                    </label>
+                    <div className="form-floating mb-3">
+                      <textarea className="form-control" id="email" cols="100" rows="100" required onChange={(e) => setEmail(e.target.value)} value={email} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <label htmlFor="email">
+                        CAMBIAR CORREO. :*
+                      </label>
+                    </div>
+                    <hr />
+                    <label htmlFor="address">
+                      CAMBIAR DIRECC&#211;IN. :*
+                    </label>
+                    <div className="form-floating mb-3">
+                      <textarea className="form-control" id="address" cols="100" rows="100" required onChange={(e) => setAddress(e.target.value)} value={address} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <label htmlFor="address">
+                        CAMBIAR DIRECC&#211;IN. :*
+                      </label>
+                    </div>
+                    <hr />
+                    <label htmlFor="phone">
+                      CAMBIAR &#35; TEL&#201;FONO Y CELULAR. :*
+                    </label>
+                    <div className="form-floating mb-3">
+                      <textarea className="form-control" id="phone" cols="100" rows="100" required onChange={(e) => setPhone(e.target.value)} value={phone} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <label htmlFor="phone">
+                        CAMBIAR &#35; TEL&#201;FONO Y CELULAR. :*
+                      </label>
+                    </div>
+                    <hr />
                     <div className="container">
                       <div className="panel panel-default">
                         <div className="panel-heading">CAMBIAR DETALLE. :*</div>
@@ -64,7 +125,7 @@ const EditOrder = ({ order, setOpenEdit }) => {
                                     </span>
                                   </label>
                                   <div className="form-floating mb-3">
-                                    <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setMarker(e.target.value)} value={marker} id='marker' required>
+                                    <select className="form-control form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => setMarker(e.target.value)} value={marker} id='marker' required>
                                       <option value="" disabled selected>--- Seleccionar ---</option>
                                       <option value="Pendiente De Pago">
                                         <span className="badge rounded-pill text-bg-danger">Pendiente De Pago</span>
@@ -104,13 +165,23 @@ const EditOrder = ({ order, setOpenEdit }) => {
                       </div>
                     </div>
                     <hr />
-                    <label htmlFor="comment">
-                      CAMBIAR COMENTARIOS. :*
+                    <label htmlFor="departments">
+                      CAMBIAR DEPARTAMENTO. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <textarea className="form-control is-valid" id="comment" cols="100" rows="100" required onChange={(e) => setComment(e.target.value)} value={comment} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
-                      <label htmlFor="comment">
-                        CAMBIAR COMENTARIOS. :*
+                      <textarea className="form-control" id="departments" cols="100" rows="100" required onChange={(e) => setDepartments(e.target.value)} value={departments} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <label htmlFor="departments">
+                        CAMBIAR DEPARTAMENTO. :*
+                      </label>
+                    </div>
+                    <hr />
+                    <label htmlFor="city">
+                      CAMBIAR CIUDAD. :*
+                    </label>
+                    <div className="form-floating mb-3">
+                      <textarea className="form-control" id="city" cols="100" rows="100" required onChange={(e) => setCity(e.target.value)} value={city} spellCheck={false} style={{ height: 150, textAlign: "justify" }} />
+                      <label htmlFor="city">
+                        CAMBIAR CIUDAD. :*
                       </label>
                     </div>
                     <hr />
@@ -128,7 +199,7 @@ const EditOrder = ({ order, setOpenEdit }) => {
                                     </span>
                                   </label>
                                   <div className="form-floating mb-3">
-                                    <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setIsPaid(e.target.value)} value={isPaid} id='isPaid' required>
+                                    <select className="form-control form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => setIsPaid(e.target.value)} value={isPaid} id='isPaid' required>
                                       <option value="" disabled selected>--- Seleccionar ---</option>
                                       <option value="false">
                                         NO
@@ -164,7 +235,7 @@ const EditOrder = ({ order, setOpenEdit }) => {
                                     </span>
                                   </label>
                                   <div className="form-floating mb-3">
-                                    <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setIsDelivered(e.target.value)} value={isDelivered} id='isDelivered' required>
+                                    <select className="form-control form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={(e) => setIsDelivered(e.target.value)} value={isDelivered} id='isDelivered' required>
                                       <option value="" disabled selected>--- Seleccionar ---</option>
                                       <option value="false">
                                         NO

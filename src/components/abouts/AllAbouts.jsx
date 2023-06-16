@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 //import axios from 'axios';
 import AllAbout from './AllAbout';
 import ReactPaginate from 'react-paginate';
-import { api } from '../../api/about/aboutApi';
+import { aboutApi } from '../../api/about/aboutApi';
 
 const AllAbouts = () => {
 
@@ -22,7 +22,7 @@ const AllAbouts = () => {
   useEffect(() => {
 
     const fetchData = async () => {
-      const { resultAbout } = await api.get(`/api/abouts/all`);
+      const resultAbout = await aboutApi.get(`/all`);
       // i want the latest abouts to show
 
       const resultAboutData = resultAbout.data;

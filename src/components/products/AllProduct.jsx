@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
 import ViewProduct from './ViewProduct';
 import EditProduct from './EditProduct';
-import { api } from '../../api/product/productApi';
+import { productApi } from '../../api/product/productApi';
 
 const AllProduct = ({ product }) => {
 
@@ -19,7 +19,7 @@ const AllProduct = ({ product }) => {
 
     try {
 
-      const { data } = await api.delete(`/api/products/delete/${product._id}`);
+      const { data } = await productApi.delete(`/delete/${product._id}`);
 
       if (data) {
         toast.success('¡.Producto Eliminado Con Éxito.!');
@@ -71,14 +71,14 @@ const AllProduct = ({ product }) => {
                         </p>
                       </h5>
                       <hr />
-                      <h5 className="fs-md-2 text-warning mb-0 d-flex align-items-center mb-3">
+                      <h5 className="fs-md-2 text-warning d-flex align-items-center mb-3">
                         <span className="badge rounded-pill badge-soft-success">
                           {(uint8.toLocaleString('es-CO', { style: 'currency', currency: 'COP' }))}
                         </span>
                       </h5>
                       <p className="fs--1 mb-1">
-                        <h5 className="fs-md-2 text-warning mb-0 d-flex align-items-center mb-3">
-                          En Stock: <strong className="text-success">{product.countInStock}</strong>
+                        <h5 className="fs-md-2 text-warning d-flex align-items-center mb-3">
+                          <strong className="text-success">{product.countInStock > 0 ? 'EN STOCK.' : 'AGOTADO.'}</strong>
                         </h5>
                       </p>
                       <hr />
@@ -87,18 +87,18 @@ const AllProduct = ({ product }) => {
                   <div className="d-flex flex-between-center px-3">
                     <div>
                       <>
-                        <span className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver Producto.">
-                          <FontAwesomeIcon icon={faEye} onClick={() => setOpenViewProduct(true)} />
+                        <span onClick={() => setOpenViewProduct(true)} className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver Producto.">
+                          <FontAwesomeIcon icon={faEye} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Producto.">
-                          <FontAwesomeIcon icon={faEdit} onClick={() => setOpenEditProduct(true)} />
+                        <span onClick={() => setOpenEditProduct(true)} className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Producto.">
+                          <FontAwesomeIcon icon={faEdit} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-danger text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Borrar Producto.">
-                          <FontAwesomeIcon icon={faTrash} onClick={handlerDeleteProduct} />
+                        <span onClick={handlerDeleteProduct} className="badge badge badge-soft-danger text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Borrar Producto.">
+                          <FontAwesomeIcon icon={faTrash} />
                         </span>
                       </>
                     </div>

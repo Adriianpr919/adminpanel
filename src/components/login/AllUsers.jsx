@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import AllUser from './AllUser';
-
-import { api } from '../../api/login/userApi';
+import { userApi } from '../../api/login/userApi';
 
 const AllUsers = () => {
 
@@ -23,7 +22,7 @@ const AllUsers = () => {
   useEffect(() => {
 
     const fetchData = async () => {
-      const resultUser = await api.get('/api/users/all');
+      const resultUser = await userApi.get('/all');
       // i want the latest Users to show
 
       const resultUserData = resultUser.data;

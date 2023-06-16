@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 //import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { api } from '../../api/login/loginApi';
+import { userApi } from '../../api/login/userApi';
 
 const Login = () => {
 
@@ -16,7 +16,7 @@ const Login = () => {
 
     try {
 
-      const { data } = await api.post('/api/users/login', {
+      const { data } = await userApi.post('/login', {
         email,
         password
       });
@@ -52,8 +52,8 @@ const Login = () => {
         <div className="container-fluid">
           <div className="row min-vh-100 flex-center g-0">
             <div className="col-lg-8 col-xxl-5 py-3 position-relative">
-              <img className="bg-auth-circle-shape" src="../../../assets/img/icons/spot-illustrations/bg-shape.png" alt="Nury Valenzuela." title="Nury Valenzuela." width={250} />
-              <img className="bg-auth-circle-shape-2" src="../../../assets/img/icons/spot-illustrations/shape-1.png" alt="Nury Valenzuela." title="Nury Valenzuela." width={150} />
+              <img className="bg-auth-circle-shape" src="../../../assets/img/icons/spot-illustrations/bg-shape.png" alt="Nury Valenzuela&#174; Joyer&iacute;a" title="Nury Valenzuela&#174; Joyer&iacute;a" width={250} />
+              <img className="bg-auth-circle-shape-2" src="../../../assets/img/icons/spot-illustrations/shape-1.png" alt="Nury Valenzuela&#174; Joyer&iacute;a" title="Nury Valenzuela&#174; Joyer&iacute;a" width={150} />
               <div className="card overflow-hidden z-index-1">
                 <div className="card-body p-0">
                   <div className="row g-0 h-100">
@@ -65,7 +65,7 @@ const Login = () => {
                           <a className="link-light mb-4 font-sans-serif fs-4 d-inline-block fw-bolder" href="/" rel="noopener noreferrer">
                             Bienvenida De Nuevo, <span className="special" style={{ textAlign: "center", color: "white" }}>
                               Nury Valenzuela&#174;
-                            </span>Joyer&iacute;a &#124; Colombia.
+                            </span>Joyer&iacute;a
                           </a>
                           <p className="opacity-75 text-white" style={{ textAlign: "center" }}>
                             Inicia Sesión En Tu Cuenta Para Continuar.
@@ -74,7 +74,7 @@ const Login = () => {
                       </div>
                       <div className="mt-3 mb-4 mt-md-4 mb-md-5 light">
                         <p className="text-white">
-                          CopyRight &copy; Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45; SISTEMA DE CONTROL DE INVENTARIOS. &#45; {new Date().getFullYear()}. &#124; Todos Los Derechos Reservados.
+                          CopyRight &copy; Nury Valenzuela&#174; Joyer&iacute;a &#45; SISTEMA DE CONTROL DE INVENTARIOS. &#45; {new Date().getFullYear()}. &#124; Todos Los Derechos Reservados.
                         </p>
                       </div>
                     </div>

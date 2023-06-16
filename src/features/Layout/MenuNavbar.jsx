@@ -15,8 +15,8 @@ const MenuNavbar = () => {
             width={200}
             height={200}
             src="../../../assets/img/icons/logonv.png"
-            alt="Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45; SISTEMA DE CONTROL DE INVENTARIOS."
-            title="Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45; SISTEMA DE CONTROL DE INVENTARIOS." />
+            alt="Nury Valenzuela&#174; Joyer&iacute;a &#45; SISTEMA DE CONTROL DE INVENTARIOS."
+            title="Nury Valenzuela&#174; Joyer&iacute;a &#45; SISTEMA DE CONTROL DE INVENTARIOS." />
         </div>
       </a>
     </>

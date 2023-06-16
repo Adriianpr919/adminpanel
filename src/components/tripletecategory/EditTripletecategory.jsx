@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import { api } from '../../api/tripletecategory/tripletecategoryApi';
+import { tripletecategoryApi } from '../../api/tripletecategory/tripletecategoryApi';
 
 const EditTripletecategory = ({ tripletecategory, setOpenEdit }) => {
 
@@ -14,7 +14,7 @@ const EditTripletecategory = ({ tripletecategory, setOpenEdit }) => {
 
     try {
 
-      const { data } = await api.put("/api/tripletecategory/update", {
+      const { data } = await tripletecategoryApi.put("/update", {
         _id: tripletecategory._id,
         titletripletecategory
       });
@@ -47,7 +47,7 @@ const EditTripletecategory = ({ tripletecategory, setOpenEdit }) => {
                       CAMBIAR TITULO DE MEN&#218; 3 CATEGORÍAS. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setTitletripletecategory(e.target.value)} value={titletripletecategory} id='titletripletecategory' required />
+                      <input className="form-control" type="text" onChange={(e) => setTitletripletecategory(e.target.value)} value={titletripletecategory} id='titletripletecategory' required />
                       <label htmlFor="titletripletecategory">
                         CAMBIAR TITULO DE MEN&#218; 3 CATEGORÍAS. :*
                       </label>

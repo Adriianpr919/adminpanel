@@ -3,8 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-
-import { api } from '../../api/category/categoryApi';
+import { categoryApi } from '../../api/category/categoryApi';
 
 const EditCategory = ({ category, setOpenEdit }) => {
 
@@ -15,7 +14,7 @@ const EditCategory = ({ category, setOpenEdit }) => {
 
     try {
 
-      const { data } = await api.put("/api/category/update", {
+      const { data } = await categoryApi.put("/update", {
         _id: category._id,
         titlecategory
       });
@@ -48,7 +47,7 @@ const EditCategory = ({ category, setOpenEdit }) => {
                       CAMBIAR TITULO DE MEN&#218; 1 CATEGORÍAS. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setTitlecategory(e.target.value)} value={titlecategory} id='titlecategory' required />
+                      <input className="form-control" type="text" onChange={(e) => setTitlecategory(e.target.value)} value={titlecategory} id='titlecategory' required />
                       <label htmlFor="titlecategory">
                         CAMBIAR TITULO DE MEN&#218; 1 CATEGORÍAS. :*
                       </label>

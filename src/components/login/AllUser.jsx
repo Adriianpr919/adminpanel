@@ -6,8 +6,7 @@ import { toast } from 'react-toastify';
 import ChangePassUser from './ChangePassUser';
 import Edituser from './EditUser';
 import ViewUser from './ViewUser';
-
-import { api } from '../../api/login/userApi';
+import { userApi } from '../../api/login/userApi';
 
 const AllUser = ({ user }) => {
 
@@ -20,7 +19,7 @@ const AllUser = ({ user }) => {
 
     try {
 
-      const { data } = await api.delete(`/api/users/delete/${user._id}`);
+      const { data } = await userApi.delete(`/delete/${user._id}`);
 
       if (data) {
         toast.success('¡.Usuario Eliminado Con Éxito.!');
@@ -44,13 +43,7 @@ const AllUser = ({ user }) => {
                     <div className="p-3">
                       <h5 className="fs-0">
                         <p className="text-dark">
-                          Nombre. :* ({user.nombres})
-                        </p>
-                      </h5>
-                      <hr className="my-4" />
-                      <h5 className="fs-0">
-                        <p className="text-dark">
-                          Apellido. :* ({user.apellidos})
+                          Nombre Completo. :* ({user.fullname})
                         </p>
                       </h5>
                       <hr className="my-4" />
@@ -68,18 +61,6 @@ const AllUser = ({ user }) => {
                       <hr className="my-4" />
                       <h5 className="fs-0">
                         <p className="text-dark">
-                          Cargo. :* {user.rol}
-                        </p>
-                      </h5>
-                      <hr className="my-4" />
-                      <h5 className="fs-0">
-                        <p className="text-dark">
-                          Estado. :* {user.isAdmin ? 'Activado - Administrador' : 'DesActivado - Cliente'}
-                        </p>
-                      </h5>
-                      <hr className="my-4" />
-                      <h5 className="fs-0">
-                        <p className="text-dark">
                           Fecha. :* {user.createdAt.slice(0, 10)}
                         </p>
                       </h5>
@@ -88,23 +69,23 @@ const AllUser = ({ user }) => {
                   <div className="d-flex flex-between-center px-3">
                     <div>
                       <>
-                        <span className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver Usuarios.">
-                          <FontAwesomeIcon icon={faEye} onClick={() => setOpenViewUser(true)} />
+                        <span onClick={() => setOpenViewUser(true)} className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver Usuarios.">
+                          <FontAwesomeIcon icon={faEye} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Usuarios.">
-                          <FontAwesomeIcon icon={faEdit} onClick={() => setOpenEditUser(true)} />
+                        <span onClick={() => setOpenEditUser(true)} className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Usuarios.">
+                          <FontAwesomeIcon icon={faEdit} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-warning text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Cambiar Claves.">
-                          <FontAwesomeIcon icon={faKey} onClick={() => setOpenChangePassUser(true)} />
+                        <span onClick={() => setOpenChangePassUser(true)} className="badge badge badge-soft-warning text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Cambiar Claves.">
+                          <FontAwesomeIcon icon={faKey} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-danger text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Borrar Usuarios.">
-                          <FontAwesomeIcon icon={faTrash} onClick={handlerDeleteUser} />
+                        <span onClick={handlerDeleteUser} className="badge badge badge-soft-danger text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Borrar Usuarios.">
+                          <FontAwesomeIcon icon={faTrash} />
                         </span>
                       </>
                     </div>

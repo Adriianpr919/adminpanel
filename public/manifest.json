@@ -2,9 +2,9 @@
   "lang": "es-CO",
   "dir": "ltr",
   "short_name": "NuryValenzuelaJoyeria.",
-  "name": "Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45; SISTEMA DE CONTROL DE INVENTARIOS.",
+  "name": "Nury Valenzuela&#174; Joyer&iacute;a &#45; SISTEMA DE CONTROL DE INVENTARIOS.",
   "author": "Adrian Paez",
-  "default_title": "Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45; SISTEMA DE CONTROL DE INVENTARIOS.",
+  "default_title": "Nury Valenzuela&#174; Joyer&iacute;a &#45; SISTEMA DE CONTROL DE INVENTARIOS.",
   "default_locale": "es-CO",
   "icons": [
     {
@@ -29,5 +29,5 @@
   "theme_color": "#2c7be5",
   "background_color": "#ffffff",
   "orientation": "any",
-  "description": "Nury Valenzuela&#174; Joyer&iacute;a &#124; Colombia. &#45; SISTEMA DE CONTROL DE INVENTARIOS."
+  "description": "Nury Valenzuela&#174; Joyer&iacute;a &#45; SISTEMA DE CONTROL DE INVENTARIOS."
 }

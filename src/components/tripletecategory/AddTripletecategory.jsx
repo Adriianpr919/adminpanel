@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { NavLink } from 'react-router-dom';
-import { api } from '../../api/tripletecategory/tripletecategoryApi';
+import { tripletecategoryApi } from '../../api/tripletecategory/tripletecategoryApi';
 
 const AddTripletecategory = () => {
 
@@ -15,7 +15,7 @@ const AddTripletecategory = () => {
 
     try {
 
-      const { data } = await api.post('/api/tripletecategory/add', {
+      const { data } = await tripletecategoryApi.post('/add', {
 
         titletripletecategory
 
@@ -69,7 +69,7 @@ const AddTripletecategory = () => {
                       TITULO DE MEN&#218; 3 CATEGORÍAS. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setTitletripletecategory(e.target.value)} value={titletripletecategory} id='titletripletecategory' required />
+                      <input className="form-control" type="text" onChange={(e) => setTitletripletecategory(e.target.value)} value={titletripletecategory} id='titletripletecategory' required />
                       <label htmlFor="titletripletecategory">
                         TITULO DE MEN&#218; 3 CATEGORÍAS. :*
                       </label>

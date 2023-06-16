@@ -4,9 +4,11 @@
 
 ===========================================================================
 
-# ![ADMIN-1](https://user-images.githubusercontent.com/54821048/235185771-7e18a716-c299-428a-8c23-858ce97b290d.png)
+# ![image](https://github.com/Adriianpr919/frontendnv/assets/54821048/578471be-1de9-4abb-b073-fa5a7be94236)
 
-# ![ADMIN-2](https://user-images.githubusercontent.com/54821048/235185986-0228786f-40ab-4847-93e8-630f11806ace.png)
+# ![image](https://github.com/Adriianpr919/frontendnv/assets/54821048/c6e912b2-0c5e-4a22-a6bc-f07a3ccfbe22)
+
+# ![image](https://github.com/Adriianpr919/frontendnv/assets/54821048/783ca2e0-4fe6-44c0-b5ef-f815c95804d4)
 
 ===========================================================================
 
@@ -24,44 +26,32 @@ Luego de terminar de instalar las dependencias, puede arrancar el proyecto de un
 
 `(BACK-END) SEGURIDAD DEL SISTEMA PROTEGIDAS. :*` <br />
 
-`1. ACTIVO. :* SOLO Administrador. -> (PRIVADAS). -> SISTEMA DE CONTROL DE INVENTARIOS.` <br />
-`2. DESACTIVO. :* SOLO Cliente. -> (PÚBLICO). -> HACER COMPRAS.` <br />
+`1. Administrador. -> (PRIVADAS). -> SISTEMA DE CONTROL DE INVENTARIOS.` <br />
+`2. Cliente. -> (PÚBLICO). -> HACER COMPRAS.` <br />
 
 Admin: -> Privado. <br />
-nombres: "Administrador", <br />
-apellidos: "Panel", <br />
+fullname: "Administrador Panel", <br />
 username: "administradorpanel", <br />
 email: "administradorpanel123@gmail.com", <br />
-rol: "Administrador", <br />
-password: ("administradorpanel123"), <br />
-isAdmin: ACTIVO <br />
+password: ("administradorpanel123") <br />
 
 Admin: -> Privado. <br />
-nombres: "Mariana", <br />
-apellidos: "Tamayo", <br />
+fullname: "Mariana Tamayo", <br />
 username: "marianatamayoadmin", <br />
 email: "marianatamayoadmin123@gmail.com", <br />
-rol: "Administrador", <br />
-password: ("marianatamayoadmin123"), <br />
-isAdmin: ACTIVO <br />
+password: ("marianatamayoadmin123") <br />
 
 Admin: -> Privado. <br />
-nombres: "Nury", <br />
-apellidos: "Valenzuela", <br />
+fullname: "Nury Valenzuela", <br />
 username: "nuryvalenzuelaadmin", <br />
 email: "nuryvalenzueladmin123@gmail.com", <br />
-rol: "Administrador", <br />
-password: ("nuryvalenzuelaadmin123"), <br />
-isAdmin: ACTIVO <br />
+password: ("nuryvalenzuelaadmin123") <br />
 
 Clientes: -> Público -> (HACER COMPRAS).<br />
-nombres: "bebito", <br />
-apellidos: "perez", <br />
+fullname: "bebito perez", <br />
 username: "bebitoperez123", <br />
 email: "bebitoperez123@gmail.com", <br />
-rol: "Cliente", <br />
-password: ("bebitoperez123"), <br />
-isAdmin: DESACTIVO <br />
+password: ("bebitoperez123") <br />
 
 ### Cuando haya arrancado asegurese que indique la url y el puerto.
 

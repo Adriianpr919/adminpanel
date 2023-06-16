@@ -3,31 +3,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import axios from 'axios';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-
-import { api } from '../../api/login/userApi';
+import { userApi } from '../../api/login/userApi';
 
 const EditUser = ({ user, setOpenEditUser }) => {
 
-  const [nombres, setNombres] = useState(user.nombres);
-  const [apellidos, setApellidos] = useState(user.apellidos);
+  const [fullname, setFullname] = useState(user.fullname);
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
-  const [rol, setRol] = useState(user.rol);
-  const [isAdmin, setIsAdmin] = useState(user.isAdmin);
 
   const editUserHandler = async (e) => {
     e.preventDefault();
 
     try {
 
-      const { data } = await api.put("/api/users/update", {
+      const { data } = await userApi.put("/update", {
         _id: user._id,
-        nombres,
-        apellidos,
+        fullname,
         username,
         email,
-        rol,
-        isAdmin
       });
 
       console.log(data);
@@ -54,29 +47,20 @@ const EditUser = ({ user, setOpenEditUser }) => {
                 <hr />
                 <form onSubmit={editUserHandler}>
                   <div>
-                    <label htmlFor="nombres">
-                      CAMBIAR DE NOMBRE. :*
+                    <label htmlFor="fullname">
+                      CAMBIAR DE NOMBRE COMPLETO. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setNombres(e.target.value)} value={nombres} id='nombres' required />
-                      <label htmlFor="nombres">
-                        CAMBIAR DE NOMBRE. :*
-                      </label>
-                    </div>
-                    <label htmlFor="apellidos">
-                      CAMBIAR DE APELLIDO. :*
-                    </label>
-                    <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setApellidos(e.target.value)} value={apellidos} id='apellidos' required />
-                      <label htmlFor="apellidos">
-                        CAMBIAR DE APELLIDO. :*
+                      <input className="form-control" type="text" onChange={(e) => setFullname(e.target.value)} value={fullname} id='fullname' required />
+                      <label htmlFor="fullname">
+                        CAMBIAR DE NOMBRE COMPLETO. :*
                       </label>
                     </div>
                     <label htmlFor="username">
                       CAMBIAR DE USUARIO. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setUsername(e.target.value)} value={username} id='username' required />
+                      <input className="form-control" type="text" onChange={(e) => setUsername(e.target.value)} value={username} id='username' required />
                       <label htmlFor="username">
                         CAMBIAR DE USUARIO. :*
                       </label>
@@ -85,41 +69,9 @@ const EditUser = ({ user, setOpenEditUser }) => {
                       CAMBIAR DE CORREO. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="email" onChange={(e) => setEmail(e.target.value)} value={email} id='email' required />
+                      <input className="form-control" type="email" onChange={(e) => setEmail(e.target.value)} value={email} id='email' required />
                       <label htmlFor="email">
                         CAMBIAR DE CORREO. :*
-                      </label>
-                    </div>
-                    <label htmlFor="rol">
-                      <i className="fa-solid fa-users"></i> CAMBIAR DE CARGO #1. :*
-                    </label>
-                    <div className="form-floating mb-3">
-                      <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setRol(e.target.value)} value={rol} id='rol' required>
-                        <option value="" disabled selected>--- Seleccionar ---</option>
-                        <option value="Administrador">Administrador</option>
-                        <option value="Vendedor">Vendedor</option>
-                        <option value="Inventariado">Inventariado</option>
-                        <option value="Cliente">Cliente</option>
-                      </select>
-                      <label htmlFor="rol">
-                        <i className="fa-solid fa-users"></i> CAMBIAR DE CARGO #1. :* <span className="badge rounded-pill text-bg-secondary" style={{ fontSize: "15px" }}>
-                          <code className='text-white'>(Administrador), (Vendedor), (Inventariado) y (Cliente).</code>
-                        </span>
-                      </label>
-                    </div>
-                    <label htmlFor="isAdmin">
-                      <i className="fa-solid fa-users"></i> CAMBIAR DE CARGO #2. :*
-                    </label>
-                    <div className="form-floating mb-3">
-                      <select className="form-control form-select form-select-lg mb-3 is-valid" aria-label=".form-select-lg example" onChange={(e) => setIsAdmin(e.target.value)} value={isAdmin} id='isAdmin' required>
-                        <option value="" disabled selected>--- Seleccionar ---</option>
-                        <option value="false">DesActivado</option>
-                        <option value="true">Activado</option>
-                      </select>
-                      <label htmlFor="isAdmin">
-                        <i className="fa-solid fa-users"></i> CAMBIAR DE CARGO #2. :* <span className="badge rounded-pill text-bg-secondary" style={{ fontSize: "15px" }}>
-                          <code className='text-white'>(DesActivado - Cliente) y (Activado - Administrador).</code>
-                        </span>
                       </label>
                     </div>
                   </div>

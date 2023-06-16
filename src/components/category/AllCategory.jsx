@@ -5,8 +5,7 @@ import ViewCategory from './ViewCategory';
 import EditCategory from './EditCategory';
 import { toast } from 'react-toastify';
 //import axios from 'axios';
-
-import { api } from '../../api/category/categoryApi';
+import { categoryApi } from '../../api/category/categoryApi';
 
 const AllCategory = ({ category }) => {
 
@@ -17,7 +16,7 @@ const AllCategory = ({ category }) => {
 
     try {
 
-      const { data } = await api.delete(`/api/category/delete/${category._id}`);
+      const { data } = await categoryApi.delete(`/delete/${category._id}`);
 
       if (data) {
         toast.success('¡.Categoría Eliminado Con Éxito.!');
@@ -49,18 +48,18 @@ const AllCategory = ({ category }) => {
                   <div className="d-flex flex-between-center px-3">
                     <div>
                       <>
-                        <span className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver Categoría.">
-                          <FontAwesomeIcon icon={faEye} onClick={() => setOpenView(true)} />
+                        <span onClick={() => setOpenView(true)} className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver Categoría.">
+                          <FontAwesomeIcon icon={faEye} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Categoría.">
-                          <FontAwesomeIcon icon={faEdit} onClick={() => setOpenEdit(true)} />
+                        <span onClick={() => setOpenEdit(true)} className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Categoría.">
+                          <FontAwesomeIcon icon={faEdit} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-danger text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Borrar Categoría.">
-                          <FontAwesomeIcon icon={faTrash} onClick={handlerDeleteCategory} />
+                        <span onClick={handlerDeleteCategory} className="badge badge badge-soft-danger text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Borrar Categoría.">
+                          <FontAwesomeIcon icon={faTrash} />
                         </span>
                       </>
                     </div>

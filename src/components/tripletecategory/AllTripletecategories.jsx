@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 //import axios from 'axios';
 import AllTripletecategory from './AllTripletecategory';
 import ReactPaginate from 'react-paginate';
-import { api } from '../../api/tripletecategory/tripletecategoryApi';
+import { tripletecategoryApi } from '../../api/tripletecategory/tripletecategoryApi';
 
 const AllTripletecategories = () => {
 
@@ -22,7 +22,7 @@ const AllTripletecategories = () => {
   useEffect(() => {
 
     const fetchData = async () => {
-      const resultTripletecategory = await api.get('/api/tripletecategory/all');
+      const resultTripletecategory = await tripletecategoryApi.get('/all');
       // i want the latest tripletecategory to show
 
       const resultTripletecategoryData = resultTripletecategory.data;

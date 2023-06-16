@@ -5,8 +5,7 @@ import ViewBlog from './ViewBlog';
 import EditBlog from './EditBlog';
 import { toast } from 'react-toastify';
 //import axios from 'axios';
-
-import { api } from '../../api/blog/blogApi';
+import { blogApi } from '../../api/blog/blogApi';
 
 const AllBlog = ({ blog }) => {
 
@@ -17,7 +16,7 @@ const AllBlog = ({ blog }) => {
 
     try {
 
-      const { data } = await api.delete(`/api/blogs/delete/${blog._id}`);
+      const { data } = await blogApi.delete(`/delete/${blog._id}`);
 
       if (data) {
         toast.success('¡.Blog Eliminado Con Éxito.!');
@@ -54,18 +53,18 @@ const AllBlog = ({ blog }) => {
                   <div className="d-flex flex-between-center px-3">
                     <div>
                       <>
-                        <span className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver Blog.">
-                          <FontAwesomeIcon icon={faEye} onClick={() => setOpenView(true)} />
+                        <span onClick={() => setOpenView(true)} className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver Blog.">
+                          <FontAwesomeIcon icon={faEye} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Blog.">
-                          <FontAwesomeIcon icon={faEdit} onClick={() => setOpenEdit(true)} />
+                        <span onClick={() => setOpenEdit(true)} className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Blog.">
+                          <FontAwesomeIcon icon={faEdit} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-danger text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Borrar Blog.">
-                          <FontAwesomeIcon icon={faTrash} onClick={handlerDeleteBlog} />
+                        <span onClick={handlerDeleteBlog} className="badge badge badge-soft-danger text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Borrar Blog.">
+                          <FontAwesomeIcon icon={faTrash} />
                         </span>
                       </>
                     </div>

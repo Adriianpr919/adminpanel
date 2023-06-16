@@ -4,7 +4,7 @@ import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
 import ViewSubcategory from './ViewSubcategory';
 import EditSubcategory from './EditSubcategory';
 import { toast } from 'react-toastify';
-import { api } from '../../api/subcategory/subcategoryApi';
+import { subcategoryApi } from '../../api/subcategory/subcategoryApi';
 //import axios from 'axios';
 
 const AllSubcategory = ({ subcategory }) => {
@@ -16,7 +16,7 @@ const AllSubcategory = ({ subcategory }) => {
 
     try {
 
-      const { data } = await api.delete(`/api/subcategory/delete/${subcategory._id}`);
+      const { data } = await subcategoryApi.delete(`/delete/${subcategory._id}`);
 
       if (data) {
         toast.success('¡.SubCategoría Eliminado Con Éxito.!');
@@ -48,18 +48,18 @@ const AllSubcategory = ({ subcategory }) => {
                   <div className="d-flex flex-between-center px-3">
                     <div>
                       <>
-                        <span className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver SubCategoría.">
-                          <FontAwesomeIcon icon={faEye} onClick={() => setOpenView(true)} />
+                        <span onClick={() => setOpenView(true)} className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver SubCategoría.">
+                          <FontAwesomeIcon icon={faEye} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar SubCategoría.">
-                          <FontAwesomeIcon icon={faEdit} onClick={() => setOpenEdit(true)} />
+                        <span onClick={() => setOpenEdit(true)} className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar SubCategoría.">
+                          <FontAwesomeIcon icon={faEdit} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-danger text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Borrar SubCategoría.">
-                          <FontAwesomeIcon icon={faTrash} onClick={handlerDeleteSubcategory} />
+                        <span onClick={handlerDeleteSubcategory} className="badge badge badge-soft-danger text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Borrar SubCategoría.">
+                          <FontAwesomeIcon icon={faTrash} />
                         </span>
                       </>
                     </div>

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { NavLink } from 'react-router-dom';
-import { api } from '../../api/subcategory/subcategoryApi';
+import { subcategoryApi } from '../../api/subcategory/subcategoryApi';
 
 const AddSubcategory = () => {
 
@@ -15,7 +15,7 @@ const AddSubcategory = () => {
 
     try {
 
-      const { data } = await api.post('/api/subcategory/add', {
+      const { data } = await subcategoryApi.post('/add', {
 
         titlesubcategory
 
@@ -69,7 +69,7 @@ const AddSubcategory = () => {
                       TITULO DE MEN&#218; 2 CATEGORÍAS. :*
                     </label>
                     <div className="form-floating mb-3">
-                      <input className="form-control is-valid" type="text" onChange={(e) => setTitlesubcategory(e.target.value)} value={titlesubcategory} id='titlesubcategory' required />
+                      <input className="form-control" type="text" onChange={(e) => setTitlesubcategory(e.target.value)} value={titlesubcategory} id='titlesubcategory' required />
                       <label htmlFor="titlesubcategory">
                         TITULO DE MEN&#218; 2 CATEGORÍAS. :*
                       </label>

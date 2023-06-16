@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import AllProduct from './AllProduct';
-
-import { api } from '../../api/product/productApi';
+import { productApi } from '../../api/product/productApi';
 
 const AllProducts = () => {
 
@@ -23,7 +22,7 @@ const AllProducts = () => {
   useEffect(() => {
 
     const fetchData = async () => {
-      const resultProduct = await api.get('/api/products/all');
+      const resultProduct = await productApi.get('/all');
       // i want the latest products to show
 
       const resultProductData = resultProduct.data;

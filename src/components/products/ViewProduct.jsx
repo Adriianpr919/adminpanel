@@ -43,7 +43,7 @@ const ViewProduct = ({ product, setOpenViewProduct }) => {
                   Cantidad. :*
                 </label>
                 <p className="description badge rounded-pill badge-soft-info" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
-                  {product.countInStock}
+                  {product.countInStock > 0 ? 'EN STOCK.' : 'AGOTADO.'}
                 </p>
               </p>
               <p className="mt-2" style={{ textAlign: "justify" }}>
@@ -68,7 +68,7 @@ const ViewProduct = ({ product, setOpenViewProduct }) => {
                 </label>
                 <p className="description text-left" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
                   <div className="popup-images">
-                    {product.sizes?.map((item) => (
+                    {product.sizesOptions?.map((item) => (
                       <span className="item mb-2" key={item.i}>
                         {item.value}
                       </span>
@@ -82,7 +82,21 @@ const ViewProduct = ({ product, setOpenViewProduct }) => {
                 </label>
                 <p className="description text-left" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
                   <div className="popup-images">
-                    {product.colors?.map((item) => (
+                    {product.colorsgoldsOptions?.map((item) => (
+                      <span className="item mb-2" key={item.i}>
+                        {item.value}
+                      </span>
+                    ))}
+                  </div>
+                </p>
+              </p>
+              <p className="mt-2" style={{ textAlign: "justify" }}>
+                <label htmlFor="title" style={{ textAlign: "justify", color: "black", fontSize: "15px" }} className="badge rounded-pill badge-soft-dark">
+                  El Color De Piedras 🖌️. :*
+                </label>
+                <p className="description text-left" style={{ textAlign: "justify", color: "black", fontSize: "15px" }}>
+                  <div className="popup-images">
+                    {product.colorsstonesOptions?.map((item) => (
                       <span className="item mb-2" key={item.i}>
                         {item.value}
                       </span>

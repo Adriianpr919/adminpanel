@@ -4,7 +4,7 @@ import { faEdit, faEye, faTrash } from '@fortawesome/free-solid-svg-icons';
 import ViewBanner from './ViewBanner';
 import EditBanner from './EditBanner';
 import { toast } from 'react-toastify';
-import { api } from '../../api/banner/bannerApi';
+import { bannerApi } from '../../api/banner/bannerApi';
 //import axios from 'axios';
 
 const AllBanner = ({ banner }) => {
@@ -16,7 +16,7 @@ const AllBanner = ({ banner }) => {
 
     try {
 
-      const { data } = await api.delete(`/api/banners/delete/${banner._id}`);
+      const { data } = await bannerApi.delete(`/delete/${banner._id}`);
 
       if (data) {
         toast.success('¡.Carrusel Eliminado Con Éxito.!');
@@ -53,18 +53,18 @@ const AllBanner = ({ banner }) => {
                   <div className="d-flex flex-between-center px-3">
                     <div>
                       <>
-                        <span className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver Carrusel.">
-                          <FontAwesomeIcon icon={faEye} onClick={() => setOpenView(true)} />
+                        <span onClick={() => setOpenView(true)} className="badge badge badge-soft-secondary text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Ver Carrusel.">
+                          <FontAwesomeIcon icon={faEye} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Carrusel.">
-                          <FontAwesomeIcon icon={faEdit} onClick={() => setOpenEdit(true)} />
+                        <span onClick={() => setOpenEdit(true)} className="badge badge badge-soft-success text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Editar Carrusel.">
+                          <FontAwesomeIcon icon={faEdit} />
                         </span>
                       </>
                       <>
-                        <span className="badge badge badge-soft-danger text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Borrar Carrusel.">
-                          <FontAwesomeIcon icon={faTrash} onClick={handlerDeleteBanner} />
+                        <span onClick={handlerDeleteBanner} className="badge badge badge-soft-danger text-center btn btn-sm btn-falcon-default me-2" style={{ fontSize: "15px", textAlign: "justify" }} title="Borrar Carrusel.">
+                          <FontAwesomeIcon icon={faTrash} />
                         </span>
                       </>
                     </div>
